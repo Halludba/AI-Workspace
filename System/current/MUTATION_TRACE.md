@@ -1,30 +1,31 @@
 # Mutation Trace
 
-**System version:** 0.22.0
-**Directive:** Make Custom Prompt the reusable selectable prompt profile, keep Deep Research/plugins separate, and classify completed changes so minor patches avoid broad persistence/regeneration.
-**Target improvement:** Correct profile/capability abstraction and add executable impact-aware release closure that minimizes unnecessary directory/artifact work without weakening verification.
+**System version:** 0.23.0
+**Directive:** Run Part 5: operationalize periodic agent quality audits.
+**Target improvement:** Add a bounded on-demand system health audit that keeps reasoning integrity, artifact/code consistency and profile performance separate, reuses existing specialist auditors and preserves main-host authority.
 
 ## Candidate decisions
-- **REWRITE - Part 4 profile architecture:** Deep Research is a capability choice, not a workflow profile; the user selects Custom Prompt to construct the prompt.
-- **MERGE - Research prompt architecture:** Fold useful research-question/evidence/output/stopping guidance into extension.prompt_specification_architect instead of maintaining a separate Deep Research agent.
-- **NEW - release impact classifier:** A deterministic closure-cost decision is needed after completed parts/mutations to prevent unnecessary broad regeneration.
-- **MERGE - Windows + OneDrive persistence:** The local project path is already inside OneDrive, so these are one working tree plus passive sync rather than separate manual persistence targets.
+- **MERGE - Existing reasoning_auditor + profile_performance_auditor:** Reuse specialist semantic audit responsibilities instead of creating a redundant mega-auditor profile.
+- **NEW - quality_audit.py deterministic evidence/consistency layer:** Artifact/code/link/hash consistency requires deterministic local checks not covered by the existing semantic auditors.
+- **NEW - quality_audit_report_schema.json aggregate advisory report contract:** A system audit needs one evidence-linked container while preserving three independent dimensions.
+- **DEFER - Automatic audit cadence:** Only three material decision records and no completed profile-session audit evidence exist; a schedule would be invented rather than evidence-based.
 
 ## Accepted changes
-- custom_prompt canonical CREATE profile with prompt_creator compatibility alias
-- research/Deep Research prompt construction merged into shared prompt specification core
-- explicit profile-versus-capability activation boundary
-- release_impact_policy and executable classifier/closure plan
-- minor-patch minimal derived regeneration with major-patch escalation
-- single OneDrive-backed Windows working tree plus one Git commit/push persistence model
-- Formats 1.1k.xiii rewrite, Formats 1.1n.vi, Workflow 2.7.14 rewrite and Workflow 2.13.5
+- On-demand periodic_quality_audit_policy
+- quality_audit.py evidence packet and deterministic consistency checks
+- quality_audit_report_schema.json
+- workspace_ctl.py quality-audit command
+- Three-dimension reasoning/artifact/profile separation
+- Manual cadence until evidence supports change
+- Formats 1.1k.xiv and Workflow 2.7.15
+- First live Part 5 audit report
 
 ## Rejected / merged / no-op
-- Removed deep_research_agent_architect profile/module/policy
-- Removed automatic RESEARCH_PRECURSOR_WHEN_NEEDED pipeline stage
-- No automatic Deep Research/web/plugin activation
-- No separate manual Windows and OneDrive write/confirmation passes
-- No routine portable ZIP or AI Handoff generation
+- No system_quality_auditor mega profile
+- No automatic audit schedule
+- No aggregate correctness score
+- No private chain-of-thought capture
+- No automatic integration of audit proposals
 
 ## Convergence result
 - Passes: 2

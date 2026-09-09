@@ -173,11 +173,13 @@ class RegressionTests(unittest.TestCase):
         if plan["status"]=="AWAITING_DIRECTION":
             self.assertIsNone(plan["master_objective"]); self.assertEqual(plan["parts"],[])
         else:
-            self.assertEqual(plan["status"],"ACTIVE"); self.assertTrue(plan["master_objective"]); self.assertTrue(plan["parts"])
+            self.assertIn(plan["status"],["ACTIVE","COMPLETED"]); self.assertTrue(plan["master_objective"]); self.assertTrue(plan["parts"])
             ids={p["id"] for p in plan["parts"]}
             if plan["current_part_id"] is not None: self.assertIn(plan["current_part_id"],ids)
             if plan["last_completed_part_id"] is not None: self.assertIn(plan["last_completed_part_id"],ids)
             if plan["next_recommended_part_id"] is not None: self.assertIn(plan["next_recommended_part_id"],ids)
+            if plan["status"]=="COMPLETED":
+                self.assertIsNone(plan["current_part_id"]); self.assertIsNone(plan["next_recommended_part_id"])
 
     def test_checkpoint_capacity_policy_contract(self):
         cfg=json.loads((ROOT/"ai_runtime_config.json").read_text(encoding="utf-8"))

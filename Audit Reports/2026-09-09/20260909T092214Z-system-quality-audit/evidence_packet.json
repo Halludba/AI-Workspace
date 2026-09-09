@@ -1,0 +1,221 @@
+{
+  "packet_version": "1.0",
+  "audit_id": "20260909T092214Z-system-quality-audit",
+  "created_utc": "2026-09-09T09:22:14.483113+00:00",
+  "sampling": {
+    "profile_filter": null,
+    "decision_record_limit_per_profile": 5,
+    "selected_record_count": 3
+  },
+  "selected_records": [
+    {
+      "record_id": "20260909-v022-custom-prompt-impact-persistence",
+      "profile_id": "general_balanced",
+      "recorded_utc": "2026-09-09T09:03:35.245168+00:00",
+      "path": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-v022-custom-prompt-impact-persistence.json",
+      "record_sha256": "9a74ad86d49949f3582de645ecf02e8ab46b000a8a413fda9661ecc0e3ff8f74",
+      "schema_valid": true,
+      "has_verified_commit_link": false,
+      "historical_byte_drift_without_commit": false,
+      "missing_commit_links": 0,
+      "unresolved_local_links": 1,
+      "link_checks": [
+        {
+          "kind": "artifact",
+          "target": "ai_runtime_config.json",
+          "resolved_path": "System\\current\\ai_runtime_config.json",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "b1f16a791d2b34163f82601876ac49730a5879039a4c5a3cb399d763cad84e78"
+        },
+        {
+          "kind": "artifact",
+          "target": "pdf_engine/release_impact.py",
+          "resolved_path": "System\\current\\pdf_engine\\release_impact.py",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "291befb846216de72148572d70092d0acd78e1a2ef744bfb72efef97f61c1baa"
+        },
+        {
+          "kind": "artifact",
+          "target": "pdf_engine/orchestrator.py",
+          "resolved_path": "System\\current\\pdf_engine\\orchestrator.py",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "f28177d3ab87398d154570a6dfb7457a3ef07026895a8234e4efa056a418ec46"
+        },
+        {
+          "kind": "artifact",
+          "target": "Formats.pdf",
+          "resolved_path": "System\\current\\Formats.pdf",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "54125955ada23da2a60a1fce173bab1bb97052b73f616f3a781440bc7199c702"
+        },
+        {
+          "kind": "artifact",
+          "target": "PDF_Workflow.pdf",
+          "resolved_path": "System\\current\\PDF_Workflow.pdf",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "f6bab8bcb572038e6b366d3d4cfb86bea769c219f98960a2a9b14a3d18ffe893"
+        },
+        {
+          "kind": "plan_part",
+          "target": "project_plan.json part 4 corrected completion",
+          "status": "UNRESOLVED_OR_MISSING",
+          "expected_sha256": null,
+          "current_sha256": null
+        }
+      ],
+      "local_evidence_checks": []
+    },
+    {
+      "record_id": "20260909-part4-deep-research-agent-architect-v021",
+      "profile_id": "general_balanced",
+      "recorded_utc": "2026-09-09T08:13:45.978763+00:00",
+      "path": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-part4-deep-research-agent-architect-v021.json",
+      "record_sha256": "c540a7ead1ccaf4e5ab73a96aa3b499a148cc70b551311c18db1821814c61c4a",
+      "schema_valid": true,
+      "has_verified_commit_link": false,
+      "historical_byte_drift_without_commit": true,
+      "missing_commit_links": 0,
+      "unresolved_local_links": 0,
+      "link_checks": [
+        {
+          "kind": "plan_part",
+          "target": "project_plan.json#deep-research-agent-architect",
+          "resolved_path": "System\\current\\project_plan.json",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "ff4fd245a1ee5002b5bcfca67df7b6f327a66d2a2cfe528d2e02ae11053f7473",
+          "current_sha256": "2c6d03b336b2e0c1949c27ede22e7cb79408c919f02f7081d9334078ff8f8286"
+        },
+        {
+          "kind": "artifact",
+          "target": "ai_runtime_config.json",
+          "resolved_path": "System\\current\\ai_runtime_config.json",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "997c4a0961203bdee2e931078e5668900e7054f17ca2564d6bc0ec4f30557bb0",
+          "current_sha256": "b1f16a791d2b34163f82601876ac49730a5879039a4c5a3cb399d763cad84e78"
+        },
+        {
+          "kind": "artifact",
+          "target": "Formats.pdf",
+          "resolved_path": "System\\current\\Formats.pdf",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "db111ffaf769e54a51b466dae94ae05fb7727b4cd81b305357746f53cdecd7f8",
+          "current_sha256": "54125955ada23da2a60a1fce173bab1bb97052b73f616f3a781440bc7199c702"
+        },
+        {
+          "kind": "artifact",
+          "target": "PDF_Workflow.pdf",
+          "resolved_path": "System\\current\\PDF_Workflow.pdf",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "8a40141fec8d535e95d92e1e0f5c6fd71ba7c3694627e4067bea1ca88009129c",
+          "current_sha256": "f6bab8bcb572038e6b366d3d4cfb86bea769c219f98960a2a9b14a3d18ffe893"
+        }
+      ],
+      "local_evidence_checks": []
+    },
+    {
+      "record_id": "20260909-part3-decision-records-v020",
+      "profile_id": "general_balanced",
+      "recorded_utc": "2026-09-09T07:51:31.409690Z",
+      "path": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-part3-decision-records-v020.json",
+      "record_sha256": "0cf914a2bf2af9a3f542dc202e2e4b51481540cebc465f2f76c1246eeaab7196",
+      "schema_valid": true,
+      "has_verified_commit_link": false,
+      "historical_byte_drift_without_commit": true,
+      "missing_commit_links": 0,
+      "unresolved_local_links": 0,
+      "link_checks": [
+        {
+          "kind": "plan_part",
+          "target": "project_plan.json#decision-rationale-records",
+          "resolved_path": "System\\current\\project_plan.json",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "9ff3ffa8304b6d0f47a07ff0fee8f246043d4878602585be19bdf8077be2449f",
+          "current_sha256": "2c6d03b336b2e0c1949c27ede22e7cb79408c919f02f7081d9334078ff8f8286"
+        },
+        {
+          "kind": "source",
+          "target": "ai_runtime_config.json",
+          "resolved_path": "System\\current\\ai_runtime_config.json",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "cc5f22a4ee4b742693274c0fbd80ad91e531afb0f3bd97f14ea006ab8ae50b69",
+          "current_sha256": "b1f16a791d2b34163f82601876ac49730a5879039a4c5a3cb399d763cad84e78"
+        },
+        {
+          "kind": "source",
+          "target": "decision_record.py",
+          "resolved_path": "System\\current\\decision_record.py",
+          "status": "HASH_MATCH",
+          "expected_sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3",
+          "current_sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3"
+        },
+        {
+          "kind": "source",
+          "target": "decision_record_schema.json",
+          "resolved_path": "System\\current\\decision_record_schema.json",
+          "status": "HASH_MATCH",
+          "expected_sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17",
+          "current_sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17"
+        },
+        {
+          "kind": "audit",
+          "target": "../Audit Reports/2026-09-09-part2-recovery-validation/main-host-decision.json",
+          "resolved_path": "Audit Reports\\2026-09-09-part2-recovery-validation\\main-host-decision.json",
+          "status": "PRESENT_NO_RECORDED_HASH",
+          "expected_sha256": null,
+          "current_sha256": "3454dc7f930b8a63de28b925b43eae092595bdb0de2070965a40802016ea1fde"
+        }
+      ],
+      "local_evidence_checks": [
+        {
+          "kind": "source",
+          "target": "ai_runtime_config.json",
+          "resolved_path": "System\\current\\ai_runtime_config.json",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "cc5f22a4ee4b742693274c0fbd80ad91e531afb0f3bd97f14ea006ab8ae50b69",
+          "current_sha256": "b1f16a791d2b34163f82601876ac49730a5879039a4c5a3cb399d763cad84e78"
+        },
+        {
+          "kind": "source",
+          "target": "decision_record.py",
+          "resolved_path": "System\\current\\decision_record.py",
+          "status": "HASH_MATCH",
+          "expected_sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3",
+          "current_sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3"
+        },
+        {
+          "kind": "source",
+          "target": "decision_record_schema.json",
+          "resolved_path": "System\\current\\decision_record_schema.json",
+          "status": "HASH_MATCH",
+          "expected_sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17",
+          "current_sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17"
+        },
+        {
+          "kind": "source",
+          "target": "regression_test_report.txt",
+          "resolved_path": "System\\current\\regression_test_report.txt",
+          "status": "CURRENT_BYTES_DRIFTED",
+          "expected_sha256": "e4773c48485cd2721fd7facde11c98ae887a19ab2bb89fd91b667ff1b501c3fc",
+          "current_sha256": "86ccb2e379b79b2f65c3df15bef8cc074dfd585fa3d236dcd9f186ca9139aded"
+        }
+      ]
+    }
+  ],
+  "available_profile_audit_reports": [],
+  "deterministic_summary": {
+    "schema_valid_records": 3,
+    "records_with_unversioned_historical_byte_drift": 2,
+    "unresolved_local_links": 1,
+    "missing_commit_links": 0
+  },
+  "host_review_required": [
+    "reasoning_integrity: run reasoning_auditor over the sampled externalizable decision rationale and evidence",
+    "profile_performance: run profile_performance_auditor only for completed sessions with real contract/trace/artifact evidence"
+  ],
+  "privacy_boundary": "Packet contains externalizable records and artifact metadata only; never private chain-of-thought or hidden scratchpads."
+}

@@ -292,6 +292,15 @@ audit_pages.append([Block('2.7.14 Use Custom Prompt Without Activating Capabilit
  ('small','The prompt may be designed for a capability the user plans to enable, but unknown/unavailable capabilities remain explicit and the profile never simulates execution.')
 ])])
 
+audit_pages.append([Block('2.7.15 Run Periodic Agent Quality Audit',3,[
+ ('body','When explicitly requested, prepare a bounded quality-audit evidence packet from the most recent material decision records per profile plus any real completed profile-session evidence that is actually available.'),
+ ('body','Run three separate review lanes: reasoning_auditor evaluates visible decision rationale/evidence; quality_audit.py performs deterministic record/link/hash/commit/artifact-code consistency checks; profile_performance_auditor evaluates completed-session performance only when its contract/trace/artifact evidence exists.'),
+ ('body','Combine the lanes into one evidence-linked report without reducing them to one aggregate score. Missing evidence remains UNKNOWN/PARTIAL rather than failure, and historical current-byte drift is not corruption by itself when later releases legitimately changed mutable files.'),
+ ('body','Mark every improvement proposal PENDING_MAIN_HOST and return it through normal lifecycle review. Never let the audit auto-integrate, approve or deploy its own fixes, and never recursively audit the current audit to self-authorize a mutation.'),
+ ('small','Default cadence is MANUAL_ON_DEMAND. Do not invent an automatic time/session schedule until real audit volume, recurrence, cost and usefulness support a separately governed cadence proposal.')
+])])
+
+
 idx=next((i for i,g in enumerate(pages) if any(b.heading.startswith('2.8') for b in g)),len(pages))
 split=next((j for j,b in enumerate(pages[idx]) if b.heading.startswith('2.8')),0) if idx<len(pages) else 0
 if idx<len(pages):

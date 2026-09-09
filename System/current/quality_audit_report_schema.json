@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Periodic System Quality Audit Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","advisory_only","audit_id","created_utc","scope","status","evidence","dimensions","proposals","limitations","self_audit_boundary"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "advisory_only": {"const": true},
+    "audit_id": {"type":"string","minLength":8,"maxLength":160},
+    "created_utc": {"type":"string","format":"date-time"},
+    "scope": {
+      "type":"object","additionalProperties":false,
+      "required":["profiles","decision_record_ids","profile_session_ids","sampling_rule"],
+      "properties": {
+        "profiles":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+        "decision_record_ids":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+        "profile_session_ids":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+        "sampling_rule":{"type":"string","minLength":1}
+      }
+    },
+    "status":{"enum":["COMPLETE","PARTIAL","INSUFFICIENT_EVIDENCE"]},
+    "evidence":{"type":"array","items":{"$ref":"#/$defs/evidence"}},
+    "dimensions":{"type":"array","minItems":3,"maxItems":3,"items":{"$ref":"#/$defs/dimension"}},
+    "proposals":{"type":"array","maxItems":5,"items":{"$ref":"#/$defs/proposal"}},
+    "limitations":{"type":"array","items":{"type":"string"}},
+    "self_audit_boundary":{"const":"AUDIT_CANNOT_AUTO_MUTATE_OR_APPROVE_ITSELF; ALL_PROPOSALS_REMAIN_PENDING_MAIN_HOST"}
+  },
+  "$defs": {
+    "evidence": {
+      "type":"object","additionalProperties":false,
+      "required":["id","kind","source","availability","sha256"],
+      "properties":{
+        "id":{"type":"string","minLength":1},
+        "kind":{"enum":["decision_record","artifact","code","commit","profile_session","audit_report","test","other"]},
+        "source":{"type":"string","minLength":1},
+        "availability":{"enum":["AVAILABLE","PARTIAL","MISSING"]},
+        "sha256":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"}
+      }
+    },
+    "finding": {
+      "type":"object","additionalProperties":false,
+      "required":["id","verdict","summary","evidence_refs","confidence","owner"],
+      "properties":{
+        "id":{"type":"string","minLength":1},
+        "verdict":{"enum":["SUPPORTED","PARTIALLY_SUPPORTED","UNSUPPORTED","CONTRADICTED","NOT_APPLICABLE","UNKNOWN"]},
+        "summary":{"type":"string","minLength":1},
+        "evidence_refs":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+        "confidence":{"enum":["HIGH","MEDIUM","LOW"]},
+        "owner":{"enum":["REASONING_AUDITOR","DETERMINISTIC_CHECKER","PROFILE_PERFORMANCE_AUDITOR","MAIN_HOST"]}
+      }
+    },
+    "dimension": {
+      "type":"object","additionalProperties":false,
+      "required":["id","status","evidence_refs","findings"],
+      "properties":{
+        "id":{"enum":["reasoning_integrity","artifact_code_consistency","profile_performance"]},
+        "status":{"enum":["PASS","WARN","FAIL","UNKNOWN","PENDING_HOST_REVIEW"]},
+        "evidence_refs":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+        "findings":{"type":"array","items":{"$ref":"#/$defs/finding"}}
+      }
+    },
+    "proposal": {
+      "type":"object","additionalProperties":false,
+      "required":["id","finding_refs","target","summary","lifecycle_candidate","validation","rollback","decision"],
+      "properties":{
+        "id":{"type":"string","minLength":1},
+        "finding_refs":{"type":"array","minItems":1,"items":{"type":"string"},"uniqueItems":true},
+        "target":{"type":"string","minLength":1},
+        "summary":{"type":"string","minLength":1},
+        "lifecycle_candidate":{"enum":["NEW","MERGE","REWRITE","DELETE","NO-OP","DEFER"]},
+        "validation":{"type":"string","minLength":1},
+        "rollback":{"type":"string","minLength":1},
+        "decision":{"const":"PENDING_MAIN_HOST"}
+      }
+    }
+  }
+}

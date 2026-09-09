@@ -1,6 +1,6 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.15.0",
+  "runtime_version": "0.16.0",
   "authority_order": [
     "reality_tool_platform_and_safety_constraints",
     "current_explicit_user_instruction",
@@ -1130,7 +1130,7 @@
     "privacy_boundary": "Store concise task-relevant summaries and decisions, not private chain-of-thought or unnecessary sensitive conversation content.",
     "authority": "evidence_only"
   },
-  "release_version": "0.22.0",
+  "release_version": "0.23.0",
   "handoff_policy": {
     "versioned_zip_required": false,
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
@@ -1791,6 +1791,29 @@
           "workspace",
           "core_system"
         ]
+      },
+      "quality_audit": {
+        "files": [
+          "quality_audit.py",
+          "quality_audit_report_schema.json",
+          "decision_record.py",
+          "decision_record_schema.json",
+          "profile_audit.py",
+          "profile_audit_report_schema.json",
+          "ai_runtime_config.json",
+          "project_plan.json"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_quality_audit.py",
+          "pdf_engine/tests/test_decision_records.py",
+          "pdf_engine/tests/test_profile_audit.py"
+        ],
+        "artifacts": [],
+        "depends_on": [
+          "decision_records",
+          "profile_auditor",
+          "reasoning_auditor"
+        ]
       }
     }
   },
@@ -1893,5 +1916,31 @@
     "workspace_persistence": "The Windows working tree is the OneDrive-synced execution mirror; edit it once. OneDrive synchronization is passive replication, not a second manual persistence transaction. GitHub is updated through the single Git commit/push after verification.",
     "semver_boundary": "MINOR_PATCH/MAJOR_PATCH are operational blast-radius labels and do not directly dictate semantic-version major/minor numbers.",
     "escalation_rule": "If dependency analysis, tests or verification reveal broader impact than expected, escalate to MAJOR_PATCH before closure."
+  },
+  "periodic_quality_audit_policy": {
+    "policy_version": "1.0",
+    "purpose": "Run an on-demand evidence-based health check across reasoning integrity, artifact/code consistency and profile performance without creating a redundant mega-auditor or granting self-mutation authority.",
+    "automatic_schedule_enabled": false,
+    "default_cadence": "MANUAL_ON_DEMAND",
+    "reasoning_owner": "reasoning_auditor",
+    "deterministic_checker": "quality_audit.py --prepare",
+    "profile_performance_owner": "profile_performance_auditor",
+    "report_schema": "quality_audit_report_schema.json",
+    "sampling": {
+      "decision_records_per_profile": 5,
+      "order": "MOST_RECENT_MATERIAL_FIRST",
+      "profile_scope": "ALL_PROFILES_UNLESS_FILTERED",
+      "profile_sessions": "AVAILABLE_COMPLETED_SESSIONS_ONLY"
+    },
+    "dimensions": {
+      "reasoning_integrity": "Use reasoning_auditor on externalizable decision records/evidence; never request private chain-of-thought.",
+      "artifact_code_consistency": "Use deterministic local checks for schema validity, link/commit availability, hashes/current-byte drift and artifact/code references.",
+      "profile_performance": "Use profile_performance_auditor only when real completed-session contract/trace/artifact evidence exists."
+    },
+    "missing_evidence_rule": "Missing or truncated evidence stays UNKNOWN/PARTIAL and is not converted into failure or fabricated certainty.",
+    "governance_rule": "Every improvement proposal remains PENDING_MAIN_HOST until normal lifecycle review; no audit may auto-integrate, approve or deploy its own recommendations.",
+    "self_audit_rule": "Do not recursively audit the current audit and then use that audit to authorize its own mutation. Any quality-audit-policy change must re-enter ordinary governance from outside the audited run.",
+    "cadence_promotion_rule": "Do not invent an automatic cadence. A future cadence may be proposed only from observed audit volume, cost, recurrence and usefulness, and still requires main-host/user governance.",
+    "output_rule": "Produce one quality-audit evidence packet/report that keeps the three dimensions separate and preserves evidence references, limitations and pending proposals."
   }
 }

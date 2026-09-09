@@ -582,6 +582,23 @@ sec11kxiii=Block('1.1k.xiii',[
     Code('''def custom_prompt(goal, profile, enabled_capabilities):\n    prompt_type = infer_prompt_type(goal)\n    spec = build_semantic_contract(goal, prompt_type)\n    if prompt_type in ('research','deep_research'):\n        spec = add_research_questions_evidence_output_and_stopping(spec)\n    preserve_capability_boundary(spec, enabled_capabilities)\n    return render_optimal_prompt(spec)''')
 ],4)
 
+sec11kxiv=Block('1.1k.xiv',[
+    P('1.1k.xiv Periodic Agent Quality Audit & Three-Dimension Separation','H4X'), S(8),
+    P('When the user/main host requests a system quality check, run one bounded evidence-based audit across three distinct dimensions: <b>reasoning integrity</b>, <b>artifact/code consistency</b> and <b>profile performance</b>. Do not collapse them into one score because evidence and failure causes differ.', 'BodyX'), S(6),
+    P('<b>Reuse specialists:</b> reasoning_auditor evaluates externalizable decision rationale/evidence; deterministic quality_audit.py checks record schemas, links, commits, hashes/current-byte drift and artifact/code references; profile_performance_auditor evaluates only completed sessions with real contract/trace/artifact evidence. Do not create a redundant mega-auditor profile.', 'BodyX'), S(6),
+    P('<b>Cadence:</b> default to MANUAL_ON_DEMAND. Sample at most the configured recent material decision records per profile and only available completed profile sessions. Missing evidence stays UNKNOWN/PARTIAL. Do not invent an automatic time/session cadence until observed audit volume, recurrence, cost and usefulness justify a separately governed proposal.', 'SmallX'), S(6),
+    P('<b>Governance:</b> every proposed improvement remains PENDING_MAIN_HOST. The audit cannot mutate, approve or deploy its own recommendations, and it cannot recursively audit the current audit to self-authorize a policy change.', 'SmallX'), S(7),
+    Code('''def run_quality_audit(scope, records, sessions, host):
+    packet = prepare_evidence_packet(records, sessions, bounded=True)
+    reasoning = host.profile('reasoning_auditor').audit(packet)
+    consistency = deterministic_artifact_code_checks(packet)
+    performance = host.profile('profile_performance_auditor').audit(sessions) if sessions else UNKNOWN
+    report = combine_without_collapsing_dimensions(reasoning, consistency, performance)
+    report.proposals = mark_all_pending_main_host(report.proposals)
+    return report''')
+],4)
+
+
 sec11q=Block('1.1q',[
     P('1.1q Build, Render & Verify','H3X'), S(9),
     P('After recursive convergence, completeness auditing, execution closure and artifact discovery, execute the updated orchestration system. For a paired-system mutation, create every REQUIRED affected artifact, render every PDF page and inspect the outputs against the active specification, workflow and artifact registry.'), S(7),
@@ -691,10 +708,10 @@ remaining_h=y-BOTTOM
 # 1.1 is atomic direct content. If it no longer fits, keep-together moves it.
 if measure_block(section11) <= remaining_h + 1e-6:
     diagnostics.append(render_group(c,[section11],y,BOTTOM,page,has_content_above=True))
-    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 else:
     diagnostics.append({'page':1,'keys':['1'],'mode':'intentional-blank-remainder','gaps':[remaining_h]})
-    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 
 idx=0
 while idx < len(remaining_blocks):

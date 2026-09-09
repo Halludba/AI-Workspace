@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "advisory_only": true,
+  "audit_id": "20260909T092214Z-system-quality-audit",
+  "created_utc": "2026-09-09T09:25:00+00:00",
+  "scope": {
+    "profiles": [
+      "general_balanced"
+    ],
+    "decision_record_ids": [
+      "20260909-v022-custom-prompt-impact-persistence",
+      "20260909-part4-deep-research-agent-architect-v021",
+      "20260909-part3-decision-records-v020"
+    ],
+    "profile_session_ids": [],
+    "sampling_rule": "All available recent material decision records, bounded by the configured five-record-per-profile maximum; completed profile sessions only when real session evidence exists."
+  },
+  "status": "PARTIAL",
+  "evidence": [
+    {
+      "id": "e1",
+      "kind": "decision_record",
+      "source": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-v022-custom-prompt-impact-persistence.json",
+      "availability": "AVAILABLE",
+      "sha256": "9a74ad86d49949f3582de645ecf02e8ab46b000a8a413fda9661ecc0e3ff8f74"
+    },
+    {
+      "id": "e2",
+      "kind": "decision_record",
+      "source": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-part4-deep-research-agent-architect-v021.json",
+      "availability": "AVAILABLE",
+      "sha256": "c540a7ead1ccaf4e5ab73a96aa3b499a148cc70b551311c18db1821814c61c4a"
+    },
+    {
+      "id": "e3",
+      "kind": "decision_record",
+      "source": "System\\current\\decision_records\\general_balanced\\2026-09-09\\20260909-part3-decision-records-v020.json",
+      "availability": "AVAILABLE",
+      "sha256": "0cf914a2bf2af9a3f542dc202e2e4b51481540cebc465f2f76c1246eeaab7196"
+    },
+    {
+      "id": "e4",
+      "kind": "audit_report",
+      "source": "Audit Reports\\2026-09-09\\20260909T092214Z-system-quality-audit\\evidence_packet.json",
+      "availability": "AVAILABLE",
+      "sha256": "7077de8c432825f28eeae0837964efa5d1113e22e218bd538e848a4cbdcbb7d8"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "reasoning_integrity",
+      "status": "WARN",
+      "evidence_refs": [
+        "e1",
+        "e2",
+        "e3"
+      ],
+      "findings": [
+        {
+          "id": "f1",
+          "verdict": "SUPPORTED",
+          "summary": "The Part 3 decision to use externalizable append-only decision records is supported by the stated privacy, auditability and governance constraints.",
+          "evidence_refs": [
+            "e3"
+          ],
+          "confidence": "HIGH",
+          "owner": "REASONING_AUDITOR"
+        },
+        {
+          "id": "f2",
+          "verdict": "PARTIALLY_SUPPORTED",
+          "summary": "The v0.21 Part 4 rationale correctly preserved capability uncertainty and reused existing prompt gates, but it misframed Deep Research as a separate profile rather than using the general Custom Prompt profile; the later explicit user correction demonstrates that the target abstraction was incomplete.",
+          "evidence_refs": [
+            "e2",
+            "e1"
+          ],
+          "confidence": "HIGH",
+          "owner": "REASONING_AUDITOR"
+        },
+        {
+          "id": "f3",
+          "verdict": "SUPPORTED",
+          "summary": "The v0.22 correction is consistent with the clarified requirement: Custom Prompt owns prompt construction while Deep Research and other plugins remain separately enabled capabilities.",
+          "evidence_refs": [
+            "e1"
+          ],
+          "confidence": "HIGH",
+          "owner": "REASONING_AUDITOR"
+        }
+      ]
+    },
+    {
+      "id": "artifact_code_consistency",
+      "status": "WARN",
+      "evidence_refs": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "findings": [
+        {
+          "id": "f4",
+          "verdict": "SUPPORTED",
+          "summary": "Two historical records contain recorded hashes for mutable canonical files whose current bytes have legitimately changed, but neither record has a verified immutable commit/release anchor; historical identity is therefore weaker than the record format can support.",
+          "evidence_refs": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "confidence": "HIGH",
+          "owner": "DETERMINISTIC_CHECKER"
+        },
+        {
+          "id": "f5",
+          "verdict": "SUPPORTED",
+          "summary": "The v0.22 record uses an unstructured plan-part target string that the deterministic checker cannot resolve as a local artifact/fragment.",
+          "evidence_refs": [
+            "e1",
+            "e4"
+          ],
+          "confidence": "HIGH",
+          "owner": "DETERMINISTIC_CHECKER"
+        }
+      ]
+    },
+    {
+      "id": "profile_performance",
+      "status": "UNKNOWN",
+      "evidence_refs": [],
+      "findings": [
+        {
+          "id": "f6",
+          "verdict": "UNKNOWN",
+          "summary": "No completed profile-specific session contract/trace/artifact set is available in the sampled evidence, so actual profile performance cannot yet be scored without fabricating evidence.",
+          "evidence_refs": [],
+          "confidence": "LOW",
+          "owner": "PROFILE_PERFORMANCE_AUDITOR"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "p1",
+      "finding_refs": [
+        "f4"
+      ],
+      "target": "decision_record_policy release-level provenance",
+      "summary": "For future material release records, include immutable release identity (for example the release tag/version plus stable artifact/source hashes) so later audits can distinguish expected evolution from unverifiable historical drift.",
+      "lifecycle_candidate": "MERGE",
+      "validation": "Create a future release record, advance the workspace, then confirm the audit can resolve the original release identity without relying on current mutable bytes.",
+      "rollback": "Retain current optional hash/link behavior if the added release-anchor requirement creates circular or excessive release friction.",
+      "decision": "PENDING_MAIN_HOST"
+    },
+    {
+      "id": "p2",
+      "finding_refs": [
+        "f5"
+      ],
+      "target": "decision-record link formatting",
+      "summary": "Use resolvable structured plan-part links such as project_plan.json#<part-id> instead of prose targets when the linked source exists locally.",
+      "lifecycle_candidate": "REWRITE",
+      "validation": "Generate a synthetic/current record with a structured plan-part target and confirm quality_audit.py resolves the source path.",
+      "rollback": "Allow prose-only other links when no stable local locator exists.",
+      "decision": "PENDING_MAIN_HOST"
+    },
+    {
+      "id": "p3",
+      "finding_refs": [
+        "f6"
+      ],
+      "target": "periodic quality-audit cadence",
+      "summary": "Keep cadence manual/on-demand until enough completed profile-session evidence exists to measure audit value and recurrence; do not invent a time/session schedule yet.",
+      "lifecycle_candidate": "DEFER",
+      "validation": "Revisit after multiple real profile-session audits provide observed volume, recurring findings and audit cost.",
+      "rollback": "No rollback needed; manual invocation remains available.",
+      "decision": "PENDING_MAIN_HOST"
+    }
+  ],
+  "limitations": [
+    "Only three material decision records are available and all are from general_balanced.",
+    "No completed profile-performance session report was discovered, so profile-performance findings remain UNKNOWN.",
+    "Current-byte hash drift on historical mutable files is expected after later releases; the finding concerns missing immutable release anchoring, not corruption."
+  ],
+  "self_audit_boundary": "AUDIT_CANNOT_AUTO_MUTATE_OR_APPROVE_ITSELF; ALL_PROPOSALS_REMAIN_PENDING_MAIN_HOST"
+}

@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.23.0
+- Operationalized Part 5 as an on-demand system quality-audit function rather than a redundant mega-auditor profile.
+- Added `quality_audit.py`, `quality_audit_report_schema.json`, and `workspace_ctl.py quality-audit` to prepare bounded evidence and validate evidence-linked reports.
+- Quality audits preserve three independent dimensions: reasoning integrity (Reasoning Auditor), artifact/code consistency (deterministic checker), and profile performance (Profile Performance Auditor with real completed-session evidence only).
+- Default cadence is `MANUAL_ON_DEMAND`; no automatic schedule is invented from insufficient history.
+- Missing evidence remains UNKNOWN/PARTIAL and every proposed improvement remains `PENDING_MAIN_HOST`; audits cannot recursively self-authorize mutations.
+- First live Part 5 audit sampled all three available material decision records and produced a valid PARTIAL report; it found historical provenance anchoring/link-format weaknesses while correctly leaving profile performance UNKNOWN.
+
 ## 0.22.0
 - Corrected Part 4 architecture: `custom_prompt` is the canonical selectable CREATE profile; `prompt_creator` is a compatibility alias, not a duplicate profile.
 - Removed the mistaken `deep_research_agent_architect` profile/module/policy and automatic research precursor. Research/Deep Research prompt construction now lives inside the shared prompt-specification core.

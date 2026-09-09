@@ -1,7 +1,7 @@
 {
   "workspace_schema_version": 2,
   "project": "Design",
-  "current_system_version": "0.22.0",
+  "current_system_version": "0.23.0",
   "canonical_source_path": "System/current/",
   "chat_start_file": "AI_WORKSPACE_INSTRUCTIONS.md",
   "normal_iteration_policy": "CLASSIFY_IMPACT_THEN_MINIMAL_OR_FULL_CLOSURE",
@@ -12,7 +12,7 @@
     "full_v0_15_source_migrated": true,
     "persistent_workspace_transition_complete": true,
     "baseline_tag": "v0.15.0",
-    "current_target_tag": "v0.22.0"
+    "current_target_tag": "v0.23.0"
   },
   "source_control": {
     "provider": "github",
@@ -74,5 +74,13 @@
     "minor_patch": "minimal affected canonical files + scoped checks + one full regression + single Git commit; derived artifacts only when dependencies changed",
     "major_patch": "full semantic/global closure and all affected derived verification",
     "classifier": "System/current/pdf_engine/release_impact.py"
+  },
+  "quality_audit": {
+    "mode": "MANUAL_ON_DEMAND",
+    "control_command": "python System/current/workspace_ctl.py quality-audit",
+    "engine": "System/current/quality_audit.py",
+    "report_schema": "System/current/quality_audit_report_schema.json",
+    "report_store": "Audit Reports/{date}/{audit_id}/",
+    "governance": "Advisory only; all proposals remain PENDING_MAIN_HOST."
   }
 }

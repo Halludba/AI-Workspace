@@ -1,14 +1,14 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.15.0",
-  "directive_epoch": 15,
-  "directive_id": "2026-09-09-custom-prompt-and-impact-aware-persistence",
+  "runtime_version": "0.16.0",
+  "directive_epoch": 16,
+  "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.22.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.23.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
@@ -41,9 +41,9 @@
   },
   "plan_context": {
     "plan_path": "project_plan.json",
-    "active_part_id": null,
+    "active_part_id": "periodic-agent-quality-loop",
     "last_completed_part_id": "deep-research-agent-architect",
-    "next_recommended_part_id": "periodic-agent-quality-loop"
+    "next_recommended_part_id": null
   },
   "execution_checkpoint": {
     "active": false,
@@ -71,20 +71,21 @@
   },
   "decision_record_session": {
     "phase": "READY",
-    "current_record_id": "20260909-v022-custom-prompt-impact-persistence",
-    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
+    "current_record_id": "20260909-part5-periodic-quality-audit-v023",
+    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
     "pending_audit": false
   },
   "release_impact": {
     "status": "CLOSED",
-    "directive_id": "2026-09-09-custom-prompt-and-impact-aware-persistence",
+    "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
     "assessment": {
       "impact": "MAJOR_PATCH",
       "reasons": [
-        "major_path:System/current/ai_runtime_schema.json,System/current/pdf_engine/orchestrator.py,System/current/pdf_engine/release_impact.py",
+        "major_path:System/current/ai_runtime_schema.json",
         "major_semantic_tokens:authority_order,core.recursive_mutation_lifecycle,release_impact_policy,workspace_policy,planning_policy,execution_capacity_policy"
       ],
       "canonical_changed_paths": [
+        "\"Audit Reports/2026-09-09/\"",
         "System/current/CHANGELOG.md",
         "System/current/MUTATION_TRACE.md",
         "System/current/README_FIRST.txt",
@@ -94,15 +95,16 @@
         "System/current/ai_runtime_state.json",
         "System/current/build_formats_pdf_v18.py",
         "System/current/create_pdf_workflow_v13.py",
-        "System/current/decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
+        "System/current/decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
         "System/current/mutation_trace.json",
         "System/current/pdf_engine/audits.py",
-        "System/current/pdf_engine/orchestrator.py",
-        "System/current/pdf_engine/release_impact.py",
         "System/current/pdf_engine/tests/test_agent_ecosystem.py",
-        "System/current/pdf_engine/tests/test_release_impact.py",
+        "System/current/pdf_engine/tests/test_quality_audit.py",
+        "System/current/pdf_engine/tests/test_regression.py",
         "System/current/pdf_system_config.json",
         "System/current/project_plan.json",
+        "System/current/quality_audit.py",
+        "System/current/quality_audit_report_schema.json",
         "System/current/version_history.json",
         "System/current/workspace_ctl.py",
         "WORKSPACE.json"
@@ -120,6 +122,7 @@
       "pdf_verification": "AFFECTED_PDFS_AND_CHANGED_PAGES",
       "persistence": "ONE_ONEDRIVE_SYNCED_WORKTREE_PLUS_ONE_GIT_COMMIT_PUSH",
       "changed_paths": [
+        "\"Audit Reports/2026-09-09/\"",
         "System/current/CHANGELOG.md",
         "System/current/MUTATION_TRACE.md",
         "System/current/README_FIRST.txt",
@@ -129,19 +132,30 @@
         "System/current/ai_runtime_state.json",
         "System/current/build_formats_pdf_v18.py",
         "System/current/create_pdf_workflow_v13.py",
-        "System/current/decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
+        "System/current/decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
         "System/current/mutation_trace.json",
         "System/current/pdf_engine/audits.py",
-        "System/current/pdf_engine/orchestrator.py",
-        "System/current/pdf_engine/release_impact.py",
         "System/current/pdf_engine/tests/test_agent_ecosystem.py",
-        "System/current/pdf_engine/tests/test_release_impact.py",
+        "System/current/pdf_engine/tests/test_quality_audit.py",
+        "System/current/pdf_engine/tests/test_regression.py",
         "System/current/pdf_system_config.json",
         "System/current/project_plan.json",
+        "System/current/quality_audit.py",
+        "System/current/quality_audit_report_schema.json",
         "System/current/version_history.json",
         "System/current/workspace_ctl.py",
         "WORKSPACE.json"
       ]
     }
+  },
+  "quality_audit_session": {
+    "phase": "HANDOFF",
+    "current_audit_id": "20260909T092214Z-system-quality-audit",
+    "last_report_path": "../../Audit Reports/2026-09-09/20260909T092214Z-system-quality-audit/quality_audit_report.json",
+    "pending_proposal_ids": [
+      "p1",
+      "p2",
+      "p3"
+    ]
   }
 }

@@ -1,4 +1,4 @@
-Recursive AI Config System v0.22.0
+Recursive AI Config System v0.23.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -39,3 +39,8 @@ Use the selectable custom_prompt profile whenever an optimal prompt is needed. I
 
 RELEASE IMPACT / MINIMAL PERSISTENCE
 After a completed system part or reusable mutation, classify operational blast radius as MINOR_PATCH or MAJOR_PATCH before release materialization. Minor patches update only changed canonical files plus required provenance/state, use scoped checks during iteration, run one full regression before commit, and regenerate derived artifacts only when dependencies changed. Major patches use full closure. The Windows working tree is already OneDrive-synced, so edit it once; OneDrive replicates passively and Git records canonical history with one commit/push.
+
+
+SYSTEM QUALITY AUDIT
+Run on demand: python workspace_ctl.py quality-audit
+This prepares bounded evidence for three separate dimensions: reasoning integrity, artifact/code consistency, and profile performance. Reasoning Auditor and Profile Performance Auditor are reused; no redundant mega-auditor profile is created. Automatic cadence is disabled until real evidence justifies a separately governed schedule. All proposals remain PENDING_MAIN_HOST.

@@ -1,0 +1,183 @@
+{
+  "record_version": "1.0",
+  "record_id": "20260909-part5-periodic-quality-audit-v023",
+  "recorded_utc": "2026-09-09T09:34:26.581249+00:00",
+  "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
+  "profile_id": "general_balanced",
+  "supersedes_record_id": null,
+  "objective": "Operationalize Part 5 as an occasional evidence-based quality check across system/profile reasoning, artifact/code consistency and real profile performance without granting an audit self-mutation authority.",
+  "constraints": [
+    {
+      "id": "c1",
+      "text": "Reasoning integrity, artifact/code consistency and profile performance must remain separate audit dimensions.",
+      "provenance": "Part 5 acceptance criteria"
+    },
+    {
+      "id": "c2",
+      "text": "Reuse existing Reasoning Auditor and Profile Performance Auditor instead of creating a redundant mega-auditor profile.",
+      "provenance": "redundancy audit + current architecture"
+    },
+    {
+      "id": "c3",
+      "text": "Missing evidence remains UNKNOWN/PARTIAL and all improvement proposals remain PENDING_MAIN_HOST.",
+      "provenance": "existing audit governance + Part 5 acceptance criteria"
+    },
+    {
+      "id": "c4",
+      "text": "Do not invent an automatic audit cadence from the current small evidence base.",
+      "provenance": "Part 5 roadmap note + observed three-record sample"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl1",
+      "text": "The runtime now has an on-demand quality-audit evidence/validation engine exposed through workspace_ctl.py quality-audit.",
+      "provenance": "quality_audit.py + workspace_ctl.py"
+    },
+    {
+      "id": "cl2",
+      "text": "The first live Part 5 audit sampled all three available material decision records, produced a schema-valid PARTIAL report and left profile performance UNKNOWN because real completed-session evidence was absent.",
+      "provenance": "first quality audit evidence packet/report"
+    },
+    {
+      "id": "cl3",
+      "text": "The audit contract structurally prevents automatic integration and preserves the three required dimensions.",
+      "provenance": "quality_audit_report_schema.json + regression tests"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "source": "quality_audit.py",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1",
+        "cl3"
+      ],
+      "sha256": "e27112549d5ee41f35a779ac0ea4f3ef1ddf6679393ee49d842ab79bf8ab46bb"
+    },
+    {
+      "id": "e2",
+      "source": "quality_audit_report_schema.json",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl3"
+      ],
+      "sha256": "58bf59920a29c792935b6479f98d283ab050cc734d765bd131ac2750d8f9e9a1"
+    },
+    {
+      "id": "e3",
+      "source": "Audit Reports/2026-09-09/20260909T092214Z-system-quality-audit/quality_audit_report.json",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2"
+      ],
+      "sha256": "88fc4114eea069977946113221c376dbf4541e45e1112bc1f2fcb2343836bcf3"
+    },
+    {
+      "id": "e4",
+      "source": "regression_test_report.txt",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1",
+        "cl3"
+      ],
+      "sha256": "53ef3dd22508ec3b1532ef300e1f160159cf8daebd42dc3491c03b9cc329c65e"
+    }
+  ],
+  "assumptions": [],
+  "alternatives": [
+    {
+      "id": "a1",
+      "option": "Create one new system_quality_auditor profile that duplicates all audit responsibilities.",
+      "disposition": "REJECTED",
+      "reason": "Duplicates existing specialist auditors and weakens responsibility boundaries."
+    },
+    {
+      "id": "a2",
+      "option": "Automatically run an audit every fixed number of days or sessions immediately.",
+      "disposition": "REJECTED",
+      "reason": "The current evidence base is too small to justify a cadence without invention."
+    },
+    {
+      "id": "a3",
+      "option": "Collapse all quality evidence into one aggregate score.",
+      "disposition": "REJECTED",
+      "reason": "Reasoning, artifact consistency and profile performance have different evidence and failure causes."
+    },
+    {
+      "id": "a4",
+      "option": "Use an on-demand system function that reuses specialist auditors plus deterministic consistency checks.",
+      "disposition": "SELECTED",
+      "reason": "Smallest non-duplicative architecture satisfying Part 5 acceptance criteria."
+    }
+  ],
+  "decision": "Adopt periodic_quality_audit_policy with manual/on-demand invocation, quality_audit.py evidence preparation and deterministic consistency checks, existing reasoning_auditor/profile_performance_auditor ownership, a three-dimension aggregate report, and strict PENDING_MAIN_HOST/self-audit boundaries.",
+  "unknowns": [
+    {
+      "id": "u1",
+      "text": "Actual performance of individual workflow profiles remains unmeasured until completed-session evidence is collected.",
+      "provenance": "first Part 5 audit found no completed profile-performance reports"
+    },
+    {
+      "id": "u2",
+      "text": "No automatic cadence is justified yet; future cadence should depend on observed audit cost, recurrence and usefulness.",
+      "provenance": "limited current evidence base"
+    }
+  ],
+  "verification": [
+    {
+      "check": "Scoped Part 5/profile/decision-record regression suite passed 16/16",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    },
+    {
+      "check": "Full deterministic regression suite passed 63/63",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    },
+    {
+      "check": "Semantic fixed point reached in 2 passes",
+      "status": "PASS",
+      "evidence_ref": null
+    },
+    {
+      "check": "First live quality audit report validates against quality_audit_report_schema.json",
+      "status": "PASS",
+      "evidence_ref": "e3"
+    },
+    {
+      "check": "Formats 1.1k.xiv and Workflow 2.7.15 visually inspected clean",
+      "status": "PASS",
+      "evidence_ref": null
+    }
+  ],
+  "links": [
+    {
+      "kind": "plan_part",
+      "target": "project_plan.json#periodic-agent-quality-loop",
+      "sha256": "3e2b3944445347925b11b4f530c8cb0b1d0e0a5854aada0b27f5dd1df2a2b54d"
+    },
+    {
+      "kind": "source",
+      "target": "quality_audit.py",
+      "sha256": "e27112549d5ee41f35a779ac0ea4f3ef1ddf6679393ee49d842ab79bf8ab46bb"
+    },
+    {
+      "kind": "source",
+      "target": "quality_audit_report_schema.json",
+      "sha256": "58bf59920a29c792935b6479f98d283ab050cc734d765bd131ac2750d8f9e9a1"
+    },
+    {
+      "kind": "audit",
+      "target": "../../Audit Reports/2026-09-09/20260909T092214Z-system-quality-audit/quality_audit_report.json",
+      "sha256": "88fc4114eea069977946113221c376dbf4541e45e1112bc1f2fcb2343836bcf3"
+    },
+    {
+      "kind": "other",
+      "target": "release:v0.23.0",
+      "sha256": null
+    }
+  ],
+  "privacy_attestation": "NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"
+}

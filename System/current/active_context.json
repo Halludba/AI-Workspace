@@ -1,10 +1,10 @@
 {
-  "system_version": "0.22.0",
-  "runtime_version": "0.15.0",
+  "system_version": "0.23.0",
+  "runtime_version": "0.16.0",
   "current_profile": "general_balanced",
-  "active_directive": "2026-09-09-custom-prompt-and-impact-aware-persistence",
+  "active_directive": "2026-09-09-part5-periodic-agent-quality-audits",
   "phase": "HANDOFF",
-  "last_mutation_target": "Correct profile/capability abstraction and add executable impact-aware release closure that minimizes unnecessary directory/artifact work without weakening verification.",
+  "last_mutation_target": "Add a bounded on-demand system health audit that keeps reasoning integrity, artifact/code consistency and profile performance separate, reuses existing specialist auditors and preserves main-host authority.",
   "blockers": [],
   "context_tiers": {
     "TIER_0": "Operating kernel: authority, current profile, active directive, version, blockers and workspace bindings.",

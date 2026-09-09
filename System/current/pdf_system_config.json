@@ -748,20 +748,41 @@
       "role": "release_impact_regression_tests",
       "bundle_folder": "03 PDF System/Tests",
       "include_in_bundle": true
+    },
+    {
+      "path": "quality_audit.py",
+      "classification": "REQUIRED",
+      "role": "periodic_quality_audit_engine",
+      "bundle_folder": "02 AI Runtime",
+      "include_in_bundle": true
+    },
+    {
+      "path": "quality_audit_report_schema.json",
+      "classification": "REQUIRED",
+      "role": "periodic_quality_audit_report_schema",
+      "bundle_folder": "02 AI Runtime",
+      "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/tests/test_quality_audit.py",
+      "classification": "REQUIRED",
+      "role": "periodic_quality_audit_regression_tests",
+      "bundle_folder": "03 PDF System/Tests",
+      "include_in_bundle": true
     }
   ],
   "release": {
-    "version": "0.22.0",
-    "previous_version": "0.21.0",
+    "version": "0.23.0",
+    "previous_version": "0.22.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.22.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.23.0.zip",
     "folder_policy": "role_based",
     "ai_handoff_file_count": 5,
     "delivery_mode": "persistent_workspace",
     "bundle_required": false,
     "ai_handoff_default": false,
     "portable_export_supported": true,
-    "previous_tag": "v0.21.0"
+    "previous_tag": "v0.22.0"
   },
   "modularity": {
     "enabled": true,
@@ -809,7 +830,8 @@
       "pdf_engine/tests/test_latency.py",
       "pdf_engine/tests/test_agent_ecosystem.py",
       "pdf_engine/tests/test_decision_records.py",
-      "pdf_engine/tests/test_release_impact.py"
+      "pdf_engine/tests/test_release_impact.py",
+      "pdf_engine/tests/test_quality_audit.py"
     ],
     "deterministic_invariants": [
       "schema_validation",
@@ -839,7 +861,11 @@
       "profile_capability_separation",
       "release_impact_minor_major_classifier",
       "minor_patch_minimal_persistence",
-      "onedrive_single_working_tree_persistence"
+      "onedrive_single_working_tree_persistence",
+      "periodic_quality_audit_three_dimensions",
+      "periodic_quality_audit_advisory_boundary",
+      "periodic_quality_audit_manual_cadence",
+      "periodic_quality_audit_no_mega_profile"
     ],
     "semantic_boundary": "Tests verify executable invariants only; semantic intent and visual correctness remain separate reasoning/render verification responsibilities.",
     "tiers": {

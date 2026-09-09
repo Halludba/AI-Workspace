@@ -1,5 +1,5 @@
 {
-  "version": "0.22.0",
+  "version": "0.23.0",
   "topics": {
     "workspace": {
       "files": [
@@ -156,6 +156,29 @@
       "depends_on": [
         "workspace",
         "core_system"
+      ]
+    },
+    "quality_audit": {
+      "files": [
+        "quality_audit.py",
+        "quality_audit_report_schema.json",
+        "decision_record.py",
+        "decision_record_schema.json",
+        "profile_audit.py",
+        "profile_audit_report_schema.json",
+        "ai_runtime_config.json",
+        "project_plan.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_quality_audit.py",
+        "pdf_engine/tests/test_decision_records.py",
+        "pdf_engine/tests/test_profile_audit.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "decision_records",
+        "profile_auditor",
+        "reasoning_auditor"
       ]
     }
   }

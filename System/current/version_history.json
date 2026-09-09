@@ -100,6 +100,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.23.0",
+      "previous_version": "0.22.0",
+      "change": "On-demand periodic agent quality audits with three separate dimensions, deterministic evidence preparation/consistency checks, reuse of existing Reasoning Auditor and Profile Performance Auditor, and main-host-only improvement governance.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

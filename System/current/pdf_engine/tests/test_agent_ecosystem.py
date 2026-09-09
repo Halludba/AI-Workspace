@@ -72,15 +72,19 @@ class AgentEcosystemTests(unittest.TestCase):
         audit_packet = instruction_packet(self.cfg, self.state, ['reasoning'], 'reasoning_auditor')
         self.assertIn('extension.epistemic_reasoning_audit', audit_packet)
 
-    def test_project_plan_part4_reflects_profile_capability_correction(self):
+    def test_project_plan_part4_and_part5_are_closed_consistently(self):
         plan = json.loads((ROOT/'project_plan.json').read_text(encoding='utf-8'))
-        self.assertEqual(plan['last_completed_part_id'], 'deep-research-agent-architect')
-        self.assertEqual(plan['next_recommended_part_id'], 'periodic-agent-quality-loop')
+        self.assertEqual(plan['status'], 'COMPLETED')
+        self.assertEqual(plan['last_completed_part_id'], 'periodic-agent-quality-loop')
+        self.assertIsNone(plan['next_recommended_part_id'])
         by_id = {p['id']: p for p in plan['parts']}
         part4=by_id['deep-research-agent-architect']
         self.assertEqual(part4['status'],'COMPLETED')
         self.assertIn('Custom Prompt',part4['objective'])
         self.assertIn('separately user-enabled capabilities',part4['objective'])
+        part5=by_id['periodic-agent-quality-loop']
+        self.assertEqual(part5['status'],'COMPLETED')
+        self.assertTrue(part5['completion_evidence'])
 
 if __name__ == '__main__':
     unittest.main()
