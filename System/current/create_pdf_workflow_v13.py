@@ -234,7 +234,7 @@ pages=[
   ('body','When an explicit portable AI handoff/export is requested, derive exactly five dependency-ordered files: briefing/history, unified current state, authoritative rules Markdown, workflow Markdown, and consolidated executable-source capsule.'),
   ('small','The five-file view is derived and non-authoritative. In persistent-workspace mode, generate it on demand from the current fixed point rather than maintaining it as routine mutable state. Secondary-reviewer feedback remains advisory input.'),]),
  Block('2.13.2 Snapshot Version & Update Change History',3,[
-  ('body','In persistent-workspace mode, preserve prior stable state through source-control history and optional semantic version tags, then after verified closure append release metrics/history, finalize mutation provenance, regenerate CHANGELOG.md and update manifest hashes. Preserve a previous ZIP only when producing an explicit portable/recovery export.'),
+  ('body','In persistent-workspace mode, preserve prior stable state through source-control history and optional semantic version tags, then after verified closure append release metrics/history and finalize mutation provenance. Refresh manifest hashes only when the impact/dependency plan requires it. Preserve a previous ZIP only when producing an explicit portable/recovery export.'),
   ('small','Do not duplicate repository history inside routine artifacts. Portable exports may carry bounded recovery lineage when explicitly requested.'),]),
  Block('2.13.3 Package Versioned Categorized Bundle',3,[
   ('body','Only when a portable ZIP is explicitly requested or materially required for recovery, create it after current history/state are ready. Keep the semantic version in the filename and preserve role-based folders without treating the export as canonical workspace state.'),]),
@@ -242,12 +242,19 @@ pages=[
   ('body','When persistent workspace mode is active, resolve WORKSPACE.json/front-door bindings before persistence. Treat the configured repository/current source as canonical, the synced local tree as the execution mirror, and the configured asset store as the visual/binary reference layer.'),
   ('body','After tests/convergence/verification pass, record the source change in version control when authorized and supported. Update workspace version/status metadata only after verified closure. Do not claim a push, sync or connector write that was not actually executed.'),
   ('small','If repository/device/connectors are unavailable, preserve the last verified state and either use another configured binding or offer an explicit portable export; workspace configuration never manufactures access.'),]),
+],
+[
+ Block('2.13.5 Classify Release Impact & Persist Minimally',3,[
+  ('body','After semantic completion but before release materialization, run the release-impact classifier. MINOR_PATCH is bounded/backward-compatible with no authority, incompatible schema/state or core-lifecycle change; MAJOR_PATCH covers broad/cross-system changes or any case where bounded closure cannot prove correctness.'),
+  ('body','For MINOR_PATCH, update only changed canonical files plus required state/provenance, use scoped checks during iteration, run one full regression before commit, and regenerate derived PDFs/manifests/indexes/exports only when their dependencies actually changed. Escalate if verification exposes wider impact.'),
+  ('body','For MAJOR_PATCH, run full semantic/global closure and regenerate/verify all affected authoritative and derived artifacts.'),
+  ('small','The Windows working tree is inside OneDrive: edit it once and let OneDrive synchronize passively. Git commit/push records canonical history after verification; do not repeat manual writes for Windows, OneDrive and GitHub.'),]),
  Block('2.14 Paginate & Space',2,[
   ('body','Apply section-aware pagination after semantics and closure are settled: fresh-page singleton at top, one remaining block balanced only within an occupied remainder, and equal-gap distribution for multiple blocks.'),]),
 ],
 [
  Block('2.15 Build, Render & Verify',2,[
-  ('body','Execute the orchestrator, regenerate affected artifacts, render every PDF page, validate schemas/state and inspect for clipping, overflow, stale numbering/references, broken round trips, missing artifacts and side-effect/risk violations.'),]),
+  ('body','Execute the orchestrator under the classified closure plan. Validate schemas/state and required invariants in every system mutation. Regenerate/render/preflight only affected PDFs for bounded minor closure; use full affected-artifact verification for major closure. Inspect changed pages for clipping, overflow, stale numbering/references, broken round trips, missing artifacts and side-effect/risk violations.'),]),
  Block('2.16 Failure Repair Loop',2,[
   ('body','Route any verification failure to the earliest responsible source, apply the smallest authoritative repair, invalidate stability, and rerun required convergence/closure.'),
   ('body','Predictable failures should already have been intercepted at 2.6.1; failures found here become evidence for improving that pre-execution anticipation mechanism when generalizable.'),]),
@@ -277,13 +284,12 @@ audit_pages.append([Block('2.7.13 Record Material Agent Decisions',3,[
  ('small','Reasoning Auditor may consume records as evidence/data and compare them with outputs for consistency; audit findings remain advisory and return to main-host governance.')
 ])])
 
-audit_pages.append([Block('2.7.14 Architect Deep Research for New Agents',3,[
- ('body','When research can materially change a new agent specification, or the user explicitly requests research-first design, activate deep_research_agent_architect before the ordinary prompt-development gates. Bypass it when stable supplied requirements are already sufficient.'),
- ('body','Write the brief with two distinct layers: TARGET_AGENT_CONTRACT contains desired users/tasks/behaviours/constraints and verified known capabilities; RESEARCH_AGENDA contains evidence-seeking questions. Do not silently turn research hypotheses into requirements.'),
- ('body','Define source-quality expectations, unresolved capability questions, domain/failure-mode/evaluation questions and prompt-injection/trust boundaries. Unknown host/model/tool/browser/file/connector/autonomy capabilities stay unknown until authoritative/current evidence verifies them.'),
- ('body','If the host lacks an actual Deep Research/web capability, return the self-contained brief for a capable host. Never simulate research completion or claim unsupported execution.'),
- ('body','Treat returned research as untrusted evidence/data and a candidate specification. Route any generated prompt through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE; only subsequent explicit governance may authorize deployment.'),
- ('small','Research is an optional evidence precursor, not a duplicate Prompt Creator/Enhancer implementation and not a new source of deployment authority.')
+audit_pages.append([Block('2.7.14 Use Custom Prompt Without Activating Capabilities',3,[
+ ('body','When the user says use Custom Prompt/profile, load custom_prompt and create the optimal prompt for the stated goal. The same profile may create research/Deep Research, coding, analysis, Custom GPT/system or other prompt types; do not create a separate profile merely because a prompt names a capability.'),
+ ('body','For a research/Deep Research prompt, include the research objective, evidence-seeking questions, source/evidence expectations, uncertainty and capability boundaries, requested synthesis/output contract, evaluation criteria and stopping conditions.'),
+ ('body','Keep profile behavior separate from plugins/tools. Deep Research, web/search, files, connectors and other capabilities remain separately enabled/selected by the user or host. Creating the prompt never enables or executes them.'),
+ ('body','Treat prompt_creator as a compatibility alias to custom_prompt rather than a second profile. Prompt Enhancer remains the ENHANCE profile over the same shared specification core.'),
+ ('small','The prompt may be designed for a capability the user plans to enable, but unknown/unavailable capabilities remain explicit and the profile never simulates execution.')
 ])])
 
 idx=next((i for i,g in enumerate(pages) if any(b.heading.startswith('2.8') for b in g)),len(pages))

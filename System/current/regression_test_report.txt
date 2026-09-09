@@ -1,13 +1,13 @@
 REGRESSION / MUTATION SIMULATION PREFLIGHT
 
 warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
-test_adapter_exposes_deep_research_architect_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_deep_research_architect_policy) ... ok
-test_adapter_exposes_profile_mode_and_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_profile_mode_and_policy) ... ok
+test_adapter_exposes_custom_prompt_mode_and_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_custom_prompt_mode_and_policy) ... ok
 test_agent_development_pipeline_and_decision_record_boundary (test_agent_ecosystem.AgentEcosystemTests.test_agent_development_pipeline_and_decision_record_boundary) ... ok
-test_deep_research_agent_architect_contract (test_agent_ecosystem.AgentEcosystemTests.test_deep_research_agent_architect_contract) ... ok
-test_deep_research_policy_routes_through_existing_gates (test_agent_ecosystem.AgentEcosystemTests.test_deep_research_policy_routes_through_existing_gates) ... ok
-test_project_plan_contains_ordered_agent_roadmap (test_agent_ecosystem.AgentEcosystemTests.test_project_plan_contains_ordered_agent_roadmap) ... ok
-test_prompt_profiles_share_one_specification_core (test_agent_ecosystem.AgentEcosystemTests.test_prompt_profiles_share_one_specification_core) ... ok
+test_capability_activation_is_user_host_controlled (test_agent_ecosystem.AgentEcosystemTests.test_capability_activation_is_user_host_controlled) ... ok
+test_custom_prompt_and_enhancer_share_one_core (test_agent_ecosystem.AgentEcosystemTests.test_custom_prompt_and_enhancer_share_one_core) ... ok
+test_custom_prompt_handles_research_without_enabling_capabilities (test_agent_ecosystem.AgentEcosystemTests.test_custom_prompt_handles_research_without_enabling_capabilities) ... ok
+test_project_plan_part4_reflects_profile_capability_correction (test_agent_ecosystem.AgentEcosystemTests.test_project_plan_part4_reflects_profile_capability_correction) ... ok
+test_prompt_creator_is_alias_not_duplicate_profile (test_agent_ecosystem.AgentEcosystemTests.test_prompt_creator_is_alias_not_duplicate_profile) ... ok
 test_reasoning_auditor_is_advisory_and_private_reasoning_safe (test_agent_ecosystem.AgentEcosystemTests.test_reasoning_auditor_is_advisory_and_private_reasoning_safe) ... ok
 test_append_only_writer (test_decision_records.DecisionRecordTests.test_append_only_writer) ... ok
 test_runtime_policy_is_active_and_auditable (test_decision_records.DecisionRecordTests.test_runtime_policy_is_active_and_auditable) ... ok
@@ -54,8 +54,13 @@ test_theme_designer_profile_contract (test_regression.RegressionTests.test_theme
 test_theme_designer_surface_gate_and_invariant_split (test_regression.RegressionTests.test_theme_designer_surface_gate_and_invariant_split) ... ok
 test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme_reference_generator_smoke) ... ok
 test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
+test_bounded_change_is_minor_patch (test_release_impact.ReleaseImpactTests.test_bounded_change_is_minor_patch) ... ok
+test_derived_paths_do_not_inflate_classifier (test_release_impact.ReleaseImpactTests.test_derived_paths_do_not_inflate_classifier) ... ok
+test_explicit_major_signal_escalates (test_release_impact.ReleaseImpactTests.test_explicit_major_signal_escalates) ... ok
+test_runtime_policy_matches_single_worktree_model (test_release_impact.ReleaseImpactTests.test_runtime_policy_matches_single_worktree_model) ... ok
+test_schema_or_core_lifecycle_change_is_major (test_release_impact.ReleaseImpactTests.test_schema_or_core_lifecycle_change_is_major) ... ok
 
 ----------------------------------------------------------------------
-Ran 53 tests in 2.072s
+Ran 58 tests in 2.246s
 
 OK

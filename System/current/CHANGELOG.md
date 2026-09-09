@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.22.0
+- Corrected Part 4 architecture: `custom_prompt` is the canonical selectable CREATE profile; `prompt_creator` is a compatibility alias, not a duplicate profile.
+- Removed the mistaken `deep_research_agent_architect` profile/module/policy and automatic research precursor. Research/Deep Research prompt construction now lives inside the shared prompt-specification core.
+- Enforced profile/capability separation: Deep Research, web/search, files, connectors and other plugins/tools are enabled/selected separately by the user/host; creating a prompt never activates a capability.
+- Added `release_impact_policy` plus executable `pdf_engine/release_impact.py` classification for `MINOR_PATCH` vs `MAJOR_PATCH`.
+- Minor-patch closure now avoids unrelated PDF/index/manifest/export regeneration, while retaining scoped iteration tests, one full regression before commit and automatic escalation when wider impact appears.
+- Explicitly modeled the Windows working tree as the OneDrive-synced execution mirror: write once locally, let OneDrive replicate passively, then make one verified Git commit/push.
+
 ## 0.21.0
 - Added optional `deep_research_agent_architect` profile/module/policy as an evidence precursor for new Custom GPT/system-prompt design.
 - Enforced `TARGET_AGENT_CONTRACT` vs `RESEARCH_AGENDA` separation so research questions/hypotheses cannot silently become agent requirements.

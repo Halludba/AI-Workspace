@@ -10,6 +10,7 @@ from .artifacts import create_report, create_ai_handoff, finalize_runtime_state,
 from .convergence import ConvergenceTracker
 from .testing import run_regression_suite
 from .latency import semantic_primary_state, run_generators_incremental, record_latency, refresh_context_files
+from .release_impact import classify_change, closure_plan, MINOR_PATCH, MAJOR_PATCH
 
 
 def _runtime(root: Path):
@@ -18,22 +19,42 @@ def _runtime(root: Path):
     return cfg,state
 
 
+def _selected_impact(root: Path, rt_state: dict) -> tuple[dict,dict]:
+    saved=rt_state.get('release_impact') or {}
+    if saved.get('status')=='CLASSIFIED' and saved.get('directive_id')==rt_state.get('directive_id'):
+        assessment=saved.get('assessment') or {}
+        if assessment.get('impact') in (MINOR_PATCH,MAJOR_PATCH):
+            return assessment,closure_plan(assessment)
+    assessment=classify_change(root.parent.parent)
+    return assessment,closure_plan(assessment)
+def _changed(assessment: dict, rel: str) -> bool:
+    target='System/current/'+rel.replace('\\','/')
+    return target in set(assessment.get('canonical_changed_paths',[]))
+
+
 def sync(config_path: Path, import_python_first: bool=False) -> int:
     total_start=time.time(); metrics={}
     root,state,schema=resolve_root(config_path)
+    rt_cfg,rt_state=_runtime(root)
+    assessment,plan=_selected_impact(root,rt_state)
+    metrics['release_impact']=assessment['impact']
+    metrics['impact_reasons']=assessment.get('reasons',[])
     risk=operational_risk_audit(root,state)
     if risk:
         print('\n'.join(risk),file=sys.stderr); return 2
+    generated_state_needed=(assessment['impact']==MAJOR_PATCH or _changed(assessment,'pdf_system_config.json'))
     if import_python_first:
         state=import_generated_python(root); jsonschema.validate(state,schema); write_json(config_path,state)
-    export_generated_python(root,state)
-    rt_cfg,rt_state=_runtime(root)
+        generated_state_needed=True
+    if generated_state_needed:
+        export_generated_python(root,state)
     refresh_context_files(root,state,rt_cfg,rt_state)
 
     t=time.time(); passes=[]; stable=False
     tracker=ConvergenceTracker(state['convergence'].get('detect_cycles',True))
     for n in range(1,state['convergence']['max_passes']+1):
-        export_generated_python(root,state)
+        if generated_state_needed:
+            export_generated_python(root,state)
         issues=structural_audit(root,state,False,check_pdfs=False)
         obs=tracker.observe(semantic_primary_state(root,state),issues)
         passes.append({'pass':n,'changed':obs['changed'],'issues':list(obs['issues'])})
@@ -55,39 +76,54 @@ def sync(config_path: Path, import_python_first: bool=False) -> int:
             print(output,file=sys.stderr); record_latency(root,metrics); return 6
 
     final=structural_audit(root,state,False,check_pdfs=True)
-    verify,verify_seconds=render_and_preflight(root); final+=verify
+    pdf_inputs_changed=bool(build['ran']) or any(_changed(assessment,x) for x in ('build_formats_pdf_v18.py','create_pdf_workflow_v13.py','Formats.pdf','PDF_Workflow.pdf'))
+    if assessment['impact']==MAJOR_PATCH or pdf_inputs_changed:
+        verify,verify_seconds=render_and_preflight(root); final+=verify
+    else:
+        verify_seconds=0.0
     metrics['verification_seconds']=round(verify_seconds,4)
     if final:
         create_report(root,state,passes,final,metrics['semantic_convergence_seconds'],verify_seconds)
         record_latency(root,metrics); return 4
-
     create_report(root,state,passes,[],metrics['semantic_convergence_seconds'],verify_seconds)
     finalize_runtime_state(root,state)
     update_trace_after_run(root,state,passes,[])
     rt_cfg,rt_state=_runtime(root)
+    rt_state['release_impact']={
+        'status':'CLOSED','directive_id':rt_state.get('directive_id'),
+        'assessment':assessment,'closure_plan':plan
+    }
+    write_json(root/'ai_runtime_state.json',rt_state)
     refresh_context_files(root,state,rt_cfg,rt_state)
     delivery=state.get('release',{}).get('delivery_mode','portable_bundle')
     if delivery=='persistent_workspace':
-        create_manifest(root,state,len(passes))
+        if assessment['impact']==MAJOR_PATCH:
+            create_manifest(root,state,len(passes))
         closure=structural_audit(root,state,True,check_pdfs=True)
         metrics['total_seconds']=round(time.time()-total_start,4)
         metrics['closure']='PASS' if not closure else 'FAIL'
         record_latency(root,metrics)
         if closure:
             print('\n'.join(closure),file=sys.stderr); return 5
+        print(f"PASS: release impact={assessment['impact']}")
         print(f'PASS: stable semantic fixed point in {len(passes)} passes')
         print(f"PASS: incremental build generated={len(build['ran'])} cache_hits={len(build['skipped'])}")
-        print('PASS: persistent workspace closure; portable exports deferred')
+        if assessment['impact']==MINOR_PATCH:
+            print('PASS: minimal persistent closure; unaffected derived artifacts/manifest not regenerated')
+        else:
+            print('PASS: major persistent workspace closure; portable exports deferred')
         return 0
     create_ai_handoff(root,state); create_manifest(root,state,len(passes)); bundle=create_bundle(root,state)
     closure=structural_audit(root,state,True,check_pdfs=True)
     metrics['total_seconds']=round(time.time()-total_start,4); metrics['closure']='PASS' if not closure else 'FAIL'; record_latency(root,metrics)
     if closure:
         print('\n'.join(closure),file=sys.stderr); return 5
+    print(f"PASS: release impact={assessment['impact']}")
     print(f'PASS: stable semantic fixed point in {len(passes)} passes')
     print('PASS: AI handoff exactly five files')
     print(f'PASS: versioned categorized bundle={bundle.name}')
     return 0
+
 
 def export_portable(config_path: Path) -> int:
     root,state,_=resolve_root(config_path)

@@ -1,10 +1,10 @@
 {
-  "system_version": "0.21.0",
-  "runtime_version": "0.14.0",
+  "system_version": "0.22.0",
+  "runtime_version": "0.15.0",
   "current_profile": "general_balanced",
-  "active_directive": "2026-09-09-deep-research-agent-architect",
+  "active_directive": "2026-09-09-custom-prompt-and-impact-aware-persistence",
   "phase": "HANDOFF",
-  "last_mutation_target": "Add an optional evidence-research precursor that cleanly separates target-agent requirements from research questions, preserves capability uncertainty, and routes research-generated prompts through existing enhancement/audit/governance gates.",
+  "last_mutation_target": "Correct profile/capability abstraction and add executable impact-aware release closure that minimizes unnecessary directory/artifact work without weakening verification.",
   "blockers": [],
   "context_tiers": {
     "TIER_0": "Operating kernel: authority, current profile, active directive, version, blockers and workspace bindings.",

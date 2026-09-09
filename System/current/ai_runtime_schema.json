@@ -24,7 +24,7 @@
     "latency_policy",
     "agent_development_policy",
     "decision_record_policy",
-    "deep_research_agent_architect_policy"
+    "release_impact_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -844,8 +844,7 @@
         "performance_feedback",
         "decision_record_status",
         "decision_record_rule",
-        "deep_research_precursor",
-        "deep_research_downstream_gate"
+        "capability_activation_boundary"
       ],
       "properties": {
         "policy_version": {
@@ -882,11 +881,9 @@
         "decision_record_rule": {
           "type": "string"
         },
-        "deep_research_precursor": {
-          "type": "string"
-        },
-        "deep_research_downstream_gate": {
-          "type": "string"
+        "capability_activation_boundary": {
+          "type": "string",
+          "minLength": 1
         }
       }
     },
@@ -941,82 +938,81 @@
         }
       }
     },
-    "deep_research_agent_architect_policy": {
+    "release_impact_policy": {
       "type": "object",
       "required": [
         "policy_version",
-        "purpose",
-        "use_when",
-        "bypass_when",
-        "phases",
-        "separation_rule",
-        "research_question_domains",
-        "evidence_policy",
-        "capability_boundary",
-        "result_authority",
-        "downstream_route",
-        "execution_boundary",
-        "prompt_injection_boundary"
+        "enabled",
+        "classes",
+        "classification_time",
+        "minor_patch_when",
+        "major_patch_when",
+        "minor_closure",
+        "major_closure",
+        "workspace_persistence",
+        "semver_boundary",
+        "escalation_rule"
       ],
       "properties": {
         "policy_version": {
           "type": "string"
         },
-        "purpose": {
+        "enabled": {
+          "const": true
+        },
+        "classes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "MINOR_PATCH",
+              "MAJOR_PATCH"
+            ]
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "classification_time": {
           "type": "string"
         },
-        "use_when": {
+        "minor_patch_when": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "minItems": 1
         },
-        "bypass_when": {
+        "major_patch_when": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "minItems": 1
         },
-        "phases": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 5
-        },
-        "separation_rule": {
-          "type": "string"
-        },
-        "research_question_domains": {
+        "minor_closure": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "minItems": 1
         },
-        "evidence_policy": {
-          "type": "string"
-        },
-        "capability_boundary": {
-          "type": "string"
-        },
-        "result_authority": {
-          "type": "string"
-        },
-        "downstream_route": {
+        "major_closure": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "minItems": 3
+          "minItems": 1
         },
-        "execution_boundary": {
-          "type": "string"
+        "workspace_persistence": {
+          "type": "string",
+          "minLength": 1
         },
-        "prompt_injection_boundary": {
-          "type": "string"
+        "semver_boundary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "escalation_rule": {
+          "type": "string",
+          "minLength": 1
         }
       }
     }

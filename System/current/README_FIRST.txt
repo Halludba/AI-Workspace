@@ -1,4 +1,4 @@
-Recursive AI Config System v0.21.0
+Recursive AI Config System v0.22.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -34,5 +34,8 @@ Prompt Creator and Prompt Enhancer share one specification-engineering core with
 DECISION RECORDS
 Material governed choices may emit append-only per-profile records under decision_records/. They store concise externalizable decision rationale and evidence links, never private chain-of-thought. Validate/write with decision_record.py.
 
-DEEP RESEARCH AGENT ARCHITECT
-Use deep_research_agent_architect when research can materially change a new agent specification or the user explicitly requests research-first design. It separates TARGET_AGENT_CONTRACT from RESEARCH_AGENDA, preserves unknown capabilities, and routes research-produced prompts through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE.
+CUSTOM PROMPT PROFILE
+Use the selectable custom_prompt profile whenever an optimal prompt is needed. It can create research/Deep Research, coding, analysis, Custom GPT/system and other prompt types. prompt_creator is a compatibility alias only. Profiles define behavior; Deep Research/web/files/connectors and other plugins/tools remain separately enabled by the user/host.
+
+RELEASE IMPACT / MINIMAL PERSISTENCE
+After a completed system part or reusable mutation, classify operational blast radius as MINOR_PATCH or MAJOR_PATCH before release materialization. Minor patches update only changed canonical files plus required provenance/state, use scoped checks during iteration, run one full regression before commit, and regenerate derived artifacts only when dependencies changed. Major patches use full closure. The Windows working tree is already OneDrive-synced, so edit it once; OneDrive replicates passively and Git records canonical history with one commit/push.

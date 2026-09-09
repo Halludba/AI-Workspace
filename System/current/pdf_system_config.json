@@ -1,6 +1,6 @@
 {
   "system_name": "Formats PDF System",
-  "system_version": "0.8.0",
+  "system_version": "0.22.0",
   "artifact_root": ".",
   "authority_order": [
     "reality_tool_platform_constraints",
@@ -303,7 +303,12 @@
     },
     {
       "id": "1.1k.xiii",
-      "name": "Deep Research Agent Architect & Research-to-Prompt Gate",
+      "name": "Custom Prompt Profile & Capability Separation",
+      "status": "active"
+    },
+    {
+      "id": "1.1n.vi",
+      "name": "Release Impact Classification & Minimal Persistence",
       "status": "active"
     }
   ],
@@ -729,20 +734,34 @@
       "role": "decision_record_regression_tests",
       "bundle_folder": "03 PDF System/Tests",
       "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/release_impact.py",
+      "classification": "REQUIRED",
+      "role": "release_impact_classifier",
+      "bundle_folder": "03 PDF System/Engine",
+      "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/tests/test_release_impact.py",
+      "classification": "REQUIRED",
+      "role": "release_impact_regression_tests",
+      "bundle_folder": "03 PDF System/Tests",
+      "include_in_bundle": true
     }
   ],
   "release": {
-    "version": "0.21.0",
-    "previous_version": "0.20.0",
+    "version": "0.22.0",
+    "previous_version": "0.21.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.21.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.22.0.zip",
     "folder_policy": "role_based",
     "ai_handoff_file_count": 5,
     "delivery_mode": "persistent_workspace",
     "bundle_required": false,
     "ai_handoff_default": false,
     "portable_export_supported": true,
-    "previous_tag": "v0.20.0"
+    "previous_tag": "v0.21.0"
   },
   "modularity": {
     "enabled": true,
@@ -789,7 +808,8 @@
       "pdf_engine/tests/test_pdf_styler.py",
       "pdf_engine/tests/test_latency.py",
       "pdf_engine/tests/test_agent_ecosystem.py",
-      "pdf_engine/tests/test_decision_records.py"
+      "pdf_engine/tests/test_decision_records.py",
+      "pdf_engine/tests/test_release_impact.py"
     ],
     "deterministic_invariants": [
       "schema_validation",
@@ -814,7 +834,12 @@
       "reasoning_audit_private_cot_boundary",
       "agent_development_pipeline_contract",
       "agent_development_pipeline",
-      "decision_record_privacy_boundary"
+      "decision_record_privacy_boundary",
+      "custom_prompt_profile_alias_contract",
+      "profile_capability_separation",
+      "release_impact_minor_major_classifier",
+      "minor_patch_minimal_persistence",
+      "onedrive_single_working_tree_persistence"
     ],
     "semantic_boundary": "Tests verify executable invariants only; semantic intent and visual correctness remain separate reasoning/render verification responsibilities.",
     "tiers": {

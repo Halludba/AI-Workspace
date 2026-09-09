@@ -1,5 +1,5 @@
 {
-  "version": "0.21.0",
+  "version": "0.22.0",
   "topics": {
     "workspace": {
       "files": [
@@ -141,19 +141,21 @@
         "reasoning_auditor"
       ]
     },
-    "deep_research_agent_architect": {
+    "release_impact": {
       "files": [
+        "pdf_engine/release_impact.py",
         "ai_runtime_config.json",
-        "project_plan.json",
-        "decision_record_schema.json"
+        "WORKSPACE.json",
+        "pdf_engine/orchestrator.py"
       ],
       "tests": [
-        "pdf_engine/tests/test_agent_ecosystem.py"
+        "pdf_engine/tests/test_release_impact.py",
+        "pdf_engine/tests/test_latency.py"
       ],
       "artifacts": [],
       "depends_on": [
-        "prompt_agents",
-        "reasoning_auditor"
+        "workspace",
+        "core_system"
       ]
     }
   }

@@ -1,0 +1,177 @@
+{
+  "record_version": "1.0",
+  "record_id": "20260909-v022-custom-prompt-impact-persistence",
+  "recorded_utc": "2026-09-09T09:03:35.245168+00:00",
+  "directive_id": "2026-09-09-custom-prompt-and-impact-aware-persistence",
+  "profile_id": "general_balanced",
+  "objective": "Correct Part 4 so Custom Prompt is the selectable prompt-construction profile while plugins/capabilities remain separate, and add impact-aware release closure that avoids unnecessary broad persistence for small patches.",
+  "constraints": [
+    {
+      "id": "c1",
+      "text": "Profiles define reusable behavior; Deep Research/web/files/connectors are separately enabled capabilities and must not be silently activated.",
+      "provenance": "explicit user correction"
+    },
+    {
+      "id": "c2",
+      "text": "Minor-patch optimization must preserve correctness, provenance, rollback and one complete regression before commit.",
+      "provenance": "explicit user request plus existing closure invariants"
+    },
+    {
+      "id": "c3",
+      "text": "The Windows working tree resides inside OneDrive and should be treated as one edit target with passive sync, not two manual persistence transactions.",
+      "provenance": "WORKSPACE.json local_execution binding"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl1",
+      "text": "The v0.21 Deep Research Agent Architect profile was the wrong abstraction for the requested design.",
+      "provenance": "user correction and v0.21 runtime comparison"
+    },
+    {
+      "id": "cl2",
+      "text": "A deterministic impact classifier can safely reduce unrelated derived regeneration when changes are bounded and independently verifiable.",
+      "provenance": "implemented classifier and regression tests"
+    },
+    {
+      "id": "cl3",
+      "text": "This v0.22 mutation itself requires MAJOR_PATCH closure because it changes the schema and persistence/orchestration lifecycle.",
+      "provenance": "release_impact.py classification"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "source": "pdf_engine/tests full regression suite: 58 tests passed",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2"
+      ]
+    },
+    {
+      "id": "e2",
+      "source": "workspace_ctl.py impact -> MAJOR_PATCH for v0.22 implementation",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl3"
+      ]
+    },
+    {
+      "id": "e3",
+      "source": "pdf_system_engine.py full closure -> stable fixed point in 2 passes; generated=2; major persistent workspace closure PASS",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2",
+        "cl3"
+      ]
+    },
+    {
+      "id": "e4",
+      "source": "Visual inspection of all rendered Formats.pdf and PDF_Workflow.pdf pages after v0.22 generation",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a1",
+      "text": "OneDrive continues to sync the configured local working tree normally; passive sync status is not used as a substitute for Git history.",
+      "provenance": "workspace architecture assumption"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "alt1",
+      "option": "Keep deep_research_agent_architect as a profile and only rename it.",
+      "disposition": "REJECTED",
+      "reason": "Still conflates a capability-oriented use case with the requested reusable Custom Prompt profile."
+    },
+    {
+      "id": "alt2",
+      "option": "Remove research-specific guidance entirely.",
+      "disposition": "REJECTED",
+      "reason": "Useful research-prompt architecture belongs inside Custom Prompt without becoming a separate profile."
+    },
+    {
+      "id": "alt3",
+      "option": "Always perform full closure for every mutation.",
+      "disposition": "REJECTED",
+      "reason": "Preserves correctness but wastes time on unrelated derived artifacts for bounded changes."
+    },
+    {
+      "id": "alt4",
+      "option": "Use impact classification with escalation.",
+      "disposition": "SELECTED",
+      "reason": "Provides cheap bounded closure when safe while retaining automatic major closure for broad/core changes."
+    }
+  ],
+  "decision": "Adopt custom_prompt as the canonical CREATE profile with prompt_creator as an alias; keep plugin/capability activation separate; remove the Deep Research profile/automatic precursor; add executable MINOR_PATCH/MAJOR_PATCH classification and single OneDrive-backed working-tree plus Git persistence.",
+  "unknowns": [
+    {
+      "id": "u1",
+      "text": "Actual wall-clock savings for future minor patches are not yet measured and must not be claimed until observed.",
+      "provenance": "no post-v0.22 minor-patch production sample yet"
+    }
+  ],
+  "verification": [
+    {
+      "check": "Targeted Custom Prompt/release-impact tests pass",
+      "status": "PASS",
+      "evidence_ref": "e1"
+    },
+    {
+      "check": "Full deterministic regression suite passes 58/58",
+      "status": "PASS",
+      "evidence_ref": "e1"
+    },
+    {
+      "check": "Semantic fixed point reached in 2 passes",
+      "status": "PASS",
+      "evidence_ref": "e3"
+    },
+    {
+      "check": "Formats.pdf visual inspection clean across rendered pages",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    },
+    {
+      "check": "PDF_Workflow.pdf visual inspection clean across rendered pages",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    },
+    {
+      "check": "v0.22 classifier correctly escalates its own schema/orchestrator change to MAJOR_PATCH",
+      "status": "PASS",
+      "evidence_ref": "e2"
+    }
+  ],
+  "links": [
+    {
+      "kind": "artifact",
+      "target": "ai_runtime_config.json"
+    },
+    {
+      "kind": "artifact",
+      "target": "pdf_engine/release_impact.py"
+    },
+    {
+      "kind": "artifact",
+      "target": "pdf_engine/orchestrator.py"
+    },
+    {
+      "kind": "artifact",
+      "target": "Formats.pdf"
+    },
+    {
+      "kind": "artifact",
+      "target": "PDF_Workflow.pdf"
+    },
+    {
+      "kind": "plan_part",
+      "target": "project_plan.json part 4 corrected completion"
+    }
+  ],
+  "privacy_attestation": "NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"
+}

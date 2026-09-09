@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.14.0",
+  "runtime_version": "0.15.0",
   "directive_epoch": 15,
-  "directive_id": "2026-09-09-deep-research-agent-architect",
+  "directive_id": "2026-09-09-custom-prompt-and-impact-aware-persistence",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.21.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.22.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "project_plan_part_4_explicit_resume",
-    "source_reference": "project_plan.json part 4 plus current user directive part 4",
-    "user_prompt_summary": "Continue Part 4: build the Deep Research / Agent Prompt Architect layer.",
-    "target_improvement": "Add an optional research-first agent-design precursor that separates research questions from target behavior, preserves capability uncertainty, and routes research-produced prompts through existing enhancement/audit/governance gates."
+    "source_type": "user_correction_plus_system_optimization",
+    "source_reference": "Current user directive after v0.21.0 Part 4 correction",
+    "user_prompt_summary": "Make Custom Prompt the selectable prompt-construction profile; keep Deep Research as a separately enabled capability; add minor/major patch impact classification so small changes avoid broad directory regeneration.",
+    "target_improvement": "Correct profile/capability separation and add impact-aware persistence that minimizes unnecessary writes while preserving full verification and escalation."
   },
   "theme_session": {
     "phase": "IDLE",
@@ -71,8 +71,77 @@
   },
   "decision_record_session": {
     "phase": "READY",
-    "current_record_id": "20260909-part3-decision-records-v020",
-    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-part3-decision-records-v020.json",
+    "current_record_id": "20260909-v022-custom-prompt-impact-persistence",
+    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
     "pending_audit": false
+  },
+  "release_impact": {
+    "status": "CLOSED",
+    "directive_id": "2026-09-09-custom-prompt-and-impact-aware-persistence",
+    "assessment": {
+      "impact": "MAJOR_PATCH",
+      "reasons": [
+        "major_path:System/current/ai_runtime_schema.json,System/current/pdf_engine/orchestrator.py,System/current/pdf_engine/release_impact.py",
+        "major_semantic_tokens:authority_order,core.recursive_mutation_lifecycle,release_impact_policy,workspace_policy,planning_policy,execution_capacity_policy"
+      ],
+      "canonical_changed_paths": [
+        "System/current/CHANGELOG.md",
+        "System/current/MUTATION_TRACE.md",
+        "System/current/README_FIRST.txt",
+        "System/current/ai_runtime_adapter.py",
+        "System/current/ai_runtime_config.json",
+        "System/current/ai_runtime_schema.json",
+        "System/current/ai_runtime_state.json",
+        "System/current/build_formats_pdf_v18.py",
+        "System/current/create_pdf_workflow_v13.py",
+        "System/current/decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
+        "System/current/mutation_trace.json",
+        "System/current/pdf_engine/audits.py",
+        "System/current/pdf_engine/orchestrator.py",
+        "System/current/pdf_engine/release_impact.py",
+        "System/current/pdf_engine/tests/test_agent_ecosystem.py",
+        "System/current/pdf_engine/tests/test_release_impact.py",
+        "System/current/pdf_system_config.json",
+        "System/current/project_plan.json",
+        "System/current/version_history.json",
+        "System/current/workspace_ctl.py",
+        "WORKSPACE.json"
+      ]
+    },
+    "closure_plan": {
+      "impact": "MAJOR_PATCH",
+      "full_convergence": true,
+      "scoped_iteration_tests": true,
+      "full_regression_before_commit": true,
+      "refresh_global_indexes": true,
+      "regenerate_all_affected_derived": true,
+      "portable_export": false,
+      "manifest_refresh": true,
+      "pdf_verification": "AFFECTED_PDFS_AND_CHANGED_PAGES",
+      "persistence": "ONE_ONEDRIVE_SYNCED_WORKTREE_PLUS_ONE_GIT_COMMIT_PUSH",
+      "changed_paths": [
+        "System/current/CHANGELOG.md",
+        "System/current/MUTATION_TRACE.md",
+        "System/current/README_FIRST.txt",
+        "System/current/ai_runtime_adapter.py",
+        "System/current/ai_runtime_config.json",
+        "System/current/ai_runtime_schema.json",
+        "System/current/ai_runtime_state.json",
+        "System/current/build_formats_pdf_v18.py",
+        "System/current/create_pdf_workflow_v13.py",
+        "System/current/decision_records/general_balanced/2026-09-09/20260909-v022-custom-prompt-impact-persistence.json",
+        "System/current/mutation_trace.json",
+        "System/current/pdf_engine/audits.py",
+        "System/current/pdf_engine/orchestrator.py",
+        "System/current/pdf_engine/release_impact.py",
+        "System/current/pdf_engine/tests/test_agent_ecosystem.py",
+        "System/current/pdf_engine/tests/test_release_impact.py",
+        "System/current/pdf_system_config.json",
+        "System/current/project_plan.json",
+        "System/current/version_history.json",
+        "System/current/workspace_ctl.py",
+        "WORKSPACE.json"
+      ]
+    }
   }
 }

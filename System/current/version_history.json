@@ -90,6 +90,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.22.0",
+      "previous_version": "0.21.0",
+      "change": "Corrected Custom Prompt profile/capability separation plus impact-aware minimal persistence and single OneDrive-backed working-tree/Git closure.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

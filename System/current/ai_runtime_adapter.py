@@ -26,10 +26,17 @@ def load():
     return cfg, state
 
 
+def resolve_profile_id(cfg, profile_id):
+    if not profile_id:
+        return profile_id
+    aliases=cfg.get('profiles',{}).get('aliases',{})
+    return aliases.get(profile_id,aliases.get(str(profile_id).lower(),profile_id))
+
+
 def compatible_modules(cfg, capabilities, profile_id=None):
     caps = set(capabilities)
     active, degraded = [], []
-    profile_id = profile_id or cfg.get('profiles', {}).get('current_profile')
+    profile_id = resolve_profile_id(cfg, profile_id or cfg.get('profiles', {}).get('current_profile'))
     profile = cfg.get('profiles', {}).get('definitions', {}).get(profile_id, {})
     selected = set(profile.get('enabled_modules', []))
     for m in cfg['modules']:
@@ -43,7 +50,7 @@ def compatible_modules(cfg, capabilities, profile_id=None):
 
 
 def instruction_packet(cfg, state, capabilities, profile_override=None):
-    selected_profile = profile_override or state.get('current_profile') or cfg.get('profiles', {}).get('current_profile')
+    selected_profile = resolve_profile_id(cfg, profile_override or state.get('current_profile') or cfg.get('profiles', {}).get('current_profile'))
     profile = cfg.get('profiles', {}).get('definitions', {}).get(selected_profile, {})
     active, degraded = compatible_modules(cfg, capabilities, selected_profile)
     effective_depth = profile.get('decision_depth', state.get('current_decision_depth', cfg.get('decision_policy', {}).get('current_depth')))
@@ -78,7 +85,7 @@ def instruction_packet(cfg, state, capabilities, profile_override=None):
         for m, missing in degraded:
             lines.append(f"- {m['id']}: missing capabilities: {', '.join(missing)}")
     # Portable planning/continuity/review policies are serialized for hosts that need them.
-    for policy_name in ('workspace_policy','pdf_styler_policy','planning_policy','execution_capacity_policy','secondary_review_policy','decision_record_policy','deep_research_agent_architect_policy','agent_development_policy'):
+    for policy_name in ('workspace_policy','pdf_styler_policy','planning_policy','execution_capacity_policy','secondary_review_policy','decision_record_policy','release_impact_policy','agent_development_policy'):
         if isinstance(cfg.get(policy_name), dict):
             lines += ["", policy_name.upper() + ':', json.dumps(cfg[policy_name], indent=2, ensure_ascii=False)]
     plan_path = ROOT / cfg.get('planning_policy', {}).get('plan_path', 'project_plan.json')
@@ -111,7 +118,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--capability', action='append', default=['reasoning'], help='Host capability; repeatable')
     ap.add_argument('--output', default=str(ROOT / 'AI_Runtime_Instructions.txt'))
-    ap.add_argument('--profile', choices=sorted(load()[0].get('profiles',{}).get('definitions',{})), help='Generate an instruction packet for a named workflow profile without mutating global runtime state')
+    ap.add_argument('--profile', choices=sorted(set(load()[0].get('profiles',{}).get('definitions',{})) | set(load()[0].get('profiles',{}).get('aliases',{}))), help='Generate an instruction packet for a named workflow profile or alias without mutating global runtime state')
     args = ap.parse_args()
     cfg, state = load()
     packet = instruction_packet(cfg, state, args.capability, args.profile)

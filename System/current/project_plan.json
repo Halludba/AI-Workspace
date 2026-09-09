@@ -7,8 +7,9 @@
     "Prompt Creator and Prompt Enhancer should share one specification-engineering core where behavior overlaps, with distinct create/enhance modes rather than duplicated logic.",
     "Reasoning Auditor validates visible rationale/evidence and recursive iteration quality; it is advisory and must not request or store private chain-of-thought.",
     "Future system reasoning records should be concise auditable decision records (claims/evidence/assumptions/alternatives/decisions/unknowns/verification), not hidden reasoning transcripts.",
-    "Eventually add a specialized Deep Research / agent-prompt architect layer for producing research prompts that generate new Custom GPT prompts.",
-    "Use real session evidence and Profile Performance Auditor before permanently promoting speculative governance machinery."
+    "Use real session evidence and Profile Performance Auditor before permanently promoting speculative governance machinery.",
+    "Custom Prompt is the selectable prompt-construction profile. Deep Research/search/web/files/connectors are capabilities/plugins selected separately by the user/host, not profiles and not automatic pipeline stages.",
+    "Custom Prompt is the selectable prompt-construction profile. Deep Research/search/web/files/connectors are capabilities/plugins selected separately by the user/host, not profiles and not automatic pipeline stages."
   ],
   "constraints": [
     "Current explicit user instruction always outranks the saved plan.",
@@ -129,33 +130,29 @@
     {
       "id": "deep-research-agent-architect",
       "part_number": 4,
-      "title": "Build Deep Research / Agent Prompt Architect",
+      "title": "Generalize Custom Prompt for Research and Capability-Aware Prompt Creation",
       "raw_user_intent": "The next step may as well be creating a custom agent for creating prompts for deep research to create custom prompts.",
-      "objective": "Create a specialized layer that turns an agent goal into a high-quality Deep Research brief for researching and producing a new Custom GPT/system prompt, then routes the result through Prompt Enhancer and Reasoning Auditor.",
+      "objective": "Use the existing Custom Prompt profile to create optimal prompts for any requested task, including Deep Research prompts, while keeping Deep Research and other tools/plugins as separately user-enabled capabilities.",
       "priority": 4,
       "status": "COMPLETED",
       "dependencies": [
         "reasoning-auditor-validation"
       ],
       "acceptance_criteria": [
-        "Research prompt separates research questions from desired final agent behavior.",
-        "No invented tool/capability assumptions.",
-        "Generated agent prompts flow through enhancement and epistemic audit before deployment."
+        "Custom Prompt can create research/Deep Research prompts as well as system/coding/analysis prompts.",
+        "Deep Research is not represented as a profile or automatic pipeline stage.",
+        "Profile behavior and plugin/capability activation remain explicitly separate."
       ],
       "completion_evidence": [
-        "Deep Research Agent Architect profile/module/policy added without duplicating Prompt Creator/Enhancer core.",
-        "TARGET_AGENT_CONTRACT and RESEARCH_AGENDA separation plus capability-unknown/source-quality boundaries are regression-enforced.",
-        "Research-produced prompts are ordered through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE.",
-        "53/53 deterministic regression tests passed before full artifact closure.",
-        "Full semantic convergence reached a stable fixed point in 2 passes.",
-        "Formats.pdf rule 1.1k.xiii visually verified on page 15.",
-        "PDF_Workflow.pdf stage 2.7.14 visually verified on page 13."
+        "v0.21 deep_research_agent_architect abstraction was superseded after direct user correction.",
+        "Custom Prompt now owns general CREATE behavior and research-prompt architecture through the shared prompt specification core.",
+        "prompt_creator remains a compatibility alias to custom_prompt rather than a duplicate profile.",
+        "Capability activation boundary explicitly keeps Deep Research/web/files/connectors under user/host control."
       ],
       "next_actions": [
-        "Proceed to Part 5 periodic agent quality loop when requested.",
-        "Use the new architect on a real agent goal to evaluate practical research-brief quality before any future policy tuning."
+        "Use Custom Prompt by name whenever an optimized prompt is needed; enable Deep Research or other plugins separately when desired."
       ],
-      "source_reference": "User roadmap in supplied Qwen conversation."
+      "source_reference": "Original roadmap plus explicit user correction after v0.21.0."
     },
     {
       "id": "periodic-agent-quality-loop",
@@ -183,6 +180,6 @@
   "current_part_id": null,
   "last_completed_part_id": "deep-research-agent-architect",
   "next_recommended_part_id": "periodic-agent-quality-loop",
-  "resume_hint": "Part 4 completed: Deep Research Agent Architect is an optional evidence precursor. Next recommended work is Part 5 periodic agent quality audits.",
-  "updated_utc": "2026-09-09T08:08:50.769181+00:00"
+  "resume_hint": "Part 4 corrected: Custom Prompt is the reusable prompt-construction profile; Deep Research is a separately enabled capability. Part 5 remains pending.",
+  "updated_utc": "2026-09-09T08:24:00+00:00"
 }
