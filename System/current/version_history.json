@@ -30,6 +30,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.16.0",
+      "previous_version": "0.15.0",
+      "change": "Persistent workspace becomes primary delivery/continuity; portable ZIP/AI handoff becomes on-demand; OneDrive-safe handoff regeneration.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

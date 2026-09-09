@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.8.0",
-  "directive_epoch": 9,
-  "directive_id": "2026-09-09-strategic-plan-checkpoint-continuity",
+  "runtime_version": "0.9.0",
+  "directive_epoch": 10,
+  "directive_id": "2026-09-09-persistent-workspace-primary",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.15.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.16.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "external_model_design_review_plus_user_project_intent",
-    "source_reference": "Qwen and DeepSeek conversation attachments",
-    "user_prompt_summary": "Shared Qwen/DeepSeek discussions proposing a persistent central direction/goal plan, part-by-part resumption, execution-size anticipation/checkpointing, and a complementary secondary-AI advisory role.",
-    "target_improvement": "Add a persistent strategic plan plus capacity-aware segmented execution/checkpoint continuity, and make the five-file handoff support an optional strategic second-mind reviewer without reducing single-host portability."
+    "source_type": "explicit_user_workspace_architecture",
+    "source_reference": "Design project persistent workspace request plus observed OneDrive execution failure",
+    "user_prompt_summary": "Use GitHub, OneDrive, Google Drive and Remote Desktop Commander as a shared persistent workspace so routine versions no longer require recreated ZIP handoffs.",
+    "target_improvement": "Make persistent workspace state the normal delivery/continuity mechanism, keep portable exports on demand, and make handoff regeneration safe on the OneDrive execution mirror."
   },
   "theme_session": {
     "phase": "IDLE",

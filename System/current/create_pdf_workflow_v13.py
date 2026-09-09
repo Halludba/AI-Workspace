@@ -227,13 +227,17 @@ pages=[
  Block('2.13 Discover & Materialize Required Artifacts',2,[
   ('body','Derive the concrete artifact set required for the accepted architecture and create every feasible REQUIRED local artifact rather than stopping at a recommendation.'),]),
  Block('2.13.1 Generate AI-Optimized Handoff View',3,[
-  ('body','When AI handoff is active, derive exactly five dependency-ordered files: briefing/history, unified current state, authoritative rules Markdown, workflow Markdown, and consolidated executable-source capsule.'),
-  ('small','The five-file view is derived and non-authoritative; regenerate it from the fixed-point sources whenever the system changes. If the receiver is acting as a secondary reviewer, use the optional strategic-reviewer profile to complement rather than duplicate the main execution host; reviewer feedback remains advisory input.'),]),
+  ('body','When an explicit portable AI handoff/export is requested, derive exactly five dependency-ordered files: briefing/history, unified current state, authoritative rules Markdown, workflow Markdown, and consolidated executable-source capsule.'),
+  ('small','The five-file view is derived and non-authoritative. In persistent-workspace mode, generate it on demand from the current fixed point rather than maintaining it as routine mutable state. Secondary-reviewer feedback remains advisory input.'),]),
  Block('2.13.2 Snapshot Version & Update Change History',3,[
-  ('body','Preserve the immediately previous complete versioned ZIP under Previous Versions/, then after verified closure append release metrics/history, finalize mutation provenance/causal trace, regenerate CHANGELOG.md and update manifest hashes.'),
-  ('small','Keep one immediate prior full bundle; older lineage remains in metadata to avoid recursive archive bloat.'),]),
+  ('body','In persistent-workspace mode, preserve prior stable state through source-control history and optional semantic version tags, then after verified closure append release metrics/history, finalize mutation provenance, regenerate CHANGELOG.md and update manifest hashes. Preserve a previous ZIP only when producing an explicit portable/recovery export.'),
+  ('small','Do not duplicate repository history inside routine artifacts. Portable exports may carry bounded recovery lineage when explicitly requested.'),]),
  Block('2.13.3 Package Versioned Categorized Bundle',3,[
-  ('body','Create the final ZIP only after the derived handoff/history state is ready. Include the semantic version in the ZIP filename and route files into role-based folders: Start Here, AI Runtime, PDF System, History & Audit, AI Handoff, and Previous Versions.'),]),
+  ('body','Only when a portable ZIP is explicitly requested or materially required for recovery, create it after current history/state are ready. Keep the semantic version in the filename and preserve role-based folders without treating the export as canonical workspace state.'),]),
+ Block('2.13.4 Commit Persistent Workspace & Synchronize Stores',3,[
+  ('body','When persistent workspace mode is active, resolve WORKSPACE.json/front-door bindings before persistence. Treat the configured repository/current source as canonical, the synced local tree as the execution mirror, and the configured asset store as the visual/binary reference layer.'),
+  ('body','After tests/convergence/verification pass, record the source change in version control when authorized and supported. Update workspace version/status metadata only after verified closure. Do not claim a push, sync or connector write that was not actually executed.'),
+  ('small','If repository/device/connectors are unavailable, preserve the last verified state and either use another configured binding or offer an explicit portable export; workspace configuration never manufactures access.'),]),
  Block('2.14 Paginate & Space',2,[
   ('body','Apply section-aware pagination after semantics and closure are settled: fresh-page singleton at top, one remaining block balanced only within an occupied remainder, and equal-gap distribution for multiple blocks.'),]),
 ],
@@ -263,9 +267,9 @@ for group in pages:
 # Final singleton handoff
 c.showPage(); page+=1; setup_page(c,page)
 place_singleton(c,Block('3 Operational Handoff',1,[
- ('body','When required verification passes, deliver the final user-facing handoff. If multiple artifacts exist, the versioned categorized ZIP bundle is primary by default.'),
+ ('body','When required verification passes, deliver the final user-facing handoff. In persistent-workspace mode, verified workspace state plus source-control history is primary; portable ZIP/AI Handoff artifacts are generated only when explicitly requested or materially required for recovery.'),
  ('body','<b>Ordinary artifact:</b> deliver the requested artifact; mutate the system only when a genuine reusable system rule changed.'),
- ('body','<b>System mutation:</b> deliver the regenerated synchronized bundle after fixed point and required artifact closure.'),
+ ('body','<b>System mutation:</b> persist verified canonical workspace changes and source-control history after fixed point and required artifact closure; export a bundle only on request.'),
  ('body','<b>Predictive optional action:</b> record why it was selected, consume the one-shot budget, then return control to the user.'),
  ('body','<b>Blocked:</b> do not fabricate completion. State the real boundary and preserve the last stable state.'),
  ('small','A singleton fresh-page section begins at the usable-page top.'),

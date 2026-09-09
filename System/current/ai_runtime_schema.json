@@ -18,7 +18,8 @@
     "provenance_policy",
     "release_version",
     "handoff_policy",
-    "profile_performance_audit_policy"
+    "profile_performance_audit_policy",
+    "workspace_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -704,6 +705,47 @@
         },
         "report_schema": {
           "const": "profile_audit_report_schema.json"
+        }
+      }
+    },
+    "workspace_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "mode",
+        "front_door",
+        "source_preference",
+        "normal_iteration",
+        "portable_export_policy",
+        "access_boundary"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "mode": {
+          "const": "PERSISTENT_PRIMARY"
+        },
+        "front_door": {
+          "type": "string"
+        },
+        "source_preference": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "normal_iteration": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "portable_export_policy": {
+          "type": "string"
+        },
+        "access_boundary": {
+          "type": "string"
         }
       }
     }

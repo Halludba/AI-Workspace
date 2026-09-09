@@ -16,8 +16,7 @@ def artifact_snapshot(root: Path, state: dict) -> list[dict]:
 
 def create_ai_handoff(root: Path, state: dict) -> list[Path]:
     d = root / 'AI Handoff'
-    if d.exists(): shutil.rmtree(d)
-    d.mkdir(parents=True)
+    d.mkdir(parents=True, exist_ok=True)
     p1 = d / '01_AI_BRIEFING_AND_HISTORY.md'
     chunks = ['# AI Briefing and History', '', '> Derived handoff view. Authoritative sources remain the validated runtime/config files and PDFs.', '']
     runtime_cfg = load_json(root/'ai_runtime_config.json')
@@ -46,9 +45,7 @@ def create_ai_handoff(root: Path, state: dict) -> list[Path]:
     if len(paths) != state['release']['ai_handoff_file_count']: raise RuntimeError('BLOCK: AI handoff does not contain exactly five files')
     for p in paths:
         if not p.exists() or p.stat().st_size == 0: raise RuntimeError(f'BLOCK: invalid AI handoff file {p.name}')
-    subprocess.run([sys.executable, '-m', 'py_compile', str(p5)], check=True)
-    cache=d/'__pycache__'
-    if cache.exists(): shutil.rmtree(cache)
+    compile(p5.read_text(encoding='utf-8'), str(p5), 'exec')
     actual_files=sorted(x.name for x in d.iterdir() if x.is_file())
     expected_files=sorted(x.name for x in paths)
     if actual_files != expected_files: raise RuntimeError(f'BLOCK: AI handoff folder contains unexpected files: {actual_files}')

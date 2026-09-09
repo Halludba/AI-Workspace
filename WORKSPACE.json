@@ -1,7 +1,19 @@
 {
-  "workspace_schema_version": 1,
+  "workspace_schema_version": 2,
   "project": "Design",
-  "current_system_version": "0.15.0",
+  "current_system_version": "0.16.0",
+  "canonical_source_path": "System/current/",
+  "chat_start_file": "AI_WORKSPACE_INSTRUCTIONS.md",
+  "normal_iteration_policy": "DIRECT_WORKSPACE_EDIT_TEST_VERIFY_COMMIT",
+  "portable_export_policy": "EXPLICIT_REQUEST_OR_RECOVERY_ONLY",
+  "zip_policy": "PORTABLE_RELEASE_SNAPSHOT_ONLY",
+  "ai_handoff_policy": "DERIVED_EXPORT_ONLY",
+  "migration": {
+    "full_v0_15_source_migrated": true,
+    "persistent_workspace_transition_complete": true,
+    "baseline_tag": "v0.15.0",
+    "current_target_tag": "v0.16.0"
+  },
   "source_control": {
     "provider": "github",
     "owner": "Halludba",
@@ -9,25 +21,20 @@
     "repository_full_name": "Halludba/AI-Workspace",
     "repository_url": "https://github.com/Halludba/AI-Workspace",
     "default_branch": "main",
-    "status": "ACTIVE_SOURCE_CONTROL"
+    "status": "CANONICAL_ACTIVE"
   },
-  "local_working_tree": "C:\\Users\\Abdullah\\OneDrive\\Design Workspace",
-  "onedrive_sync": true,
-  "canonical_source_path": "System/",
-  "chat_start_file": "AI_WORKSPACE_INSTRUCTIONS.md",
+  "local_execution": {
+    "working_tree": "C:\\Users\\Abdullah\\OneDrive\\Design Workspace",
+    "onedrive_sync": true,
+    "role": "SYNCED_EXECUTION_MIRROR"
+  },
   "google_drive": {
+    "role": "VISUAL_BINARY_REFERENCE_STORE",
     "workspace_folder_id": "1xAAeTVO_-k2utmx4ST8xgDY0RewLeVhM",
     "theme_references_id": "1D2DJBrZiJ_GlBPHqnYF1UBL8cAIsasOH",
     "visual_references_id": "1XyGREWnEWlbZEiVaUvbKLnmZHlTdwHOt",
     "website_references_id": "18Bk3Kz2bHQQIH0RtuKCk7DAWCz7eOEjk",
     "generated_previews_id": "1SN4Wvdx6p1bjWg-vAcfyaTvplhv8QBqU",
     "releases_id": "1PtoAycjbH-H3E9RTV50PS8UW5rXRJPTx"
-  },
-  "normal_iteration_policy": "DIRECT_WORKSPACE_EDIT_TEST_VERIFY_COMMIT",
-  "zip_policy": "PORTABLE_RELEASE_SNAPSHOT_ONLY",
-  "ai_handoff_policy": "DERIVED_EXPORT_ONLY",
-  "migration": {
-    "full_v0_15_source_migrated": false,
-    "warning": "Do not substitute older source as the current v0.15.0 system."
   }
 }

@@ -23,3 +23,13 @@ Exports/*
 
 # Local connector migration scratch space
 .migration/
+
+# Derived portable handoff/export state
+System/current/AI Handoff/
+System/current/Previous Versions/
+System/current/Recursive_AI_Config_System_v*.zip
+
+# PDF verification/render intermediates
+System/current/*_preflight.txt
+System/current/formats_v14_diagnostics.txt
+System/current/_visual_check/

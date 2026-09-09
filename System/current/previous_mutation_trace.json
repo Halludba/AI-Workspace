@@ -1,41 +1,62 @@
 {
-  "system_version": "0.14.0",
-  "user_prompt_summary": "Add a profile auditing completed workflow performance without automatic integration.",
-  "target_improvement": "After a workflow profile session completes, assess outcome fidelity, interaction efficiency, path quality, unnecessary friction, and reusable improvements; recommend changes without auto-committing them.",
+  "system_version": "0.15.0",
+  "directive_id": "design-project-auditor-integration-v015",
+  "source_type": "cross_chat_profile_audit",
+  "source_reference": "Design project Profile Performance Auditor result for a completed Theme Designer session",
+  "user_prompt_summary": "User asked the main system to access the completed auditor result from another Design-project chat and continue.",
+  "target_improvement": "Integrate evidence-supported Theme Designer improvements: resolve target surface before surface-dependent design and reduce unnecessary serialized approvals with optional reversible batching.",
+  "audit_result": {
+    "status": "PARTIAL",
+    "limitation": "The audit had strong observable session-trace evidence, but the final compiled theme JSON/PDF were not independently byte-validated in that audit.",
+    "supported_findings": [
+      {
+        "id": "F6",
+        "verdict": "MISSED",
+        "summary": "Target surface remained unresolved while surface-dependent design proceeded."
+      },
+      {
+        "id": "F8",
+        "verdict": "PARTIAL",
+        "summary": "Approval cadence was more serialized than necessary after repeated unqualified approvals."
+      }
+    ],
+    "other_summary": "Other audited contract areas were MET or MET/PARTIAL; no evidence supported a broad redesign of Theme Designer."
+  },
   "candidate_decisions": [
     {
-      "candidate": "profile_performance_auditor",
-      "decision": "NEW",
-      "reason": "Distinct session contract-versus-execution scope; reasoning-only advisory workflow is feasible."
-    },
-    {
-      "candidate": "History/question optimization/governance mechanisms",
-      "decision": "MERGE",
-      "reason": "Reuse existing modules and lifecycle, not duplicate them."
-    },
-    {
-      "candidate": "workflow_optimizer alias or strategic_reviewer expansion",
-      "decision": "NO-OP",
-      "reason": "Optimizer implies execution; strategic review retains direction-level scope."
-    },
-    {
-      "candidate": "Automatic self-modification and compulsory audits",
-      "decision": "REJECT",
-      "reason": "Violates advisory boundary and adds unjustified friction."
-    },
-    {
-      "candidate": "Handoff ordering and platform paths",
+      "candidate": "P1 - target-surface gate and invariant/surface-dependent split",
       "decision": "REWRITE",
-      "reason": "Observed stale derived state and Linux-only paths prevent faithful release closure."
+      "reason": "Evidence-backed F6 failure affects sequencing inside the existing Theme Designer policy; strengthen existing target-surface behavior rather than add another module."
+    },
+    {
+      "candidate": "P2 - opt-in adaptive batching after repeated approvals",
+      "decision": "MERGE",
+      "reason": "Evidence-backed F8 friction belongs inside existing iteration/interaction cadence. Add a bounded opt-in batching policy with granular fallback; do not create a separate agent."
+    },
+    {
+      "candidate": "P3 - draft/noncanonical reference behavior",
+      "decision": "MERGE/NO-OP",
+      "reason": "Existing draft-state and Theme Reference authority boundaries already cover most of this. Add only an explicit clarification to prevent draft references from becoming canonical."
+    },
+    {
+      "candidate": "automatic auditor-driven profile mutation",
+      "decision": "REJECT",
+      "reason": "The auditor is advisory by design; this main-host directive authorizes governance review/integration, not automatic self-acceptance of future audits."
     }
   ],
   "accepted_changes": [
-    "Add bounded advisory profile, policy, evidence schema/validator and regression tests.",
-    "Integrate rules, workflow, state, handoff and versioned categorized packaging.",
-    "Preserve available v0.13.0 evidence with explicit reconstruction provenance."
+    "Theme Designer now gates surface-dependent design on resolved target_surface while permitting explicitly INVARIANT theme identity work to continue.",
+    "Theme decisions are explicitly classified as INVARIANT or SURFACE_DEPENDENT for sequencing and later cross-surface reuse.",
+    "Theme Studio may offer, but never silently enable, an opt-in batch of 2-3 adjacent low-conflict layers after two consecutive unqualified approvals.",
+    "Any correction/rejection/ambiguity or user request returns batching to granular mode; final theme compilation still requires explicit approval.",
+    "Draft references/mockups are explicitly noncanonical until approval/verification; compiled theme module and verified Theme Reference remain authoritative.",
+    "Added regression coverage for unresolved-surface gating and opt-in reversible batching."
   ],
   "rejected_or_noop": [
-    "No private reasoning disclosure, taste scoring, guaranteed speed gains, automatic integration or recursive audit loop."
+    "No new core governance function or separate batching agent was added.",
+    "No numerical speedup claim is made because the audit did not measure controlled before/after timing.",
+    "No broad Theme Designer rewrite was justified by the audit.",
+    "No automatic future audit integration was enabled."
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
@@ -70,7 +91,7 @@
     "pdf_engine/pdf_ops.py",
     "pdf_engine/artifacts.py",
     "pdf_engine/orchestrator.py",
-    "Previous Versions/Recursive_AI_Config_System_v0.13.0.zip",
+    "Previous Versions/Recursive_AI_Config_System_v0.14.0.zip",
     "pdf_engine/convergence.py",
     "pdf_engine/testing.py",
     "pdf_engine/tests/__init__.py",
@@ -91,13 +112,7 @@
     "stable": true,
     "issues": []
   },
-  "directive_id": "profile-performance-auditor-2026-09-09",
-  "source_type": "explicit_user_directive",
-  "source_reference": "Current request and conversation 6aa00e13-11f4-83ec-9348-1629155af0c6",
   "recovery_observations": [
-    "Original release archive unavailable; recovered exact handoff evidence preserved.",
-    "Missing PyMuPDF/jsonschema installed locally for verification.",
-    "Recovered preflight handoff tests require existing PDFs: bootstrapped PDFs before running the unchanged legacy tests.",
-    "Visual review caught new workflow blocks preceding their parent section; moved them after 2.7.8."
+    "The immediate previous v0.14.0 ZIP was reconstructed from the five v0.14.0 AI Handoff files available in this chat and is not claimed byte-identical to the original archive from the separate auditor chat. A RECOVERY_NOTICE is included inside that predecessor bundle."
   ]
 }

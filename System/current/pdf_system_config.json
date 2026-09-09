@@ -1,6 +1,6 @@
 {
   "system_name": "Formats PDF System",
-  "system_version": "0.4.0",
+  "system_version": "0.5.0",
   "artifact_root": ".",
   "authority_order": [
     "reality_tool_platform_constraints",
@@ -253,6 +253,11 @@
       "status": "active"
     },
     {
+      "id": "1.1o.iv",
+      "name": "Persistent Workspace Source-of-Truth & Export Demotion",
+      "status": "active"
+    },
+    {
       "id": "1.1k.iv",
       "name": "Selective Modularity & Mutation Blast-Radius Control",
       "status": "active"
@@ -404,35 +409,35 @@
     },
     {
       "path": "AI Handoff/01_AI_BRIEFING_AND_HISTORY.md",
-      "classification": "CONDITIONAL",
+      "classification": "OPTIONAL",
       "role": "ai_handoff_briefing",
       "bundle_folder": "05 AI Handoff",
       "include_in_bundle": true
     },
     {
       "path": "AI Handoff/02_UNIFIED_SYSTEM_STATE.json",
-      "classification": "CONDITIONAL",
+      "classification": "OPTIONAL",
       "role": "ai_handoff_state",
       "bundle_folder": "05 AI Handoff",
       "include_in_bundle": true
     },
     {
       "path": "AI Handoff/03_AUTHORITATIVE_RULES.md",
-      "classification": "CONDITIONAL",
+      "classification": "OPTIONAL",
       "role": "ai_handoff_rules",
       "bundle_folder": "05 AI Handoff",
       "include_in_bundle": true
     },
     {
       "path": "AI Handoff/04_OPERATIONAL_WORKFLOW.md",
-      "classification": "CONDITIONAL",
+      "classification": "OPTIONAL",
       "role": "ai_handoff_workflow",
       "bundle_folder": "05 AI Handoff",
       "include_in_bundle": true
     },
     {
       "path": "AI Handoff/05_EXECUTION_ENGINE_AND_LOGIC.py",
-      "classification": "CONDITIONAL",
+      "classification": "OPTIONAL",
       "role": "ai_handoff_source_capsule",
       "bundle_folder": "05 AI Handoff",
       "include_in_bundle": true
@@ -498,13 +503,6 @@
       "classification": "REQUIRED",
       "role": "engine_convergence_orchestrator",
       "bundle_folder": "03 PDF System/Engine/pdf_engine",
-      "include_in_bundle": true
-    },
-    {
-      "path": "Previous Versions/Recursive_AI_Config_System_v0.14.0.zip",
-      "classification": "CONDITIONAL",
-      "role": "immediate_previous_release",
-      "bundle_folder": "Previous Versions",
       "include_in_bundle": true
     },
     {
@@ -607,13 +605,16 @@
     }
   ],
   "release": {
-    "version": "0.15.0",
-    "previous_version": "0.14.0",
+    "version": "0.16.0",
+    "previous_version": "0.15.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.15.0.zip",
-    "previous_bundle_path": "Previous Versions/Recursive_AI_Config_System_v0.14.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.16.0.zip",
     "folder_policy": "role_based",
-    "ai_handoff_file_count": 5
+    "ai_handoff_file_count": 5,
+    "delivery_mode": "persistent_workspace",
+    "bundle_required": false,
+    "ai_handoff_default": false,
+    "portable_export_supported": true
   },
   "modularity": {
     "enabled": true,
@@ -665,7 +666,8 @@
       "release_filename_versioning",
       "five_file_handoff_contract",
       "fixed_point_detection",
-      "cycle_detection"
+      "cycle_detection",
+      "persistent_workspace_default_delivery"
     ],
     "semantic_boundary": "Tests verify executable invariants only; semantic intent and visual correctness remain separate reasoning/render verification responsibilities."
   },

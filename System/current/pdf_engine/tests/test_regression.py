@@ -30,6 +30,29 @@ class RegressionTests(unittest.TestCase):
         rel=state["release"]
         self.assertEqual(rel["bundle_filename"], rel["bundle_filename_pattern"].format(version=rel["version"]))
 
+    def test_persistent_workspace_is_default_delivery(self):
+        _,state,_=resolve_root(CONFIG)
+        cfg=json.loads((ROOT/"ai_runtime_config.json").read_text(encoding="utf-8"))
+        self.assertEqual(state["release"]["delivery_mode"],"persistent_workspace")
+        self.assertFalse(state["release"]["bundle_required"])
+        self.assertEqual(cfg["workspace_policy"]["mode"],"PERSISTENT_PRIMARY")
+        self.assertFalse(cfg["handoff_policy"]["versioned_zip_required"])
+        self.assertEqual(cfg["handoff_policy"]["default_delivery"],"workspace_commit")
+        module=next(m for m in cfg["modules"] if m["id"]=="core.persistent_workspace_continuity")
+        self.assertIn("portable",module["output_policy"].lower())
+        for profile in cfg["profiles"]["definitions"].values():
+            self.assertIn("core.persistent_workspace_continuity",profile["enabled_modules"])
+
+    def test_ai_handoff_regeneration_is_in_place_and_cache_free(self):
+        from pdf_engine.artifacts import create_ai_handoff
+        root,state,_=resolve_root(CONFIG)
+        d=root/"AI Handoff"; d.mkdir(exist_ok=True)
+        marker=d/"01_AI_BRIEFING_AND_HISTORY.md"; marker.write_text("STALE",encoding="utf-8")
+        paths=create_ai_handoff(root,state)
+        self.assertEqual(len(paths),5)
+        self.assertNotEqual(marker.read_text(encoding="utf-8"),"STALE")
+        self.assertFalse((d/"__pycache__").exists())
+
     def test_status_cli_never_crashes(self):
         p=subprocess.run([sys.executable,"pdf_system_engine.py","--status"],cwd=str(ROOT),text=True,capture_output=True)
         self.assertIn(p.returncode,(0,1),msg=p.stderr)
@@ -37,7 +60,13 @@ class RegressionTests(unittest.TestCase):
 
     def test_immediate_previous_bundle_matches_release_pointer(self):
         root,state,_=resolve_root(CONFIG)
-        expected=state["release"].get("previous_bundle_path")
+        rel=state["release"]
+        if rel.get("delivery_mode")=="persistent_workspace":
+            self.assertFalse(rel["bundle_required"])
+            self.assertNotIn("previous_bundle_path",rel)
+            self.assertEqual([a for a in state["artifacts"] if a.get("role")=="immediate_previous_release"],[])
+            return
+        expected=rel.get("previous_bundle_path")
         matches=[a for a in state["artifacts"] if a.get("role")=="immediate_previous_release"]
         self.assertEqual(len(matches),1)
         self.assertEqual(matches[0]["path"],expected)

@@ -202,7 +202,9 @@
         "bundle_filename_pattern",
         "bundle_filename",
         "folder_policy",
-        "ai_handoff_file_count"
+        "ai_handoff_file_count",
+        "delivery_mode",
+        "bundle_required"
       ],
       "properties": {
         "version": {
@@ -227,6 +229,21 @@
         "ai_handoff_file_count": {
           "type": "integer",
           "const": 5
+        },
+        "delivery_mode": {
+          "enum": [
+            "persistent_workspace",
+            "portable_bundle"
+          ]
+        },
+        "bundle_required": {
+          "type": "boolean"
+        },
+        "ai_handoff_default": {
+          "type": "boolean"
+        },
+        "portable_export_supported": {
+          "type": "boolean"
         }
       }
     },

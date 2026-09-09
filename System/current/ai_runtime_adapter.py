@@ -76,7 +76,7 @@ def instruction_packet(cfg, state, capabilities, profile_override=None):
         for m, missing in degraded:
             lines.append(f"- {m['id']}: missing capabilities: {', '.join(missing)}")
     # Portable planning/continuity/review policies are serialized for hosts that need them.
-    for policy_name in ('planning_policy','execution_capacity_policy','secondary_review_policy'):
+    for policy_name in ('workspace_policy','planning_policy','execution_capacity_policy','secondary_review_policy'):
         if isinstance(cfg.get(policy_name), dict):
             lines += ["", policy_name.upper() + ':', json.dumps(cfg[policy_name], indent=2, ensure_ascii=False)]
     plan_path = ROOT / cfg.get('planning_policy', {}).get('plan_path', 'project_plan.json')

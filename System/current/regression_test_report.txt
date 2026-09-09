@@ -1,5 +1,6 @@
 REGRESSION / MUTATION SIMULATION PREFLIGHT
 
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
 test_config_schema_enforces_advisory (test_profile_audit.AuditTests.test_config_schema_enforces_advisory) ... ok
 test_dangling_evidence_rejected (test_profile_audit.AuditTests.test_dangling_evidence_rejected) ... ok
 test_integration_and_over_budget_rejected (test_profile_audit.AuditTests.test_integration_and_over_budget_rejected) ... ok
@@ -10,6 +11,7 @@ test_unknown_metric_cannot_be_reported_as_measured (test_profile_audit.AuditTest
 test_valid_report_does_not_mutate_inputs (test_profile_audit.AuditTests.test_valid_report_does_not_mutate_inputs) ... ok
 test_ai_handoff_code_capsule_includes_theme_reference_generator (test_regression.RegressionTests.test_ai_handoff_code_capsule_includes_theme_reference_generator) ... ok
 test_ai_handoff_contract_is_exactly_five (test_regression.RegressionTests.test_ai_handoff_contract_is_exactly_five) ... ok
+test_ai_handoff_regeneration_is_in_place_and_cache_free (test_regression.RegressionTests.test_ai_handoff_regeneration_is_in_place_and_cache_free) ... ok
 test_ai_handoff_unified_state_contains_project_plan (test_regression.RegressionTests.test_ai_handoff_unified_state_contains_project_plan) ... ok
 test_artifact_paths_are_workspace_confined (test_regression.RegressionTests.test_artifact_paths_are_workspace_confined) ... ok
 test_checkpoint_capacity_policy_contract (test_regression.RegressionTests.test_checkpoint_capacity_policy_contract) ... ok
@@ -18,6 +20,7 @@ test_cycle_detection (test_regression.RegressionTests.test_cycle_detection) ... 
 test_fixed_point_detection (test_regression.RegressionTests.test_fixed_point_detection) ... ok
 test_immediate_previous_bundle_matches_release_pointer (test_regression.RegressionTests.test_immediate_previous_bundle_matches_release_pointer) ... ok
 test_operational_risk_preflight_is_clean (test_regression.RegressionTests.test_operational_risk_preflight_is_clean) ... ok
+test_persistent_workspace_is_default_delivery (test_regression.RegressionTests.test_persistent_workspace_is_default_delivery) ... ok
 test_project_plan_validates_and_starts_empty (test_regression.RegressionTests.test_project_plan_validates_and_starts_empty) ... ok
 test_release_filename_is_versioned (test_regression.RegressionTests.test_release_filename_is_versioned) ... ok
 test_runtime_state_version_matches_runtime_config (test_regression.RegressionTests.test_runtime_state_version_matches_runtime_config) ... ok
@@ -31,6 +34,6 @@ test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme
 test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
 
 ----------------------------------------------------------------------
-Ran 29 tests in 7.478s
+Ran 31 tests in 1.427s
 
 OK

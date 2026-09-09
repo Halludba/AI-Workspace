@@ -53,6 +53,15 @@ def sync(config_path: Path, import_python_first: bool=False) -> int:
     create_report(root,state,passes,[],conv,verify_seconds)
     finalize_runtime_state(root,state)
     update_trace_after_run(root,state,passes,[])
+    delivery=state.get('release',{}).get('delivery_mode','portable_bundle')
+    if delivery == 'persistent_workspace':
+        create_manifest(root,state,len(passes))
+        closure=structural_audit(root,state,True)
+        if closure:
+            print('\n'.join(closure),file=sys.stderr); return 5
+        print(f'PASS: stable fixed point in {len(passes)} passes')
+        print('PASS: persistent workspace closure; portable exports deferred')
+        return 0
     create_ai_handoff(root,state)
     create_manifest(root,state,len(passes))
     bundle=create_bundle(root,state)
@@ -61,6 +70,19 @@ def sync(config_path: Path, import_python_first: bool=False) -> int:
         print('\n'.join(closure),file=sys.stderr); return 5
     print(f'PASS: stable fixed point in {len(passes)} passes')
     print('PASS: AI handoff exactly five files')
+    print(f'PASS: versioned categorized bundle={bundle.name}')
+    return 0
+
+
+def export_portable(config_path: Path) -> int:
+    root,state,_=resolve_root(config_path)
+    issues=operational_risk_audit(root,state)+structural_audit(root,state,True)
+    if issues:
+        print('\n'.join(issues),file=sys.stderr); return 5
+    create_ai_handoff(root,state)
+    create_manifest(root,state,0)
+    bundle=create_bundle(root,state)
+    print('PASS: portable AI handoff exactly five files')
     print(f'PASS: versioned categorized bundle={bundle.name}')
     return 0
 

@@ -1,10 +1,10 @@
 RECURSIVE AI CONFIG SYSTEM - CONVERGENCE / CLOSURE REPORT
 
-Release: 0.15.0
-Directive: User asked the main system to access the completed auditor result from another Design-project chat and continue.
-Target: Integrate evidence-supported Theme Designer improvements: resolve target surface before surface-dependent design and reduce unnecessary serialized approvals with optional reversible batching.
-Convergence seconds: 3.344
-Verification seconds: 0.844
+Release: 0.16.0
+Directive: User requested a shared persistent workspace all Design chats can use, with GitHub/PC/cloud editing instead of rebuilding a ZIP for every version.
+Target: Promote persistent workspace state and Git history to the normal continuity/delivery model; retain ZIP/AI Handoff only for explicit portability/recovery; repair OneDrive-safe handoff regeneration.
+Convergence seconds: 1.059
+Verification seconds: 0.666
 
 PASS 1: changed_from_previous=True issues=0
 PASS 2: changed_from_previous=False issues=0

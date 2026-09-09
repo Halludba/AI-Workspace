@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.16.0
+- Promoted persistent GitHub/OneDrive/Google Drive workspace continuity to the normal project delivery model.
+- Routine mutations now close through verified workspace state and Git history; versioned ZIP and five-file AI Handoff generation are on-demand portability/recovery exports.
+- Added `core.persistent_workspace_continuity` and workspace policy serialization for reasoning hosts.
+- Repaired derived AI Handoff generation for OneDrive/Remote Desktop ACLs by overwriting the five known files in place and validating code without creating/deleting `__pycache__`.
+- Preserved exact v0.15.0 as a Git tag before this mutation.
+- Added persistent-delivery and OneDrive-safe regeneration regression coverage.
+
 ## 0.15.0
 - Integrated completed Theme Designer performance-audit findings under main-host governance.
 - REWRITE: target surface must resolve before surface-dependent theme decisions; invariant theme identity work may continue while unresolved.

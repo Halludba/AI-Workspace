@@ -1,28 +1,27 @@
 # Mutation Trace
 
-**System version:** 0.15.0
-**Directive:** User asked the main system to access the completed auditor result from another Design-project chat and continue.
-**Target improvement:** Integrate evidence-supported Theme Designer improvements: resolve target surface before surface-dependent design and reduce unnecessary serialized approvals with optional reversible batching.
+**System version:** 0.16.0
+**Directive:** User requested a shared persistent workspace all Design chats can use, with GitHub/PC/cloud editing instead of rebuilding a ZIP for every version.
+**Target improvement:** Promote persistent workspace state and Git history to the normal continuity/delivery model; retain ZIP/AI Handoff only for explicit portability/recovery; repair OneDrive-safe handoff regeneration.
 
 ## Candidate decisions
-- **REWRITE - P1 - target-surface gate and invariant/surface-dependent split:** Evidence-backed F6 failure affects sequencing inside the existing Theme Designer policy; strengthen existing target-surface behavior rather than add another module.
-- **MERGE - P2 - opt-in adaptive batching after repeated approvals:** Evidence-backed F8 friction belongs inside existing iteration/interaction cadence. Add a bounded opt-in batching policy with granular fallback; do not create a separate agent.
-- **MERGE/NO-OP - P3 - draft/noncanonical reference behavior:** Existing draft-state and Theme Reference authority boundaries already cover most of this. Add only an explicit clarification to prevent draft references from becoming canonical.
-- **REJECT - automatic auditor-driven profile mutation:** The auditor is advisory by design; this main-host directive authorizes governance review/integration, not automatic self-acceptance of future audits.
+- **NEW - Persistent workspace continuity:** The prior system had portable handoff continuity but no canonical cross-chat repository/execution/asset workspace contract.
+- **REWRITE - Mandatory ZIP and categorized bundle on every mutation:** Git history and persistent connectors now provide the normal continuity layer; routine ZIP generation adds churn without improving correctness.
+- **REWRITE - Delete-and-recreate AI Handoff directory:** Observed OneDrive/Remote Desktop ACL denies directory deletion; in-place deterministic overwrite preserves the five-file contract without destructive regeneration.
+- **REJECT - Assume connected tools are always reachable:** Connector/device availability is runtime state and must be verified before claiming access or synchronization.
 
 ## Accepted changes
-- Theme Designer now gates surface-dependent design on resolved target_surface while permitting explicitly INVARIANT theme identity work to continue.
-- Theme decisions are explicitly classified as INVARIANT or SURFACE_DEPENDENT for sequencing and later cross-surface reuse.
-- Theme Studio may offer, but never silently enable, an opt-in batch of 2-3 adjacent low-conflict layers after two consecutive unqualified approvals.
-- Any correction/rejection/ambiguity or user request returns batching to granular mode; final theme compilation still requires explicit approval.
-- Draft references/mockups are explicitly noncanonical until approval/verification; compiled theme module and verified Theme Reference remain authoritative.
-- Added regression coverage for unresolved-surface gating and opt-in reversible batching.
+- Added persistent workspace policy and core workspace-continuity module across profiles.
+- Routine system closure now targets verified workspace state; ZIP and five-file AI Handoff are explicit portability/recovery exports.
+- Added optional portable-export CLI path while preserving versioned categorized ZIP rules when export is requested.
+- Changed AI Handoff regeneration to deterministic in-place overwrite with syntax validation that does not create __pycache__.
+- Added regression coverage for persistent delivery and OneDrive-safe handoff generation.
+- Git tags/commits preserve exact v0.15.0 lineage; previous ZIP embedding is no longer required in persistent mode.
 
 ## Rejected / merged / no-op
-- No new core governance function or separate batching agent was added.
-- No numerical speedup claim is made because the audit did not measure controlled before/after timing.
-- No broad Theme Designer rewrite was justified by the audit.
-- No automatic future audit integration was enabled.
+- No unrelated Theme Designer, auditor or strategic-review behavior was changed.
+- No claim is made that workspace connectors bypass context, permission, safety or availability limits.
+- Portable ZIP/export capability is retained rather than deleted.
 
 ## Convergence result
 - Passes: 2

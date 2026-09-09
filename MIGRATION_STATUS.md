@@ -1,15 +1,17 @@
 # Migration Status
 
-## Canonical workspace infrastructure
-- GitHub repository: `Halludba/AI-Workspace`
-- Local synced working tree: `C:\Users\Abdullah\OneDrive\Design Workspace`
-- Google Drive asset workspace: configured in `WORKSPACE.json`
+## Status: COMPLETE
+The persistent Design workspace migration is complete.
 
-## Source migration
-Current system version: **0.15.0**.
+- Canonical source/history: `Halludba/AI-Workspace` on GitHub
+- Canonical source path: `System/current/`
+- Synced execution mirror: `C:\Users\Abdullah\OneDrive\Design Workspace`
+- Visual/binary reference store: Google Drive workspace recorded in `WORKSPACE.json`
+- Exact imported baseline preserved as Git tag `v0.15.0`
+- Current persistent-workspace system version: `0.16.0`
 
-The complete v0.15.0 source has not yet been migrated into this repository.
-Older ZIPs on the PC are historical evidence only and must not be promoted to current source.
+## Normal operation
+Routine system mutations edit the canonical workspace, run applicable tests/convergence/render verification, then commit/push verified changes. A version change does not by itself require a ZIP or five-file AI Handoff.
 
-## Temporary rule
-Until v0.15.0 source migration is complete, infrastructure/config changes may be committed here, but semantic system mutations must not overwrite the missing current system source with an older release.
+## Portable exports
+The versioned ZIP and exactly-five-file AI Handoff remain supported portability/recovery exports. Generate them only when explicitly requested or materially required for recovery/handoff.

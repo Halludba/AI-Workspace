@@ -1,0 +1,15 @@
+# Binary artifacts must never be line-ending normalized or text-diffed.
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+
+# Keep source/config text stable across Windows and cloud mirrors.
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf

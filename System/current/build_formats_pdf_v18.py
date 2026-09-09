@@ -468,23 +468,31 @@ sec11o=Block('1.1o',[
 
 sec11oi=Block('1.1o.i',[
     P("1.1o.i AI-Optimized Handoff View",'H4X'), S(8),
-    P("When the system is intended for handoff to another reasoning AI, generate a derived <b>AI Handoff</b> view containing exactly five dependency-ordered files: briefing/history, unified current state, authoritative rules in Markdown, operational workflow in Markdown, and a consolidated executable-source capsule."), S(7),
-    P("This view reduces upload/context friction but is <b>not a competing authority</b>. Formats.pdf, PDF_Workflow.pdf and validated machine-state files remain authoritative. The AI view must be regenerated from the current fixed point and must never become an independent mutable fork. When the handoff is used by a secondary AI, an optional strategic-reviewer profile may complement the main execution host by interpreting state, tracking purpose and suggesting direction; its feedback remains advisory and is re-audited before integration.", 'SmallX'), S(7),
+    P("When an explicit portable handoff/export is requested, generate a derived <b>AI Handoff</b> view containing exactly five dependency-ordered files: briefing/history, unified current state, authoritative rules in Markdown, operational workflow in Markdown, and a consolidated executable-source capsule. In persistent-workspace mode this is an on-demand export, not a routine mutation output."), S(7),
+    P("This view reduces upload/context friction but is <b>not a competing authority</b>. Persistent canonical workspace state remains primary when available. Generate the view from the current fixed point only when portability/recovery requires it; never maintain it as an independently mutable fork. Secondary-reviewer feedback remains advisory and is re-audited before integration.", 'SmallX'), S(7),
     Code('''def generate_ai_handoff(current_state, authoritative_artifacts):\n    view = derive_exactly_five_dependency_ordered_files(current_state, authoritative_artifacts)\n    assert len(view) == 5\n    mark_as_derived_non_authoritative(view)\n    return view''')
 ],4)
 
 sec11oii=Block('1.1o.ii',[
     P('1.1o.ii Version Snapshot & Changelog Synchronization','H4X'), S(8),
-    P('Before replacing a stable release, preserve the immediately previous complete ZIP under <b>Previous Versions/</b>. After the new fixed point is verified, append a machine-readable release record and regenerate a human-readable changelog in sync with the manifest, current version and convergence report.', 'BodyX'), S(6),
-    P('Do not recursively unpack all ancestral bundles into every release. Keep one immediate prior full bundle; retain older lineage as metadata/changelog entries. Change history may feed optimization under 1.1j.i, but never outranks current intent.', 'SmallX'), S(8),
-    Code('''def finalize_version(current, previous_bundle, history):\n    preserve(previous_bundle, under='Previous Versions/')\n    history.append(release_metrics(current))\n    regenerate_changelog(history)\n    return current''')
+    P('Before replacing stable workspace state, preserve the prior state through source-control history and, when useful, a semantic version tag. After the new fixed point is verified, append machine-readable release history and regenerate the human-readable changelog/manifest. A previous ZIP snapshot is required only for an explicit portable/recovery export.', 'BodyX'), S(6),
+    P('Do not duplicate repository history inside routine artifacts. Git/source-control history is the normal lineage mechanism in persistent mode; portable exports may include bounded recovery lineage when explicitly requested. Change history remains evidence and never outranks current intent.', 'SmallX'), S(8),
+    Code('''def finalize_version(current, history, workspace=None, export_requested=False):\n    if workspace: commit_and_optionally_tag_verified_state(workspace, current.version)\n    if export_requested: preserve_bounded_portable_recovery_snapshot(current)\n    history.append(release_metrics(current))\n    regenerate_changelog(history)\n    return current''')
 ],4)
 
 sec11oiii=Block('1.1o.iii',[
     P('1.1o.iii Versioned Categorized Bundle Handoff','H4X'), S(8),
-    P('Every release ZIP must include the release version in its filename, for example <b>Recursive_AI_Config_System_v0.8.0.zip</b>, so repeated downloads never collapse into ambiguous browser names such as (1), (2) or (3).', 'BodyX'), S(6),
-    P('Inside the ZIP, group artifacts by role rather than dumping them into one flat directory: Start Here, AI Runtime, PDF System, History & Audit, AI Handoff, and Previous Versions. The folder layout is presentation/navigation metadata; it must not alter authoritative workspace paths or semantic meaning.', 'BodyX'), S(7),
-    Code('''def package_release(artifacts, version, category_map):\n    output = f"Recursive_AI_Config_System_v{version}.zip"\n    for artifact in artifacts:\n        archive_path = category_map.route(artifact)\n        add_to_zip(output, artifact, archive_path)\n    return output''')
+    P('When a portable ZIP is explicitly requested or materially required for recovery, it must include the release version in its filename, for example <b>Recursive_AI_Config_System_v0.16.0.zip</b>, so repeated downloads never collapse into ambiguous browser names.', 'BodyX'), S(6),
+    P('Portable ZIP exports remain role-grouped - Start Here, AI Runtime, PDF System, History & Audit, AI Handoff, and optional recovery lineage. Export layout is presentation/navigation metadata only and must not replace the canonical workspace source tree.', 'BodyX'), S(7),
+    Code('''def package_release(artifacts, version, category_map, export_requested=False):\n    if not export_requested: return NO_PORTABLE_EXPORT\n    output = f"Recursive_AI_Config_System_v{version}.zip"\n    for artifact in artifacts:\n        add_to_zip(output, artifact, category_map.route(artifact))\n    return output''')
+],4)
+
+sec11oiv=Block('1.1o.iv',[
+    P('1.1o.iv Persistent Workspace Source-of-Truth & Export Demotion','H4X'), S(8),
+    P('When a configured persistent workspace is available, treat its canonical repository/current source as the normal mutable source of truth. Use the configured synced local mirror for execution/build work and the configured asset store for visual/binary references. Read the workspace front door before guessing bindings.', 'BodyX'), S(6),
+    P('Routine mutations close through verified workspace state plus source-control history when authorized. Do <b>not</b> create a ZIP or five-file AI Handoff merely because a version changed. Those artifacts remain explicit portability/recovery exports.', 'BodyX'), S(6),
+    P('Workspace configuration does not guarantee availability. Verify repository, connector and device access before claiming reads, writes, commits or synchronization. Current explicit user instructions and approval boundaries still outrank saved workspace state.', 'SmallX'), S(7),
+    Code('''def persist_workspace_change(workspace, change, host):\n    bindings = resolve_workspace_front_door(workspace)\n    verify_actual_access(bindings, host)\n    mutate_canonical_source(change, bindings)\n    run_required_tests_and_verification(bindings)\n    if host.authorized_for_source_control: commit_verified_change(bindings)\n    return WORKSPACE_CLOSURE''')
 ],4)
 
 sec11p=Block('1.1p',[
@@ -608,7 +616,7 @@ meta=[
     ['MUTATION','Material changes invalidate stability, restart convergence and continue until required artifact closure'],
     ['PRIORITY','Reality/tool constraints -> current explicit instruction -> active PDF rules -> inference -> defaults'],
     ['OPTIMALITY','Best known feasible solution, selected lexicographically under active constraints'],
-    ['STATUS','Portable runtime + composable profiles + Theme Designer + Theme Reference + strategic-plan/checkpoint continuity + predictive-preflight + bounded autonomy active; visual design system still being defined'],
+    ['STATUS','Persistent workspace + portable runtime + composable profiles + Theme Designer + Theme Reference + strategic-plan/checkpoint continuity active; visual design system still being defined'],
 ]
 meta=[[P(a,'SmallX'),P(b,'SmallX')] for a,b in meta]
 t=Table(meta,colWidths=[82,CONTENT_W-82])
@@ -628,10 +636,10 @@ remaining_h=y-BOTTOM
 # 1.1 is atomic direct content. If it no longer fits, keep-together moves it.
 if measure_block(section11) <= remaining_h + 1e-6:
     diagnostics.append(render_group(c,[section11],y,BOTTOM,page,has_content_above=True))
-    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 else:
     diagnostics.append({'page':1,'keys':['1'],'mode':'intentional-blank-remainder','gaps':[remaining_h]})
-    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 
 idx=0
 while idx < len(remaining_blocks):

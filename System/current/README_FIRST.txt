@@ -1,23 +1,21 @@
-Recursive AI Config System v0.15.0
+Recursive AI Config System v0.16.0
 
 PURPOSE
-Portable self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
+Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
 
-AI HANDOFF
-Use the exactly five files in AI Handoff/ for another reasoning AI. They are derived views; validated config/PDF sources remain authoritative.
+PERSISTENT WORKSPACE
+Normal project continuity is the configured workspace: canonical Git repository/source history, synced local execution mirror, and configured visual/binary asset store. Read WORKSPACE.json when available.
 
-PROFILE PERFORMANCE AUDITOR
-Use profile_performance_auditor after a completed workflow-profile session to compare the intended contract with observable results and produce evidence-linked advisory proposals. It never auto-integrates changes.
+PORTABLE EXPORTS
+ZIP bundles and the exactly-five-file AI Handoff remain supported for portability/recovery, but are no longer generated for every routine mutation. Run: python pdf_system_engine.py --export-portable
 
 LOCAL USE
-Run: python ai_runtime_adapter.py --profile profile_performance_auditor
 Run tests: python pdf_system_engine.py --test
 Run convergence: python pdf_system_engine.py --config pdf_system_config.json
+Run status: python pdf_system_engine.py --status
 
-THEME DESIGNER v0.15 REFINEMENTS
-- Resolve target surface before surface-dependent design; invariant identity work may continue while unresolved.
-- Granular approvals remain default. After two consecutive unqualified approvals, Theme Designer may offer an explicit opt-in batch of up to three adjacent low-conflict layers.
-- Batching is reversible and never replaces final explicit theme approval.
+THEME DESIGNER
+Theme Designer retains target-surface gating, invariant/surface-dependent decisions, granular-by-default approvals, optional reversible batching, and explicit final approval before compilation.
 
-VERSION-LINEAGE NOTE
-The bundled v0.14.0 predecessor was reconstructed from its five-file AI Handoff and carries a RECOVERY_NOTICE; it is not claimed byte-identical to the original cross-chat ZIP.
+PROFILE PERFORMANCE AUDITOR
+The auditor remains advisory: evidence-linked recommendations return to main-host/user governance and never auto-integrate.

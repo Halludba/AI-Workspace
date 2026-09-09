@@ -1,6 +1,6 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.8.0",
+  "runtime_version": "0.9.0",
   "authority_order": [
     "reality_tool_platform_and_safety_constraints",
     "current_explicit_user_instruction",
@@ -245,6 +245,34 @@
         "current_optimization_profile"
       ],
       "output_policy": "Profiles configure behavior; they do not grant tools or override higher-authority constraints."
+    },
+    {
+      "id": "core.persistent_workspace_continuity",
+      "type": "core",
+      "enabled": true,
+      "purpose": "Use a persistent project workspace as the normal source-of-truth and continuity layer across chats, while keeping portable ZIP/AI handoff artifacts on-demand.",
+      "trigger": "A configured workspace front door is available, or the user asks to persist, resume, edit or share project state across chats/tools.",
+      "scope": "Workspace discovery, source retrieval, persistence routing, verification handoff and portable-export boundaries.",
+      "behavior": [
+        "read the workspace front-door metadata before guessing canonical paths or storage roles",
+        "prefer canonical repository source/history, then the configured local execution mirror, then historical exports",
+        "edit the live workspace directly, run applicable tests/verification, and commit/push when authorized and supported",
+        "route visual and binary references through the configured asset store instead of bloating source history",
+        "treat ZIP bundles and the five-file AI Handoff as explicit portability/recovery exports rather than routine iteration outputs",
+        "never assume a connector, device or repository is reachable; perform a real read/status check before claiming access",
+        "preserve current explicit user instructions and approval boundaries over saved workspace state"
+      ],
+      "dependencies": [
+        "core.runtime_profile_composition",
+        "core.recursive_mutation_lifecycle"
+      ],
+      "conflicts": [],
+      "required_capabilities": [
+        "reasoning"
+      ],
+      "side_effect_class": "local_reversible",
+      "state_fields": [],
+      "output_policy": "In persistent mode, normal closure is verified workspace state plus source-control history; create portable exports only when explicitly requested or materially required for recovery."
     },
     {
       "id": "extension.intent_abstraction_consequence_reflection",
@@ -633,6 +661,7 @@
       "general_balanced": {
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -652,6 +681,7 @@
       "fast_direct": {
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -670,6 +700,7 @@
       "high_assurance": {
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -689,6 +720,7 @@
       "creative_exploration": {
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -710,6 +742,7 @@
         "agent_role": "Theme Designer",
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -743,6 +776,7 @@
         "agent_role": "Strategic Second Mind",
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.internal_question_optimizer",
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
@@ -768,6 +802,7 @@
         "agent_role": "Profile Performance Auditor",
         "enabled_modules": [
           "core.runtime_profile_composition",
+          "core.persistent_workspace_continuity",
           "core.internal_question_optimizer",
           "core.change_history_feedback",
           "extension.profile_performance_audit"
@@ -808,20 +843,23 @@
     "privacy_boundary": "Store concise task-relevant summaries and decisions, not private chain-of-thought or unnecessary sensitive conversation content.",
     "authority": "evidence_only"
   },
-  "release_version": "0.15.0",
+  "release_version": "0.16.0",
   "handoff_policy": {
-    "versioned_zip_required": true,
+    "versioned_zip_required": false,
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "categorized_bundle_required": true,
+    "categorized_bundle_required": false,
     "ai_optimized_view": {
       "enabled": true,
       "exact_file_count": 5,
       "authority": "derived_non_authoritative",
-      "purpose": "Low-friction portable context handoff to one or more reasoning AI hosts."
+      "purpose": "Low-friction portable context handoff to one or more reasoning AI hosts.",
+      "generation": "on_demand_or_explicit_export"
     },
     "multi_model_review": "optional_not_required",
     "secondary_reviewer_profile": "strategic_reviewer",
-    "secondary_reviewer_optional": true
+    "secondary_reviewer_optional": true,
+    "default_delivery": "workspace_commit",
+    "portable_export_mode": "explicit_or_recovery_only"
   },
   "modularity_policy": {
     "enabled": true,
@@ -1201,5 +1239,27 @@
         }
       }
     }
+  },
+  "workspace_policy": {
+    "policy_version": "1.0",
+    "mode": "PERSISTENT_PRIMARY",
+    "front_door": "WORKSPACE.json",
+    "front_door_resolution": "Use project workspace metadata supplied by the host or locate it from the active source tree; do not invent a path.",
+    "canonical_binding_authority": "Resolved workspace metadata defines repository, branch, live system path, local execution mirror and asset-store bindings.",
+    "source_preference": [
+      "canonical repository current source",
+      "configured synced local execution mirror",
+      "historical portable exports"
+    ],
+    "normal_iteration": [
+      "read current workspace state",
+      "edit only relevant canonical files",
+      "run applicable tests and verification",
+      "record the change in source control when authorized",
+      "update front-door version/status after verified closure"
+    ],
+    "asset_policy": "Keep large visual/binary references in the configured asset store unless source control is the appropriate authoritative medium.",
+    "portable_export_policy": "Generate ZIP bundles and the five-file AI Handoff only on explicit portability/recovery request or when a portable handoff is materially useful.",
+    "access_boundary": "Verify connector, device and repository availability before claiming synchronization."
   }
 }
