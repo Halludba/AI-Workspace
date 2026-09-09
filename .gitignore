@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Build / verification intermediates
+_pdf_system_verify_*/
+*.tmp
+*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Portable exports and binary releases stay outside normal Git source history
+*.zip
+Exports/*
+!Exports/.gitkeep
