@@ -60,6 +60,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.19.0",
+      "previous_version": "0.18.0",
+      "change": "Shared Prompt Creator/Enhancer specification core, advisory Reasoning Auditor, persistent agent-development roadmap and external prompt-reference registry.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

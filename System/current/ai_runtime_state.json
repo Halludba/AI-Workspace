@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.11.0",
-  "directive_epoch": 12,
-  "directive_id": "2026-09-09-latency-optimized-execution",
+  "runtime_version": "0.12.0",
+  "directive_epoch": 13,
+  "directive_id": "2026-09-09-agent-prompt-ecosystem-reasoning-audit",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.18.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.19.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "user_directive_plus_planning_iteration",
-    "source_reference": "Latency optimization plan developed in Design project chat",
-    "user_prompt_summary": "Implement the planned settings to significantly reduce prompt/output production time; token usage is not a concern.",
-    "target_improvement": "Reduce wall-clock latency without reducing correctness via fast-path routing, lazy context, workspace indexing/control CLI, semantic-first convergence, incremental builds/renders, scoped tests, compact output and timing evidence."
+    "source_type": "user_supplied_agent_prompts_plus_roadmap",
+    "source_reference": "Current Design project turn plus supplied Prompt Creator variants and Reasoning Auditor PDF.",
+    "user_prompt_summary": "Incorporate the supplied prompt-agent artifacts and the broader creation/enhancement/reasoning-audit roadmap optimally.",
+    "target_improvement": "Add a non-duplicative prompt-agent development ecosystem, preserve full standalone prompt references, and stage Reasoning Auditor validation before decision-rationale logging."
   },
   "theme_session": {
     "phase": "IDLE",
@@ -42,8 +42,8 @@
   "plan_context": {
     "plan_path": "project_plan.json",
     "active_part_id": null,
-    "last_completed_part_id": null,
-    "next_recommended_part_id": null
+    "last_completed_part_id": "agent-foundation",
+    "next_recommended_part_id": "reasoning-auditor-validation"
   },
   "execution_checkpoint": {
     "active": false,

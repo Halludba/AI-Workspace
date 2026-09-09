@@ -262,6 +262,14 @@ audit_pages.append([Block('2.7.11 Apply Reusable PDF Styler',3,[
  ('body','Apply the selected preset to page geometry, typography, palette, spacing, components, tables/lists, images/captions, headers/footers/page numbers and pagination while preserving document semantics.'),
  ('body','When style requirements conflict, semantic correctness, readability and layout integrity outrank decorative fidelity. Audit fonts/assets and report PARTIAL fidelity when material resources are unavailable.'),
  ('small','Render and preflight the PDF, visually inspect affected pages when supported, and repair clipping, overflow, pagination and style violations before closure.')])])
+audit_pages.append([Block('2.7.12 Develop, Audit & Govern Prompt Agents',3,[
+ ('body','For reusable agent prompts, route creation or enhancement through the shared prompt-specification core: CREATE builds a stable system prompt from a raw goal; ENHANCE preserves valid architecture and changes only material weaknesses.'),
+ ('body','When visible rationale, iteration logs or causal justifications are available and epistemic validation is requested or required, activate reasoning_auditor to evaluate evidence, inference, constraint provenance, metric alignment, alternatives, recursive integrity and rationale-to-output consistency.'),
+ ('body','Reasoning Auditor remains advisory-only: do not rewrite the audited reasoning or artifact, do not auto-integrate its recommendations, and do not treat same-model persona switching as independent verification.'),
+ ('body','After main-host/user deployment approval, observe real usage. Profile Performance Auditor may later assess outcome fidelity, interaction efficiency and reusable improvements; accepted changes re-enter the ordinary NEW/MERGE/REWRITE/NO-OP/REJECT lifecycle.'),
+ ('small','Do not persist private chain-of-thought. A future structured decision-record layer may be added only after validation and may contain concise claims, evidence, assumptions, alternatives, decisions, unknowns and verification.')
+])])
+
 idx=next((i for i,g in enumerate(pages) if any(b.heading.startswith('2.8') for b in g)),len(pages))
 split=next((j for j,b in enumerate(pages[idx]) if b.heading.startswith('2.8')),0) if idx<len(pages) else 0
 if idx<len(pages):

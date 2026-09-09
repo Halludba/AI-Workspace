@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.19.0
+- Added one shared `extension.prompt_specification_architect` core with separate `prompt_creator` (CREATE) and `prompt_enhancer` (ENHANCE) profiles instead of duplicating overlapping prompt logic.
+- Added advisory `reasoning_auditor` / `extension.epistemic_reasoning_audit` for evidence, inference, constraint provenance, metric drift, recursive degradation, alternatives and rationale-to-output consistency.
+- Reasoning Auditor never requests/private-chain-of-thought and never auto-fixes or auto-integrates; same-model self-audit is explicitly non-independent.
+- Added `agent_development_policy`: create/enhance -> visible rationale when available -> reasoning audit -> main-host gate -> deploy -> observe -> profile-performance audit -> governed improvement.
+- Activated `project_plan.json` with the user's staged roadmap; persistent decision-rationale records are deferred until Reasoning Auditor is validated on real recursive prompt work.
+- Added Google Drive Agent Prompts reference storage; detected that the uploaded `CUSTOMPROMPT_PROMPTENHANCER.txt` content is actually a longer Prompt Creator variant, so it was not treated as an independent Prompt Enhancer authority.
+
 ## 0.18.0
 - Added latency-optimized execution routing: DIRECT / SCOPED / GLOBAL before workspace access.
 - Added generated minimal context, context index and dependency graph plus `workspace_ctl.py` for compact workspace retrieval and scoped verification.

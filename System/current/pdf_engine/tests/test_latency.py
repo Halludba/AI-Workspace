@@ -27,7 +27,7 @@ class LatencyPolicyTests(unittest.TestCase):
         rt=json.loads((ROOT/'ai_runtime_state.json').read_text(encoding='utf-8'))
         refresh_context_files(root,state,cfg,rt)
         ctx=compact_topic_context(root,'pdf_styler')
-        self.assertEqual(ctx['active_context']['system_version'],'0.18.0')
+        self.assertEqual(ctx['active_context']['system_version'],cfg['release_version'])
         self.assertIn('pdf_styler.py',ctx['scope']['files'])
         self.assertTrue((ROOT/'dependency_graph.json').is_file())
 

@@ -20,3 +20,6 @@ For ordinary PDF creation, resolve `System/current/ai_runtime_config.json -> pdf
 
 ## Latency fast path
 Before opening project files, classify the request: DIRECT, SCOPED or GLOBAL. DIRECT questions that do not depend on workspace state should be answered immediately with no repo/tool work. For SCOPED work, read `System/current/active_context.json` then use `python System/current/workspace_ctl.py context <topic>` and load only the listed files. Use GLOBAL/full state only when cross-system correctness requires it. Batch independent reads, avoid model-generated full-file/diff serialization, suppress nonessential progress narration, and keep optional secondary-model review off the critical path. Final system mutations still require full regression and verified closure.
+
+## Agent development ecosystem
+Use `prompt_creator`, `prompt_enhancer`, or `reasoning_auditor` profiles as appropriate. Creator/Enhancer share one core; Reasoning Auditor is advisory-only. Full standalone prompt references live in the Google Drive `Agent Prompts` folder recorded in `WORKSPACE.json`. Follow `project_plan.json` for staged validation and future decision-record work.

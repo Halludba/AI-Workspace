@@ -21,7 +21,8 @@
     "profile_performance_audit_policy",
     "workspace_policy",
     "pdf_styler_policy",
-    "latency_policy"
+    "latency_policy",
+    "agent_development_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -825,6 +826,57 @@
         "context_topics": {
           "type": "object",
           "minProperties": 1
+        }
+      }
+    },
+    "agent_development_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "purpose",
+        "pipeline",
+        "shared_prompt_core",
+        "reasoning_audit_boundary",
+        "self_audit_boundary",
+        "deployment_gate",
+        "performance_feedback",
+        "decision_record_status",
+        "decision_record_rule"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "pipeline": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "shared_prompt_core": {
+          "type": "string"
+        },
+        "reasoning_audit_boundary": {
+          "type": "string"
+        },
+        "self_audit_boundary": {
+          "type": "string"
+        },
+        "deployment_gate": {
+          "type": "string"
+        },
+        "performance_feedback": {
+          "type": "string"
+        },
+        "decision_record_status": {
+          "type": "string"
+        },
+        "decision_record_rule": {
+          "type": "string"
         }
       }
     }

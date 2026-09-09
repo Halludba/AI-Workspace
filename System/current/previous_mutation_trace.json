@@ -1,37 +1,29 @@
 {
-  "system_version": "0.17.0",
-  "directive_id": "pdf-styler-extension-v017",
-  "source_type": "user_system_design_directive",
-  "source_reference": "Design project current chat",
-  "user_prompt_summary": "Create the general-purpose PDF Styler extension originally intended: arbitrary PDFs should resolve and follow reusable style presets rather than only the self-revising PDFs having styling rules.",
-  "target_improvement": "Add extension.pdf_styler, a reusable style preset schema/registry, style.pdf.formats as the first preset, executable ReportLab adapter/validator, and verification integration.",
-  "candidate_decisions": [
-    {
-      "candidate": "general reusable PDF Styler extension",
-      "decision": "NEW",
-      "reason": "Existing style.formats_pdf is coupled to the recursive pair and does not provide a general style-resolution/application contract."
-    },
-    {
-      "candidate": "reuse Formats visual system as first named preset",
-      "decision": "REWRITE/MERGE",
-      "reason": "Preserves existing work while separating style tokens from recursive-system semantics."
-    },
-    {
-      "candidate": "hardcode one style into every PDF generator",
-      "decision": "REJECT",
-      "reason": "Would block explicit style choice and specialized approved generators; preset resolution is more reusable."
-    }
-  ],
+  "system_version": "0.18.0",
+  "directive_id": "2026-09-09-latency-optimized-execution",
+  "source_type": "user_directive_plus_planning_iteration",
+  "source_reference": "Design project latency optimization planning turn",
+  "user_prompt_summary": "Implement the planned settings to significantly reduce prompt/output production time; token usage is not an issue.",
+  "target_improvement": "Minimize wall-clock latency while preserving correctness and final verification quality.",
   "accepted_changes": [
-    "Add extension.pdf_styler and pdf_styler_policy.",
-    "Add pdf_style_schema.json and pdf_styles/style.pdf.formats.json.",
-    "Add executable pdf_styler.py loader/validator/ReportLab adapter and specimen renderer.",
-    "Enable PDF Styler in normal generation profiles while preserving specialized-generator overrides.",
-    "Add regression and PDF visual verification coverage."
+    "DIRECT/SCOPED/GLOBAL pre-workspace routing",
+    "Tiered lazy context with active_context/context_index/dependency_graph",
+    "workspace_ctl compact control interface",
+    "semantic convergence before heavy artifact generation",
+    "content-addressed generator cache",
+    "incremental PDF page render cache",
+    "scoped iterative test support plus full final regression",
+    "batch independent I/O policy",
+    "local deterministic edit/diff mechanics",
+    "compact execution responses and suppressed nonessential progress narration",
+    "secondary AI excluded from latency-critical path",
+    "local phase timing/cache-hit instrumentation"
   ],
   "rejected_or_noop": [
-    "No requirement that every PDF look like Formats.pdf; it is the default named preset, not an immutable universal aesthetic.",
-    "No silent subjective style invention when a material style choice remains unresolved."
+    "No token-minimization objective",
+    "No reduction of final correctness/safety/approval checks",
+    "No mandatory secondary-model call",
+    "No claim of guaranteed host prompt-cache speedup"
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
@@ -83,11 +75,57 @@
     "pdf_styler.py",
     "pdf_style_schema.json",
     "pdf_styles/style.pdf.formats.json",
-    "pdf_engine/tests/test_pdf_styler.py"
+    "pdf_engine/tests/test_pdf_styler.py",
+    "pdf_engine/latency.py",
+    "workspace_ctl.py",
+    "context_index.json",
+    "dependency_graph.json",
+    "active_context.json",
+    "pdf_engine/tests/test_latency.py"
   ],
   "convergence_result": {
     "passes": 2,
     "stable": true,
     "issues": []
+  },
+  "candidate_decisions": [
+    {
+      "decision": "MERGE",
+      "candidate": "latency router + lazy context",
+      "reason": "Reduces unnecessary context/tool work without weakening authority or final verification."
+    },
+    {
+      "decision": "REWRITE",
+      "candidate": "regression sequencing",
+      "reason": "Use scoped tests during iteration and one full suite before closure instead of repeatedly running all tests."
+    },
+    {
+      "decision": "NEW",
+      "candidate": "content-addressed build/render cache",
+      "reason": "Skip only work whose inputs or rendered page hashes are unchanged."
+    }
+  ],
+  "measured_latency_evidence": {
+    "warm_runs_seconds": [
+      2.8135,
+      2.8403
+    ],
+    "semantic_convergence_seconds": [
+      0.167,
+      0.1676
+    ],
+    "regression_seconds": [
+      2.2858,
+      2.331
+    ],
+    "verification_seconds": [
+      0.1538,
+      0.1533
+    ],
+    "generator_cache_hits": [
+      "Formats.pdf",
+      "PDF_Workflow.pdf"
+    ],
+    "claim_boundary": "Observed local runs only; not a guaranteed future speedup."
   }
 }

@@ -1,14 +1,143 @@
 {
   "plan_version": "1.0",
   "project_name": "Recursive AI Config System",
-  "status": "AWAITING_DIRECTION",
-  "master_objective": null,
-  "direction_notes": [],
-  "constraints": [],
-  "parts": [],
+  "status": "ACTIVE",
+  "master_objective": "Build a governed, portable agent-development ecosystem where Custom GPT/system prompts can be created, enhanced, epistemically audited, deployed, observed, performance-audited and improved without losing human/main-host authority.",
+  "direction_notes": [
+    "Prompt Creator and Prompt Enhancer should share one specification-engineering core where behavior overlaps, with distinct create/enhance modes rather than duplicated logic.",
+    "Reasoning Auditor validates visible rationale/evidence and recursive iteration quality; it is advisory and must not request or store private chain-of-thought.",
+    "Future system reasoning records should be concise auditable decision records (claims/evidence/assumptions/alternatives/decisions/unknowns/verification), not hidden reasoning transcripts.",
+    "Eventually add a specialized Deep Research / agent-prompt architect layer for producing research prompts that generate new Custom GPT prompts.",
+    "Use real session evidence and Profile Performance Auditor before permanently promoting speculative governance machinery."
+  ],
+  "constraints": [
+    "Current explicit user instruction always outranks the saved plan.",
+    "Do not duplicate semantically overlapping agent logic merely because separate Custom GPT labels exist.",
+    "No hidden chain-of-thought capture or requirement.",
+    "Reasoning-audit recommendations remain PENDING_MAIN_HOST until normal governance accepts them.",
+    "Preserve v0.18 latency routing and persistent-workspace delivery; no routine ZIP export."
+  ],
+  "parts": [
+    {
+      "id": "agent-foundation",
+      "part_number": 1,
+      "title": "Integrate Prompt-Agent Foundation",
+      "raw_user_intent": "Here are the prompts; incorporate it optimally, as well as the plan.",
+      "objective": "Integrate Prompt Creator/Enhancer behavior without duplication, add Reasoning Auditor as a separate advisory profile, preserve full source prompts as references, and encode the development pipeline.",
+      "priority": 1,
+      "status": "COMPLETED",
+      "dependencies": [],
+      "rationale": "Governance and shared agent contracts must exist before later recursive/self-audit workflows are promoted.",
+      "acceptance_criteria": [
+        "Creator and Enhancer share one core module with distinct modes.",
+        "Reasoning Auditor is advisory-only and excludes private chain-of-thought.",
+        "Standalone prompt references are preserved outside core runtime bloat.",
+        "Full regression, convergence and PDF verification pass."
+      ],
+      "completion_evidence": [
+        "47/47 regression tests passed.",
+        "Semantic convergence reached a stable fixed point in 2 passes.",
+        "Formats.pdf rule 1.1k.xi visually verified on page 14.",
+        "PDF_Workflow.pdf stage 2.7.12 visually verified on page 11.",
+        "Prompt source references preserved in Google Drive Agent Prompts folder."
+      ],
+      "next_actions": [
+        "Validate Reasoning Auditor on a real Prompt Enhancer iteration trace after release closure."
+      ],
+      "source_reference": "Current Design project turn plus supplied Prompt Creator variants and Reasoning Auditor PDF."
+    },
+    {
+      "id": "reasoning-auditor-validation",
+      "part_number": 2,
+      "title": "Validate Reasoning Auditor on Real Recursive Prompt Work",
+      "raw_user_intent": "Run the prompt enhancer on the newly generated reasoning auditor, get the reasoning behind enhancements, then embody reasoning auditor to check whether the reasoning is valid before confirming edits.",
+      "objective": "Use actual Prompt Enhancer iteration rationale and prompt deltas to test Reasoning Auditor usefulness, false-positive discipline, metric-drift detection and recursive-degradation detection before deeper runtime promotion.",
+      "priority": 2,
+      "status": "PENDING",
+      "dependencies": [
+        "agent-foundation"
+      ],
+      "acceptance_criteria": [
+        "Audit receives visible rationale/deltas, not hidden reasoning.",
+        "Auditor separates supported flaws from unverifiable claims.",
+        "Main host, not auditor, decides whether edits are accepted."
+      ],
+      "completion_evidence": [],
+      "next_actions": [
+        "Run Reasoning Auditor against the completed three-iteration Prompt Enhancer trace and resulting prompt."
+      ],
+      "source_reference": "Qwen planning conversation supplied by user."
+    },
+    {
+      "id": "decision-rationale-records",
+      "part_number": 3,
+      "title": "Add Auditable Decision-Rationale Records",
+      "raw_user_intent": "Create a new entry in the system BIOS that makes agents record their reasoning into individual reasoning files so I can occasionally run a system reasoning check.",
+      "objective": "If Part 2 demonstrates value, add per-profile persistent decision records containing claims, evidence, assumptions, alternatives, decisions, unknowns and verification so Reasoning Auditor can inspect system reasoning without capturing private chain-of-thought.",
+      "priority": 3,
+      "status": "PENDING",
+      "dependencies": [
+        "reasoning-auditor-validation"
+      ],
+      "acceptance_criteria": [
+        "Privacy boundary explicitly forbids hidden chain-of-thought capture.",
+        "Records are concise, auditable and linked to outputs/code where applicable.",
+        "Periodic reasoning audits can identify rationale/output inconsistencies and route fixes through main governance."
+      ],
+      "completion_evidence": [],
+      "next_actions": [
+        "Design the record schema only after Part 2 evidence confirms the audit workflow is useful."
+      ],
+      "source_reference": "User roadmap in supplied Qwen conversation."
+    },
+    {
+      "id": "deep-research-agent-architect",
+      "part_number": 4,
+      "title": "Build Deep Research / Agent Prompt Architect",
+      "raw_user_intent": "The next step may as well be creating a custom agent for creating prompts for deep research to create custom prompts.",
+      "objective": "Create a specialized layer that turns an agent goal into a high-quality Deep Research brief for researching and producing a new Custom GPT/system prompt, then routes the result through Prompt Enhancer and Reasoning Auditor.",
+      "priority": 4,
+      "status": "PENDING",
+      "dependencies": [
+        "reasoning-auditor-validation"
+      ],
+      "acceptance_criteria": [
+        "Research prompt separates research questions from desired final agent behavior.",
+        "No invented tool/capability assumptions.",
+        "Generated agent prompts flow through enhancement and epistemic audit before deployment."
+      ],
+      "completion_evidence": [],
+      "next_actions": [
+        "Design after Reasoning Auditor validation establishes the governance gate."
+      ],
+      "source_reference": "User roadmap in supplied Qwen conversation."
+    },
+    {
+      "id": "periodic-agent-quality-loop",
+      "part_number": 5,
+      "title": "Operationalize Periodic Agent Quality Audits",
+      "raw_user_intent": "Occasionally run a system reasoning check to see errors in reasoning and the code generated as a result and to fix it.",
+      "objective": "Combine reasoning audits, artifact/code consistency checks and profile performance audits into periodic evidence-based reviews that propose bounded improvements without automatic self-authorization.",
+      "priority": 5,
+      "status": "PENDING",
+      "dependencies": [
+        "decision-rationale-records"
+      ],
+      "acceptance_criteria": [
+        "Reasoning, output correctness and profile performance remain distinct audit dimensions.",
+        "Findings are evidence-linked and main-host governed.",
+        "No audit recursively mutates itself without normal lifecycle review."
+      ],
+      "completion_evidence": [],
+      "next_actions": [
+        "Define cadence and sampling only after decision-record evidence exists."
+      ],
+      "source_reference": "User roadmap in supplied Qwen conversation."
+    }
+  ],
   "current_part_id": null,
-  "last_completed_part_id": null,
-  "next_recommended_part_id": null,
-  "resume_hint": "Supply a master objective/goals, or reference a valid part by id/number after the plan has been populated.",
-  "updated_utc": "2026-09-08T19:06:04.515768+00:00"
+  "last_completed_part_id": "agent-foundation",
+  "next_recommended_part_id": "reasoning-auditor-validation",
+  "resume_hint": "Continue with part 2 to validate Reasoning Auditor against the real Prompt Enhancer recursive-iteration trace before promoting persistent decision-rationale records.",
+  "updated_utc": "2026-09-09T06:09:47.593322+00:00"
 }

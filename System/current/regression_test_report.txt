@@ -1,6 +1,11 @@
 REGRESSION / MUTATION SIMULATION PREFLIGHT
 
 warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+test_adapter_exposes_profile_mode_and_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_profile_mode_and_policy) ... ok
+test_agent_development_pipeline_and_decision_record_boundary (test_agent_ecosystem.AgentEcosystemTests.test_agent_development_pipeline_and_decision_record_boundary) ... ok
+test_project_plan_contains_ordered_agent_roadmap (test_agent_ecosystem.AgentEcosystemTests.test_project_plan_contains_ordered_agent_roadmap) ... ok
+test_prompt_profiles_share_one_specification_core (test_agent_ecosystem.AgentEcosystemTests.test_prompt_profiles_share_one_specification_core) ... ok
+test_reasoning_auditor_is_advisory_and_private_reasoning_safe (test_agent_ecosystem.AgentEcosystemTests.test_reasoning_auditor_is_advisory_and_private_reasoning_safe) ... ok
 test_context_index_refresh_and_lookup (test_latency.LatencyPolicyTests.test_context_index_refresh_and_lookup) ... ok
 test_incremental_generator_cache (test_latency.LatencyPolicyTests.test_incremental_generator_cache) ... ok
 test_latency_policy_contract (test_latency.LatencyPolicyTests.test_latency_policy_contract) ... ok
@@ -32,7 +37,7 @@ test_fixed_point_detection (test_regression.RegressionTests.test_fixed_point_det
 test_immediate_previous_bundle_matches_release_pointer (test_regression.RegressionTests.test_immediate_previous_bundle_matches_release_pointer) ... ok
 test_operational_risk_preflight_is_clean (test_regression.RegressionTests.test_operational_risk_preflight_is_clean) ... ok
 test_persistent_workspace_is_default_delivery (test_regression.RegressionTests.test_persistent_workspace_is_default_delivery) ... ok
-test_project_plan_validates_and_starts_empty (test_regression.RegressionTests.test_project_plan_validates_and_starts_empty) ... ok
+test_project_plan_validates_and_state_is_coherent (test_regression.RegressionTests.test_project_plan_validates_and_state_is_coherent) ... ok
 test_release_filename_is_versioned (test_regression.RegressionTests.test_release_filename_is_versioned) ... ok
 test_runtime_state_version_matches_runtime_config (test_regression.RegressionTests.test_runtime_state_version_matches_runtime_config) ... ok
 test_status_cli_never_crashes (test_regression.RegressionTests.test_status_cli_never_crashes) ... ok
@@ -45,6 +50,6 @@ test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme
 test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
 
 ----------------------------------------------------------------------
-Ran 42 tests in 2.126s
+Ran 47 tests in 1.985s
 
 OK

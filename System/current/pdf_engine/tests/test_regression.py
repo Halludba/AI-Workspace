@@ -165,13 +165,19 @@ class RegressionTests(unittest.TestCase):
         code=[p for p in paths if p.name=="05_EXECUTION_ENGINE_AND_LOGIC.py"][0].read_text(encoding="utf-8")
         self.assertIn("theme_reference_pdf_generator.py",code)
 
-    def test_project_plan_validates_and_starts_empty(self):
+    def test_project_plan_validates_and_state_is_coherent(self):
         cfg=json.loads((ROOT/"ai_runtime_config.json").read_text(encoding="utf-8"))
         plan=json.loads((ROOT/cfg["planning_policy"]["plan_path"]).read_text(encoding="utf-8"))
         schema=json.loads((ROOT/cfg["planning_policy"]["schema_path"]).read_text(encoding="utf-8"))
         jsonschema.validate(plan,schema)
-        self.assertEqual(plan["status"],"AWAITING_DIRECTION")
-        self.assertEqual(plan["parts"],[])
+        if plan["status"]=="AWAITING_DIRECTION":
+            self.assertIsNone(plan["master_objective"]); self.assertEqual(plan["parts"],[])
+        else:
+            self.assertEqual(plan["status"],"ACTIVE"); self.assertTrue(plan["master_objective"]); self.assertTrue(plan["parts"])
+            ids={p["id"] for p in plan["parts"]}
+            if plan["current_part_id"] is not None: self.assertIn(plan["current_part_id"],ids)
+            if plan["last_completed_part_id"] is not None: self.assertIn(plan["last_completed_part_id"],ids)
+            if plan["next_recommended_part_id"] is not None: self.assertIn(plan["next_recommended_part_id"],ids)
 
     def test_checkpoint_capacity_policy_contract(self):
         cfg=json.loads((ROOT/"ai_runtime_config.json").read_text(encoding="utf-8"))

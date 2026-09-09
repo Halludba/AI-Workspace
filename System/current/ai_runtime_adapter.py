@@ -59,6 +59,8 @@ def instruction_packet(cfg, state, capabilities, profile_override=None):
         f"INTERACTION MODE: {effective_interaction}",
         f"OPTIMIZATION PROFILE: {effective_optimization}",
     ]
+    if profile.get('profile_parameters'):
+        lines += ["PROFILE PARAMETERS: " + json.dumps(profile['profile_parameters'], ensure_ascii=False)]
     workflow_policy_name = profile.get('workflow_policy')
     if workflow_policy_name and isinstance(cfg.get(workflow_policy_name), dict):
         lines += ["", f"WORKFLOW POLICY: {workflow_policy_name}", json.dumps(cfg[workflow_policy_name], indent=2, ensure_ascii=False)]
@@ -76,7 +78,7 @@ def instruction_packet(cfg, state, capabilities, profile_override=None):
         for m, missing in degraded:
             lines.append(f"- {m['id']}: missing capabilities: {', '.join(missing)}")
     # Portable planning/continuity/review policies are serialized for hosts that need them.
-    for policy_name in ('workspace_policy','pdf_styler_policy','planning_policy','execution_capacity_policy','secondary_review_policy'):
+    for policy_name in ('workspace_policy','pdf_styler_policy','planning_policy','execution_capacity_policy','secondary_review_policy','agent_development_policy'):
         if isinstance(cfg.get(policy_name), dict):
             lines += ["", policy_name.upper() + ':', json.dumps(cfg[policy_name], indent=2, ensure_ascii=False)]
     plan_path = ROOT / cfg.get('planning_policy', {}).get('plan_path', 'project_plan.json')

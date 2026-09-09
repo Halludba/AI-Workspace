@@ -1,5 +1,5 @@
 {
-  "version": "0.18.0",
+  "version": "0.19.0",
   "topics": {
     "workspace": {
       "files": [
@@ -94,6 +94,34 @@
       "artifacts": [],
       "depends_on": [
         "workspace"
+      ]
+    },
+    "prompt_agents": {
+      "files": [
+        "ai_runtime_config.json",
+        "project_plan.json",
+        "WORKSPACE.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_agent_ecosystem.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "workspace"
+      ]
+    },
+    "reasoning_auditor": {
+      "files": [
+        "ai_runtime_config.json",
+        "project_plan.json",
+        "mutation_trace.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_agent_ecosystem.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "prompt_agents"
       ]
     }
   }
