@@ -1,0 +1,34 @@
+{
+  "run_id": "2026-09-09-part2-recovery-validation",
+  "created_utc": "2026-09-09T07:00:03.985478+00:00",
+  "run_kind": "NEW_PROSPECTIVE_RECORDED_RUN",
+  "historical_run_recovered": false,
+  "historical_partial_evidence": "../part2-recovered-evidence/original-run-retrieved.json",
+  "authorization": "Current user: fix the issue on your own. Main host selects a new auditable run to resolve missing evidence; historical provenance remains separate.",
+  "target": "Existing standalone Reasoning Auditor prompt",
+  "method": "Current assistant performs sequential Prompt Enhancer ENHANCE passes using frozen v0.19 runtime methodology, then reviews saved evidence using frozen Auditor contract. No separate agent, external model, or Custom GPT execution is claimed.",
+  "independence": "Same-assistant second pass, not independent verification.",
+  "objective": "Improve consistency with the existing v0.19 advisory audit contract while preserving original epistemic distinctions, privacy and authority boundaries.",
+  "baseline_source": "C:\\Users\\Abdullah\\Downloads\\Reasoning Auditor.pdf",
+  "baseline_source_sha256": "05a1e6294d2b1e3055db459ec5da1b0b409e897a0b362c83c5d06c904ba981f0",
+  "extracted_baseline_sha256": "bc50340287f879fa3b299d21bd4d107752455c3183b11e864f462a38f6be8e49",
+  "normalization": "Removed only standalone page numbers and PAGE N labels from earlier PDF text extraction. No semantic rewrite.",
+  "invariants": [
+    "Advisory-only; no automatic edits, deployment or acceptance.",
+    "No hidden reasoning requests or process-faithfulness claims.",
+    "Preserve normative/empirical distinction, five claim statuses and four verdicts.",
+    "Preserve baseline/previous/current/no-change comparisons and defensible measurement rule.",
+    "False-positive discipline: missing evidence is not automatically a fabricated constraint or observed defect.",
+    "Assess rationale/output consistency when supplied; do not substitute output quality for rationale validity.",
+    "Same-model role switching is not independent verification."
+  ],
+  "comparison_rules": [
+    "Each pass reads its predecessor and baseline; record exact replacements, rationale and alternatives before executing the edit.",
+    "Preservation and instruction consistency are acceptance criteria; character count is descriptive only.",
+    "No empirical accuracy, latency or model-performance claim follows from static checks.",
+    "A no-op pass is permitted; three passes are a maximum review budget, not proof of convergence.",
+    "Stopping condition: no further material edit justified by available evidence, not a numerical semantic percentage."
+  ],
+  "pass_budget": 3,
+  "release_policy": "Candidate-only audit artifacts. No runtime/policy/PDF/source prompt deployment, version change or Part 3 promotion."
+}

@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-09-09T07:04:31.936861+00:00",
+  "checks": [
+    {
+      "iteration": 1,
+      "replay": "PASS",
+      "hash_chain": "PASS"
+    },
+    {
+      "iteration": 2,
+      "replay": "PASS",
+      "hash_chain": "PASS"
+    },
+    {
+      "iteration": 3,
+      "replay": "PASS",
+      "hash_chain": "PASS"
+    }
+  ],
+  "exact_reverse_to_baseline": "PASS",
+  "no_op_byte_identity": "PASS",
+  "plan_schema": "PASS",
+  "unrelated_plan_parts_unchanged": "PASS",
+  "runtime_modified": false,
+  "test_scope": "Artifact replay and plan validation; no executable system changes or full regression claimed."
+}

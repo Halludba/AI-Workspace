@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-09-09T07:04:31.936861+00:00",
+  "actor": "MAIN_HOST",
+  "authority": "Current user authorized autonomous resolution; this is host bookkeeping, not Auditor self-authorization.",
+  "decision": "ACCEPT_BOUNDED_VALIDATION_COMPLETION",
+  "part2_status": "COMPLETED",
+  "basis": [
+    "A real new three-pass ENHANCE run has full ordered inputs, proposals, outputs, deltas and timestamps.",
+    "Frozen-contract advisory audit explicitly assesses all nine dimensions.",
+    "Historical partial evidence and five labeled control cases distinguish observable defects, unverified claims, and legitimate no-change.",
+    "Exact replay, hash linkage and full baseline preservation verified."
+  ],
+  "scope_resolution": "Complete Part 2 via the new prospective recorded validation; do not represent it as completion or recovery of the inaccessible historical run. The original historical request remains only partially auditable.",
+  "historical_validation_status": "INDETERMINATE_PARTIAL",
+  "historical_remaining_gap": [
+    "Remainder of original iteration 2",
+    "Original iteration 3 and exact final output",
+    "Original 12-page change-audit PDF",
+    "Historical test input/output observations and numerical measurement method",
+    "Exact linkage of historical attachment to Downloads baseline candidate"
+  ],
+  "candidate_decision": "RETAIN_AS_UNDEPLOYED_CANDIDATE",
+  "candidate_file": "iteration-3.md",
+  "accepted_as_canonical_prompt": false,
+  "decision_record_promotion": false,
+  "system_rule_changed": false,
+  "release_required": false,
+  "limits": [
+    "Same-assistant exercise, not independent verification.",
+    "Static validation and constructed controls do not demonstrate production accuracy or false-positive rates.",
+    "No system-wide logging or Part 3 implementation is authorized by this gate."
+  ]
+}

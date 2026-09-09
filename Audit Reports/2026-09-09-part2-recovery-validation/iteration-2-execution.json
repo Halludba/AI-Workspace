@@ -1,0 +1,25 @@
+{
+  "iteration": 2,
+  "executed_utc": "2026-09-09T07:00:32.441913+00:00",
+  "input_sha256": "2b88308ae5449d7b550cfba0dd79e921366e95b539d0dd288e937f58a39a56f3",
+  "output_sha256": "2bc628f79212a8e4403f04728f0145e373448e0b53efed9913f52c3174366437",
+  "proposal_sha256": "cfaaf2eb21d302cfa1bfd3d4ea1bb91272ee18b8c832fc36eeb512ca4b2838f4",
+  "input_characters": 29354,
+  "output_characters": 29724,
+  "character_delta": 370,
+  "metric_limit": "Character count is not semantic delta or performance.",
+  "exact_replacement_count": 1,
+  "preservation_anchors": {
+    "PENDING_MAIN_HOST": true,
+    "UNVERIFIABLE": true,
+    "PARTIALLY_SUPPORTED": true,
+    "INDETERMINATE": true,
+    "DEGRADED": true,
+    "Normative Authority": true,
+    "Empirical Evidence": true,
+    "No Hidden-Reasoning Speculation": true,
+    "Retain the previous version / make no change": true,
+    "Do not accept numerical convergence claims without a defensible measurement": true
+  },
+  "verification_scope": "Exact textual mutation and anchor presence only; not behavioral proof."
+}

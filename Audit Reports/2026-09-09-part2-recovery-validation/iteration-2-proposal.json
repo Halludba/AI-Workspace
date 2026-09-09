@@ -1,0 +1,20 @@
+{
+  "iteration": 2,
+  "role": "PROMPT_ENHANCER_ENHANCE",
+  "input": "iteration-1.md",
+  "target": "No Hidden-Reasoning Speculation / trace scope",
+  "action": "CLARIFY",
+  "old": "Do not claim the third unless independent evidence genuinely supports it.",
+  "new": "Do not claim the third unless independent evidence genuinely supports it.\nA model reviewing its own output under another persona is a second review pass,\nnot independent verification. When a resulting prompt, code file, or other\nartifact is supplied, compare it with the stated rationale for consistency.\nKeep that comparison separate from judging outcome quality or claiming that\nvisible rationale reveals the hidden process that produced it.",
+  "observed_issue": "The standalone source distinguishes coherence, support and process faithfulness, but does not explicitly include the existing runtime's same-model boundary and rationale-to-output consistency instruction at this point.",
+  "rationale": "Make the standalone candidate explicit about two already-adopted v0.19 runtime requirements. Consistency is observable by comparing written claims and artifacts; it does not prove hidden-process faithfulness or independent review.",
+  "expected_effect": "Close the explicit standalone/runtime coverage gap without changing authority or substituting outcome review for reasoning audit. No accuracy improvement is measured or claimed.",
+  "provenance": ["frozen-runtime-contract.json / module.behavior", "frozen-runtime-contract.json / policy.self_audit_boundary", "iteration-1.md / No Hidden-Reasoning Speculation"],
+  "alternatives": [
+    {"option":"Retain iteration 1 and rely on runtime wrapper","assessment":"Adequate inside the runtime, but the stated target is a standalone candidate; explicit wording carries the existing requirements into that context."},
+    {"option":"Require another model for every audit","assessment":"Rejected: the runtime makes cross-model review optional evidence, and no such capability or necessity has been established."},
+    {"option":"Use final outcome correctness to validate rationale","assessment":"Rejected: conflicts with outcome independence."}
+  ],
+  "baseline_comparison": "The first pass adds a scope qualification only. This pass adds explicit existing runtime requirements; original epistemic standards and all no-change/measurement boundaries remain.",
+  "confidence": "HIGH for contract alignment; behavioral effect unmeasured"
+}

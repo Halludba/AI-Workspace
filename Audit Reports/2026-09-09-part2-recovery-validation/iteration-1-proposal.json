@@ -1,0 +1,18 @@
+{
+  "iteration": 1,
+  "role": "PROMPT_ENHANCER_ENHANCE",
+  "input": "baseline.md",
+  "target": "Edge-Case Rules / Incomplete Traces",
+  "action": "CLARIFY",
+  "old": "Use `Coverage: PARTIAL` where appropriate.",
+  "new": "Use `Coverage: PARTIAL` where appropriate.\nWhen missing evidence prevents evaluating a dimension, mark it unassessed or\nunverifiable. Do not present the absence of detected failures as evidence that\nthe missing material is sound. Qualify any no-failure statement by the material\nactually inspected, and identify what remains unassessed.",
+  "observed_issue": "The incomplete-trace rule requires partial coverage, but the output template separately requires an unqualified no-failures sentence. A scope qualification makes their joint application explicit.",
+  "rationale": "Clarify existing incomplete-evidence and false-positive requirements at their application point; do not add a new verdict or change the burden of proof.",
+  "expected_effect": "The written contract explicitly distinguishes unassessed material from a clean finding. No behavioral performance gain is measured or claimed.",
+  "provenance": ["baseline.md / Incomplete Traces", "baseline.md / INDETERMINATE", "baseline.md / Epistemic Failures Detected"],
+  "alternatives": [
+    {"option":"Retain baseline unchanged","assessment":"Defensible because INDETERMINATE and scope limitations already express the distinction; local clarification reduces an instruction-application ambiguity without removing those rules."},
+    {"option":"Remove the no-failures sentence globally","assessment":"Rejected: removes useful concise behavior for fully assessed sound traces."}
+  ],
+  "confidence": "HIGH for explicit wording change; unmeasured for actual model behavior"
+}

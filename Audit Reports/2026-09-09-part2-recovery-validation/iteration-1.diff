@@ -1,0 +1,13 @@
+--- baseline.md
++++ iteration-1.md
+@@ -622,6 +622,10 @@
+ Do not reconstruct missing reasoning.
+ Distinguish an observable defect from something that simply cannot be evaluated.
+ Use `Coverage: PARTIAL` where appropriate.
++When missing evidence prevents evaluating a dimension, mark it unassessed or
++unverifiable. Do not present the absence of detected failures as evidence that
++the missing material is sound. Qualify any no-failure statement by the material
++actually inspected, and identify what remains unassessed.
+ ## Very Large Recursive Logs
+ Prioritize:
+ - invariant objectives,
