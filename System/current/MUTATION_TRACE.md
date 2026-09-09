@@ -1,30 +1,30 @@
 # Mutation Trace
 
-**System version:** 0.20.0
-**Directive:** Continue from the latest GitHub/OneDrive/Windows state and proceed with the next staged roadmap work.
-**Target improvement:** Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation.
+**System version:** 0.21.0
+**Directive:** Continue Part 4 and build the Deep Research / Agent Prompt Architect.
+**Target improvement:** Add an optional evidence-research precursor that cleanly separates target-agent requirements from research questions, preserves capability uncertainty, and routes research-generated prompts through existing enhancement/audit/governance gates.
 
 ## Candidate decisions
-- **NEW - core.auditable_decision_records + schema/validator:** Part 2 supplied the validation gate required by the existing roadmap; no persistent cross-profile decision-record mechanism existed.
-- **REWRITE - per-agent reasoning files:** Implement as concise externalizable decision records, not private chain-of-thought or hidden scratchpads.
-- **MERGE - agent_development_policy planned decision-record hook:** Promote the existing deferred hook to ACTIVE_AFTER_VALIDATION instead of creating a competing pipeline.
-- **REPAIR - stale ai_runtime_state.plan_context:** Project plan showed Part 2 complete while runtime state still reported Part 1 as last completed.
+- **NEW - extension.deep_research_agent_architect + profile/policy:** Research-brief architecture is distinct from final prompt specification and was not represented by the existing Prompt Creator/Enhancer.
+- **MERGE - Downstream prompt creation/enhancement/audit logic:** Reuse Prompt Enhancer, Reasoning Auditor and main-host deployment gate rather than duplicating their semantics inside the research architect.
+- **REWRITE - Agent-development pipeline entry:** Add RESEARCH_PRECURSOR_WHEN_NEEDED as an optional branch before CREATE_OR_ENHANCE while retaining the existing pipeline.
+- **NO_OP - Deep Research execution capability:** The profile creates a research brief but does not manufacture web/Deep Research/browser capability; execution remains host-dependent.
+- **NEW - Research bypass rule:** Prevent unnecessary research latency/ceremony when stable supplied context already determines the agent specification.
 
 ## Accepted changes
-- Append-only per-profile decision-record core and policy
-- Decision record JSON schema and writer/validator
-- Reasoning Auditor evidence-consumption boundary
-- Agent development pipeline DECISION_RECORD stage
-- Part 2 -> Part 3 plan-state repair
-- Formats 1.1k.xii and Workflow 2.7.13 integration
-- Decision-record regression tests
-- First live schema-valid decision record
+- Deep Research / Agent Prompt Architect profile and extension
+- Deep Research architect workflow policy
+- TARGET_AGENT_CONTRACT vs RESEARCH_AGENDA separation
+- Capability-unknown and source-evidence boundaries
+- Research-to-Prompt-Enhancer-to-Reasoning-Auditor-to-main-host route
+- Latency context topic and regression coverage
+- Formats 1.1k.xiii and Workflow 2.7.14
 
 ## Rejected / merged / no-op
-- No private chain-of-thought logger
-- No mandatory record for ordinary direct answers/trivial mechanics
-- No auditor self-authorization or automatic record/system mutation
-- No routine ZIP export
+- No duplicate Prompt Creator/Enhancer implementation
+- No automatic research for simple/stable prompt tasks
+- No invented Deep Research/web/browser/tool capabilities
+- No research-result deployment authority
 
 ## Convergence result
 - Passes: 2

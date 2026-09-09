@@ -80,6 +80,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.21.0",
+      "previous_version": "0.20.0",
+      "change": "Optional Deep Research / Agent Prompt Architect precursor with target-contract/research-agenda separation, capability uncertainty and existing enhancement/audit/governance handoff.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

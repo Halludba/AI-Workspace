@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.13.0",
-  "directive_epoch": 14,
-  "directive_id": "2026-09-09-part3-auditable-decision-records",
+  "runtime_version": "0.14.0",
+  "directive_epoch": 15,
+  "directive_id": "2026-09-09-deep-research-agent-architect",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.20.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.21.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "explicit_plan_continuation",
-    "source_reference": "User: continue Codex work; project_plan Part 3",
-    "user_prompt_summary": "Continue the staged roadmap from the latest persisted workspace state.",
-    "target_improvement": "Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation."
+    "source_type": "project_plan_part_4_explicit_resume",
+    "source_reference": "project_plan.json part 4 plus current user directive part 4",
+    "user_prompt_summary": "Continue Part 4: build the Deep Research / Agent Prompt Architect layer.",
+    "target_improvement": "Add an optional research-first agent-design precursor that separates research questions from target behavior, preserves capability uncertainty, and routes research-produced prompts through existing enhancement/audit/governance gates."
   },
   "theme_session": {
     "phase": "IDLE",
@@ -42,8 +42,8 @@
   "plan_context": {
     "plan_path": "project_plan.json",
     "active_part_id": null,
-    "last_completed_part_id": "decision-rationale-records",
-    "next_recommended_part_id": "deep-research-agent-architect"
+    "last_completed_part_id": "deep-research-agent-architect",
+    "next_recommended_part_id": "periodic-agent-quality-loop"
   },
   "execution_checkpoint": {
     "active": false,

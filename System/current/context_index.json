@@ -1,5 +1,5 @@
 {
-  "version": "0.20.0",
+  "version": "0.21.0",
   "topics": {
     "workspace": {
       "files": [
@@ -138,6 +138,21 @@
       ],
       "artifacts": [],
       "depends_on": [
+        "reasoning_auditor"
+      ]
+    },
+    "deep_research_agent_architect": {
+      "files": [
+        "ai_runtime_config.json",
+        "project_plan.json",
+        "decision_record_schema.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_agent_ecosystem.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "prompt_agents",
         "reasoning_auditor"
       ]
     }

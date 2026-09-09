@@ -23,7 +23,8 @@
     "pdf_styler_policy",
     "latency_policy",
     "agent_development_policy",
-    "decision_record_policy"
+    "decision_record_policy",
+    "deep_research_agent_architect_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -842,7 +843,9 @@
         "deployment_gate",
         "performance_feedback",
         "decision_record_status",
-        "decision_record_rule"
+        "decision_record_rule",
+        "deep_research_precursor",
+        "deep_research_downstream_gate"
       ],
       "properties": {
         "policy_version": {
@@ -877,6 +880,12 @@
           "type": "string"
         },
         "decision_record_rule": {
+          "type": "string"
+        },
+        "deep_research_precursor": {
+          "type": "string"
+        },
+        "deep_research_downstream_gate": {
           "type": "string"
         }
       }
@@ -928,6 +937,85 @@
           "type": "string"
         },
         "audit_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "deep_research_agent_architect_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "purpose",
+        "use_when",
+        "bypass_when",
+        "phases",
+        "separation_rule",
+        "research_question_domains",
+        "evidence_policy",
+        "capability_boundary",
+        "result_authority",
+        "downstream_route",
+        "execution_boundary",
+        "prompt_injection_boundary"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "use_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "bypass_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5
+        },
+        "separation_rule": {
+          "type": "string"
+        },
+        "research_question_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "evidence_policy": {
+          "type": "string"
+        },
+        "capability_boundary": {
+          "type": "string"
+        },
+        "result_authority": {
+          "type": "string"
+        },
+        "downstream_route": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3
+        },
+        "execution_boundary": {
+          "type": "string"
+        },
+        "prompt_injection_boundary": {
           "type": "string"
         }
       }

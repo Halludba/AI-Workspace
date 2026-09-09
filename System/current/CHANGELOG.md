@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.21.0
+- Added optional `deep_research_agent_architect` profile/module/policy as an evidence precursor for new Custom GPT/system-prompt design.
+- Enforced `TARGET_AGENT_CONTRACT` vs `RESEARCH_AGENDA` separation so research questions/hypotheses cannot silently become agent requirements.
+- Added explicit source-quality, prompt-injection/trust and capability-uncertainty boundaries; the profile never manufactures Deep Research/web/browser/tool capabilities.
+- Research is bypassed when stable supplied context already determines the specification; current/specialized/disputed evidence or explicit research-first requests activate it.
+- Deep Research output remains noncanonical evidence and is routed through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE before deployment.
+- Added Formats 1.1k.xiii, Workflow 2.7.14 and regression coverage; 53/53 deterministic tests passed before artifact closure.
+
 ## 0.20.0
 - Activated privacy-safe, append-only per-profile decision-rationale records after successful bounded Reasoning Auditor validation.
 - Added `core.auditable_decision_records`, `decision_record_policy`, `decision_record_schema.json`, `decision_record.py`, and regression coverage.

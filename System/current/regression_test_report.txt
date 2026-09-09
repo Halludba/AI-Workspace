@@ -1,8 +1,11 @@
 REGRESSION / MUTATION SIMULATION PREFLIGHT
 
 warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+test_adapter_exposes_deep_research_architect_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_deep_research_architect_policy) ... ok
 test_adapter_exposes_profile_mode_and_policy (test_agent_ecosystem.AgentEcosystemTests.test_adapter_exposes_profile_mode_and_policy) ... ok
 test_agent_development_pipeline_and_decision_record_boundary (test_agent_ecosystem.AgentEcosystemTests.test_agent_development_pipeline_and_decision_record_boundary) ... ok
+test_deep_research_agent_architect_contract (test_agent_ecosystem.AgentEcosystemTests.test_deep_research_agent_architect_contract) ... ok
+test_deep_research_policy_routes_through_existing_gates (test_agent_ecosystem.AgentEcosystemTests.test_deep_research_policy_routes_through_existing_gates) ... ok
 test_project_plan_contains_ordered_agent_roadmap (test_agent_ecosystem.AgentEcosystemTests.test_project_plan_contains_ordered_agent_roadmap) ... ok
 test_prompt_profiles_share_one_specification_core (test_agent_ecosystem.AgentEcosystemTests.test_prompt_profiles_share_one_specification_core) ... ok
 test_reasoning_auditor_is_advisory_and_private_reasoning_safe (test_agent_ecosystem.AgentEcosystemTests.test_reasoning_auditor_is_advisory_and_private_reasoning_safe) ... ok
@@ -53,6 +56,6 @@ test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme
 test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 2.174s
+Ran 53 tests in 2.072s
 
 OK

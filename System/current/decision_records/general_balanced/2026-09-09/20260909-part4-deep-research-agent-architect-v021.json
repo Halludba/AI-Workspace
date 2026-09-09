@@ -1,0 +1,192 @@
+{
+  "record_version": "1.0",
+  "record_id": "20260909-part4-deep-research-agent-architect-v021",
+  "recorded_utc": "2026-09-09T08:13:45.978763+00:00",
+  "directive_id": "2026-09-09-deep-research-agent-architect",
+  "profile_id": "general_balanced",
+  "objective": "Implement Part 4 as an evidence-grounded Deep Research / Agent Prompt Architect without duplicating existing prompt creation/enhancement or granting capabilities the host may not possess.",
+  "constraints": [
+    {
+      "id": "C1",
+      "text": "Current user directive activates project plan Part 4.",
+      "provenance": "User: part 4 + project_plan.json"
+    },
+    {
+      "id": "C2",
+      "text": "Prompt Creator and Prompt Enhancer must retain one shared specification core rather than duplicated logic.",
+      "provenance": "Existing v0.20 agent-development architecture"
+    },
+    {
+      "id": "C3",
+      "text": "Research questions must remain distinct from desired final agent behavior and requirements.",
+      "provenance": "Part 4 acceptance criteria"
+    },
+    {
+      "id": "C4",
+      "text": "No model/tool/browser/web/Deep Research capability may be invented by configuration.",
+      "provenance": "Host capability boundary + Part 4 acceptance criteria"
+    },
+    {
+      "id": "C5",
+      "text": "Research-generated prompts must pass Prompt Enhancer, Reasoning Auditor and main-host governance before deployment.",
+      "provenance": "Part 4 acceptance criteria + agent-development policy"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL1",
+      "text": "Research-brief architecture is a distinct responsibility from final system-prompt specification.",
+      "provenance": "Redundancy/responsibility audit"
+    },
+    {
+      "id": "CL2",
+      "text": "Making research optional avoids unnecessary latency and ceremony when stable supplied context already determines the prompt specification.",
+      "provenance": "Latency policy + scoped optimality decision"
+    },
+    {
+      "id": "CL3",
+      "text": "Deep Research output should be treated as evidence/candidate specification rather than canonical deployment authority.",
+      "provenance": "Existing governance and trust-boundary rules"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "source": "project_plan.json Part 4 acceptance criteria",
+      "availability": "AVAILABLE",
+      "supports": [
+        "C1",
+        "C3",
+        "C5"
+      ],
+      "sha256": "ff4fd245a1ee5002b5bcfca67df7b6f327a66d2a2cfe528d2e02ae11053f7473"
+    },
+    {
+      "id": "E2",
+      "source": "ai_runtime_config.json v0.14.0 runtime contract",
+      "availability": "AVAILABLE",
+      "supports": [
+        "C2",
+        "C4",
+        "CL1",
+        "CL2",
+        "CL3"
+      ],
+      "sha256": "997c4a0961203bdee2e931078e5668900e7054f17ca2564d6bc0ec4f30557bb0"
+    },
+    {
+      "id": "E3",
+      "source": "Full deterministic regression suite: 53/53 passed",
+      "availability": "AVAILABLE",
+      "supports": [
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "sha256": "297c3498df8954d5368b5fd4621250501197e7e0c70fea4e83d267a8a64d091c"
+    },
+    {
+      "id": "E4",
+      "source": "Formats.pdf 1.1k.xiii and PDF_Workflow.pdf 2.7.14 visual verification",
+      "availability": "AVAILABLE",
+      "supports": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "sha256": "db111ffaf769e54a51b466dae94ae05fb7727b4cd81b305357746f53cdecd7f8"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "A1",
+      "text": "A real production session is still needed to measure whether generated research briefs improve downstream agent quality.",
+      "provenance": "No empirical Part 4 production trial in this release"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT1",
+      "option": "Duplicate Prompt Creator/Enhancer logic inside a Deep Research agent.",
+      "disposition": "REJECTED",
+      "reason": "Creates competing specification logic and unnecessary maintenance drift."
+    },
+    {
+      "id": "ALT2",
+      "option": "Make Deep Research mandatory for every new agent.",
+      "disposition": "REJECTED",
+      "reason": "Violates latency/optimality goals when research cannot change a material decision."
+    },
+    {
+      "id": "ALT3",
+      "option": "Add only a profile label with no explicit research-vs-agent-contract policy.",
+      "disposition": "REJECTED",
+      "reason": "Would not deterministically enforce Part 4 separation and capability boundaries."
+    },
+    {
+      "id": "ALT4",
+      "option": "Add an optional research-brief profile/module/policy and reuse existing enhancement/audit/governance gates.",
+      "disposition": "SELECTED",
+      "reason": "Smallest non-duplicative architecture satisfying all Part 4 acceptance criteria."
+    }
+  ],
+  "decision": "Activate deep_research_agent_architect as an optional evidence precursor. It creates a self-contained research brief with TARGET_AGENT_CONTRACT and RESEARCH_AGENDA separated, keeps unverified capabilities unknown, treats research output as noncanonical evidence, and routes generated prompts through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE.",
+  "unknowns": [
+    {
+      "id": "U1",
+      "text": "Practical research-brief quality and downstream prompt improvement are not yet measured on a real agent-development task.",
+      "provenance": "Release 0.21 implements architecture and deterministic validation only."
+    },
+    {
+      "id": "U2",
+      "text": "Whether a given host can actually execute Deep Research/web/browser operations is host-dependent and must be checked at runtime.",
+      "provenance": "Capability boundary"
+    }
+  ],
+  "verification": [
+    {
+      "check": "Full regression suite",
+      "status": "PASS",
+      "evidence_ref": "E3"
+    },
+    {
+      "check": "Semantic fixed point in 2 passes",
+      "status": "PASS",
+      "evidence_ref": "E2"
+    },
+    {
+      "check": "Formats 1.1k.xiii visual inspection",
+      "status": "PASS",
+      "evidence_ref": "E4"
+    },
+    {
+      "check": "Workflow 2.7.14 visual inspection",
+      "status": "PASS",
+      "evidence_ref": "E4"
+    }
+  ],
+  "links": [
+    {
+      "kind": "plan_part",
+      "target": "project_plan.json#deep-research-agent-architect",
+      "sha256": "ff4fd245a1ee5002b5bcfca67df7b6f327a66d2a2cfe528d2e02ae11053f7473"
+    },
+    {
+      "kind": "artifact",
+      "target": "ai_runtime_config.json",
+      "sha256": "997c4a0961203bdee2e931078e5668900e7054f17ca2564d6bc0ec4f30557bb0"
+    },
+    {
+      "kind": "artifact",
+      "target": "Formats.pdf",
+      "sha256": "db111ffaf769e54a51b466dae94ae05fb7727b4cd81b305357746f53cdecd7f8"
+    },
+    {
+      "kind": "artifact",
+      "target": "PDF_Workflow.pdf",
+      "sha256": "8a40141fec8d535e95d92e1e0f5c6fd71ba7c3694627e4067bea1ca88009129c"
+    }
+  ],
+  "privacy_attestation": "NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"
+}

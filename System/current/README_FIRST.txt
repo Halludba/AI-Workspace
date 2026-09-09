@@ -1,4 +1,4 @@
-Recursive AI Config System v0.20.0
+Recursive AI Config System v0.21.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -33,3 +33,6 @@ Prompt Creator and Prompt Enhancer share one specification-engineering core with
 
 DECISION RECORDS
 Material governed choices may emit append-only per-profile records under decision_records/. They store concise externalizable decision rationale and evidence links, never private chain-of-thought. Validate/write with decision_record.py.
+
+DEEP RESEARCH AGENT ARCHITECT
+Use deep_research_agent_architect when research can materially change a new agent specification or the user explicitly requests research-first design. It separates TARGET_AGENT_CONTRACT from RESEARCH_AGENDA, preserves unknown capabilities, and routes research-produced prompts through Prompt Enhancer -> Reasoning Auditor -> MAIN_HOST_GATE.
