@@ -244,6 +244,9 @@
         },
         "portable_export_supported": {
           "type": "boolean"
+        },
+        "previous_tag": {
+          "type": "string"
         }
       }
     },

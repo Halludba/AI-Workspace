@@ -1,6 +1,12 @@
 REGRESSION / MUTATION SIMULATION PREFLIGHT
 
 warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+test_adapter_serializes_pdf_styler_policy (test_pdf_styler.PDFStylerPortabilityTests.test_adapter_serializes_pdf_styler_policy) ... ok
+test_handoff_contains_style_registry_and_styler_source (test_pdf_styler.PDFStylerPortabilityTests.test_handoff_contains_style_registry_and_styler_source) ... ok
+test_formats_preset_validates (test_pdf_styler.PDFStylerTests.test_formats_preset_validates) ... ok
+test_pdf_styler_policy_and_profile_activation (test_pdf_styler.PDFStylerTests.test_pdf_styler_policy_and_profile_activation) ... ok
+test_resolver_and_fidelity_audit (test_pdf_styler.PDFStylerTests.test_resolver_and_fidelity_audit) ... ok
+test_specimen_render_smoke (test_pdf_styler.PDFStylerTests.test_specimen_render_smoke) ... ok
 test_config_schema_enforces_advisory (test_profile_audit.AuditTests.test_config_schema_enforces_advisory) ... ok
 test_dangling_evidence_rejected (test_profile_audit.AuditTests.test_dangling_evidence_rejected) ... ok
 test_integration_and_over_budget_rejected (test_profile_audit.AuditTests.test_integration_and_over_budget_rejected) ... ok
@@ -34,6 +40,6 @@ test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme
 test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
 
 ----------------------------------------------------------------------
-Ran 31 tests in 1.427s
+Ran 37 tests in 1.724s
 
 OK

@@ -1,27 +1,24 @@
 # Mutation Trace
 
-**System version:** 0.16.0
-**Directive:** User requested a shared persistent workspace all Design chats can use, with GitHub/PC/cloud editing instead of rebuilding a ZIP for every version.
-**Target improvement:** Promote persistent workspace state and Git history to the normal continuity/delivery model; retain ZIP/AI Handoff only for explicit portability/recovery; repair OneDrive-safe handoff regeneration.
+**System version:** 0.17.0
+**Directive:** Create the general-purpose PDF Styler extension originally intended: arbitrary PDFs should resolve and follow reusable style presets rather than only the self-revising PDFs having styling rules.
+**Target improvement:** Add extension.pdf_styler, a reusable style preset schema/registry, style.pdf.formats as the first preset, executable ReportLab adapter/validator, and verification integration.
 
 ## Candidate decisions
-- **NEW - Persistent workspace continuity:** The prior system had portable handoff continuity but no canonical cross-chat repository/execution/asset workspace contract.
-- **REWRITE - Mandatory ZIP and categorized bundle on every mutation:** Git history and persistent connectors now provide the normal continuity layer; routine ZIP generation adds churn without improving correctness.
-- **REWRITE - Delete-and-recreate AI Handoff directory:** Observed OneDrive/Remote Desktop ACL denies directory deletion; in-place deterministic overwrite preserves the five-file contract without destructive regeneration.
-- **REJECT - Assume connected tools are always reachable:** Connector/device availability is runtime state and must be verified before claiming access or synchronization.
+- **NEW - general reusable PDF Styler extension:** Existing style.formats_pdf is coupled to the recursive pair and does not provide a general style-resolution/application contract.
+- **REWRITE/MERGE - reuse Formats visual system as first named preset:** Preserves existing work while separating style tokens from recursive-system semantics.
+- **REJECT - hardcode one style into every PDF generator:** Would block explicit style choice and specialized approved generators; preset resolution is more reusable.
 
 ## Accepted changes
-- Added persistent workspace policy and core workspace-continuity module across profiles.
-- Routine system closure now targets verified workspace state; ZIP and five-file AI Handoff are explicit portability/recovery exports.
-- Added optional portable-export CLI path while preserving versioned categorized ZIP rules when export is requested.
-- Changed AI Handoff regeneration to deterministic in-place overwrite with syntax validation that does not create __pycache__.
-- Added regression coverage for persistent delivery and OneDrive-safe handoff generation.
-- Git tags/commits preserve exact v0.15.0 lineage; previous ZIP embedding is no longer required in persistent mode.
+- Add extension.pdf_styler and pdf_styler_policy.
+- Add pdf_style_schema.json and pdf_styles/style.pdf.formats.json.
+- Add executable pdf_styler.py loader/validator/ReportLab adapter and specimen renderer.
+- Enable PDF Styler in normal generation profiles while preserving specialized-generator overrides.
+- Add regression and PDF visual verification coverage.
 
 ## Rejected / merged / no-op
-- No unrelated Theme Designer, auditor or strategic-review behavior was changed.
-- No claim is made that workspace connectors bypass context, permission, safety or availability limits.
-- Portable ZIP/export capability is retained rather than deleted.
+- No requirement that every PDF look like Formats.pdf; it is the default named preset, not an immutable universal aesthetic.
+- No silent subjective style invention when a material style choice remains unresolved.
 
 ## Convergence result
 - Passes: 2

@@ -40,6 +40,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.17.0",
+      "previous_version": "0.16.0",
+      "change": "General-purpose reusable PDF Styler extension and named PDF style preset system",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

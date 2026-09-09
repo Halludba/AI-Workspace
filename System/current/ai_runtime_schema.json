@@ -19,7 +19,8 @@
     "release_version",
     "handoff_policy",
     "profile_performance_audit_policy",
-    "workspace_policy"
+    "workspace_policy",
+    "pdf_styler_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -748,6 +749,21 @@
           "type": "string"
         }
       }
+    },
+    "pdf_styler_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "enabled",
+        "default_style_id",
+        "style_registry_path",
+        "style_schema_path",
+        "selection_order",
+        "trigger_rule",
+        "content_priority",
+        "verification",
+        "authority_boundary"
+      ]
     }
   }
 }

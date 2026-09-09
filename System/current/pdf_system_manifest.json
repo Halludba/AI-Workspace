@@ -1,8 +1,8 @@
 {
   "system_name": "Formats PDF System",
-  "subsystem_version": "0.5.0",
-  "release_version": "0.16.0",
-  "bundle_filename": "Recursive_AI_Config_System_v0.16.0.zip",
+  "subsystem_version": "0.6.0",
+  "release_version": "0.17.0",
+  "bundle_filename": "Recursive_AI_Config_System_v0.17.0.zip",
   "stable": true,
   "convergence_passes": 2,
   "artifacts": [
@@ -12,8 +12,8 @@
       "role": "start_here",
       "bundle_folder": "01 Start Here",
       "exists": true,
-      "sha256": "bac3b33d497dd1a5ee1cc7edb5069b0c626df9a44f34016403ab3e15f504879f",
-      "bytes": 1272
+      "sha256": "cf6d806801caa4cb29e30296b857b4fd30adfe0e4a15b5b49448704fbb22a297",
+      "bytes": 1544
     },
     {
       "path": "ai_runtime_config.json",
@@ -21,8 +21,8 @@
       "role": "portable_runtime_config",
       "bundle_folder": "02 AI Runtime",
       "exists": true,
-      "sha256": "b63d6c0849dbc043fe01ee2db2de1e8ea184d1462b08eb5c8f53d87010f57746",
-      "bytes": 68775
+      "sha256": "a392846414678909155eabf99bbdf51506e0365047907c4c4de6e953a1092a32",
+      "bytes": 73568
     },
     {
       "path": "ai_runtime_schema.json",
@@ -30,8 +30,8 @@
       "role": "portable_runtime_schema",
       "bundle_folder": "02 AI Runtime",
       "exists": true,
-      "sha256": "af968c4c28622611f428fa2238834e1ac696c47a5d876a445968c56211ba4199",
-      "bytes": 17568
+      "sha256": "34aa10193a38a13efda3b71a7571a17454a160b4d129d7a4052e8d9823a9c797",
+      "bytes": 17960
     },
     {
       "path": "ai_runtime_state.json",
@@ -39,8 +39,8 @@
       "role": "portable_runtime_state",
       "bundle_folder": "02 AI Runtime",
       "exists": true,
-      "sha256": "306268da2ad4ad2b622f46a4369998b7ab4d84e685db83ace264931cde7656cc",
-      "bytes": 2678
+      "sha256": "6395ceaa84b66a4a44afda9f6bf2ddc02531ab692586751d94d810b5aa7e4db7",
+      "bytes": 2658
     },
     {
       "path": "ai_runtime_adapter.py",
@@ -48,8 +48,8 @@
       "role": "portable_runtime_adapter",
       "bundle_folder": "02 AI Runtime",
       "exists": true,
-      "sha256": "9d6685066f12e11cc5203a50b57fe0fd6afe495a33cb7c36b1fff06e65c6d0cb",
-      "bytes": 6619
+      "sha256": "1c725cece64b681be14b420d57e2d8f2d4dc1ed09e6b1c7ca51d3f3520ae3154",
+      "bytes": 6639
     },
     {
       "path": "AI_Runtime_Instructions.txt",
@@ -66,8 +66,8 @@
       "role": "rulebook",
       "bundle_folder": "03 PDF System/Rules",
       "exists": true,
-      "sha256": "fd824ed304b6e25200693b189e637066274dd016e4b1b638df981b6bed320e98",
-      "bytes": 58004
+      "sha256": "51c5ae817b287297f2f8a4a91d3bcc7f80535b965a948f8b3a558e234b387fb0",
+      "bytes": 59279
     },
     {
       "path": "PDF_Workflow.pdf",
@@ -75,8 +75,8 @@
       "role": "workflow",
       "bundle_folder": "03 PDF System/Rules",
       "exists": true,
-      "sha256": "85218ffa429a2f72b5449d5fe49683001c3eeec127a0a4c23fb4c57e9e3c2344",
-      "bytes": 28200
+      "sha256": "b2bac2840672f34c14349c1a93b8aea4621a1c14023f902b4bcca8874cb8d586",
+      "bytes": 29445
     },
     {
       "path": "pdf_system_config.json",
@@ -84,8 +84,8 @@
       "role": "machine_state",
       "bundle_folder": "03 PDF System/State",
       "exists": true,
-      "sha256": "b035ca2ebc9d567314e93b0b8e43df6db3079fa41458e2f901d4e26198cd4525",
-      "bytes": 20787
+      "sha256": "67d902b878cc899e3bbc04155db33d39f8c91459583bd238034891207414f5da",
+      "bytes": 22167
     },
     {
       "path": "pdf_system_schema.json",
@@ -93,8 +93,8 @@
       "role": "state_schema",
       "bundle_folder": "03 PDF System/State",
       "exists": true,
-      "sha256": "819bdb05ab3e4f63046f1d2fb84361da4eb243c396455d1e5c778b22c9e4cc66",
-      "bytes": 6196
+      "sha256": "a6fc1d2a2b979edda432323529854bd101b8d4d0106ad5b9836aff3a60db7a4e",
+      "bytes": 6263
     },
     {
       "path": "pdf_system_engine.py",
@@ -111,8 +111,8 @@
       "role": "generated_python_state_mirror",
       "bundle_folder": "03 PDF System/Engine",
       "exists": true,
-      "sha256": "201ca97fa7a3923b64fd0c3afc87b81e17a0db527ceda3a609c66d705e2e137d",
-      "bytes": 25442
+      "sha256": "581ab00c725ae17dca36d0ff49948a007b46561fc9f1204d45c445ed5049c492",
+      "bytes": 27266
     },
     {
       "path": "CHANGELOG.md",
@@ -120,8 +120,8 @@
       "role": "human_change_history",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "3078d83da111698980bb13affa8527a471ae8ec67e9528158a2adfd7b70cb517",
-      "bytes": 13647
+      "sha256": "d39fe686f05433a3fc01d340f33a9cf01312b506aa8bfd827b698afe7d6626ca",
+      "bytes": 14461
     },
     {
       "path": "version_history.json",
@@ -129,8 +129,8 @@
       "role": "machine_change_history",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "49620f8f6a0377f8f692e2d84f3589b597ad1a2efeecdd846e47da4070e48ffd",
-      "bytes": 1659
+      "sha256": "e2409d967b5f4a18676ef183c198deb753c1e7f346a550e13ff52aaa0c3bf92c",
+      "bytes": 1942
     },
     {
       "path": "mutation_trace.json",
@@ -138,8 +138,8 @@
       "role": "machine_mutation_provenance",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "c8454931fc0b3553bef14d43f3f52eaeb8abf97999b28dabaa320eda2ff9ed42",
-      "bytes": 4439
+      "sha256": "26bef70d407bdeb52c9a51fed8a829af286bf973d566381801546f73b197ac78",
+      "bytes": 3835
     },
     {
       "path": "MUTATION_TRACE.md",
@@ -147,8 +147,8 @@
       "role": "human_mutation_provenance",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "6a454da7d7603628607bece74d401012c3d695a44dc5c0d82bba9685a967324e",
-      "bytes": 2285
+      "sha256": "8e61b17b85e86e94cd8e726ebae0c7784e18e566432244f8f24669f9ce9dc769",
+      "bytes": 1687
     },
     {
       "path": "recursive_convergence_report.txt",
@@ -156,8 +156,8 @@
       "role": "convergence_report",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "3cd277e126be2e44f7951cd231b31d5c24a925641612166d6c79479fc1e2f4a4",
-      "bytes": 799
+      "sha256": "90dad878ab6f65e4e66337f48c869beef3dcba5acf0d169d6d69043644b97469",
+      "bytes": 826
     },
     {
       "path": "pdf_system_manifest.json",
@@ -172,8 +172,8 @@
       "role": "ai_handoff_briefing",
       "bundle_folder": "05 AI Handoff",
       "exists": true,
-      "sha256": "a8f311f7dc3a06e55e431ca4f0504611b25e8c57df261c763f87e284a7cb4100",
-      "bytes": 19517
+      "sha256": "fe26aac13ead7c7efcceb8b1a9c429ce7057ba80c52c5efdf3ee3d0fb79eb760",
+      "bytes": 20046
     },
     {
       "path": "AI Handoff/02_UNIFIED_SYSTEM_STATE.json",
@@ -181,8 +181,8 @@
       "role": "ai_handoff_state",
       "bundle_folder": "05 AI Handoff",
       "exists": true,
-      "sha256": "11058a3db17b406611e509200b67acdd253610fce95cd478db7f86482cf9fd3a",
-      "bytes": 148321
+      "sha256": "dd2e578b452424acf7e408535b9e2620df39dae3fb21bb209ac6cac71084b0de",
+      "bytes": 165254
     },
     {
       "path": "AI Handoff/03_AUTHORITATIVE_RULES.md",
@@ -190,8 +190,8 @@
       "role": "ai_handoff_rules",
       "bundle_folder": "05 AI Handoff",
       "exists": true,
-      "sha256": "e1907ec5a9d6061b8dd7d17aef1d493d628d0e707231f2bee2235adf297c1bac",
-      "bytes": 57427
+      "sha256": "02db55f749f33ee91206d5a972615886383847a02bd326aab16682f89e0e188e",
+      "bytes": 60368
     },
     {
       "path": "AI Handoff/04_OPERATIONAL_WORKFLOW.md",
@@ -199,8 +199,8 @@
       "role": "ai_handoff_workflow",
       "bundle_folder": "05 AI Handoff",
       "exists": true,
-      "sha256": "856b1a109933faf42ab5b76f9436f1e57c4c7da198ae303008e4d6677a9f1b34",
-      "bytes": 21765
+      "sha256": "5e3573139b96a5228b21eccc7a7415ff4fbc0af724c02ed7da792feb47ff5132",
+      "bytes": 23729
     },
     {
       "path": "AI Handoff/05_EXECUTION_ENGINE_AND_LOGIC.py",
@@ -208,8 +208,8 @@
       "role": "ai_handoff_source_capsule",
       "bundle_folder": "05 AI Handoff",
       "exists": true,
-      "sha256": "71a25f095ffa0fa4cacf651e0fc3db6346351f3c4b28779d8530083f099b6a6c",
-      "bytes": 329208
+      "sha256": "590ed14dcd426cbf1b533e3844c3db7b8a093fc0fb14db5af50753365cbd29c8",
+      "bytes": 353863
     },
     {
       "path": "build_formats_pdf_v18.py",
@@ -217,8 +217,8 @@
       "role": "formats_pdf_generator_v18",
       "bundle_folder": "03 PDF System/Generators",
       "exists": true,
-      "sha256": "bba0eea949513b81c800cb0aa65149e6b84add6415655922776023722c3407ad",
-      "bytes": 74949
+      "sha256": "7e741ca8178a0c395c92e9e1da27c6b02490800c1a1adb8c69c0909769fa9dbc",
+      "bytes": 76661
     },
     {
       "path": "create_pdf_workflow_v13.py",
@@ -226,8 +226,8 @@
       "role": "workflow_pdf_generator_v13",
       "bundle_folder": "03 PDF System/Generators",
       "exists": true,
-      "sha256": "e61076a79abcab3404e547b602e7b634a512c76980a5e2bff57c5229adb27808",
-      "bytes": 28402
+      "sha256": "3f66f53791bbdddf6eaa36150a842054bbba6cbabc869834d2b0753b4f07730c",
+      "bytes": 29207
     },
     {
       "path": "pdf_engine/__init__.py",
@@ -262,8 +262,8 @@
       "role": "engine_audits",
       "bundle_folder": "03 PDF System/Engine/pdf_engine",
       "exists": true,
-      "sha256": "4e438a14159a95b4fdfd707b6ea71c9ba9bdccdfd9027c4a2ec3f05df400711a",
-      "bytes": 5118
+      "sha256": "4fd03c6ab44d86ea686f361ebc3422eb44a840626574f32339efbd45896f7b37",
+      "bytes": 5212
     },
     {
       "path": "pdf_engine/pdf_ops.py",
@@ -280,8 +280,8 @@
       "role": "engine_artifact_release",
       "bundle_folder": "03 PDF System/Engine/pdf_engine",
       "exists": true,
-      "sha256": "5d1bd7090526f58697cd5de49233778ed8a96762c2abc5a4afd02820b4845d0f",
-      "bytes": 10473
+      "sha256": "908f19865b6291aabe8eb207fcf8ba7b040aee4073935d66cb011668f6b4ed81",
+      "bytes": 11075
     },
     {
       "path": "pdf_engine/orchestrator.py",
@@ -334,8 +334,8 @@
       "role": "regression_preflight_report",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "bd6b435dabd414aea104d1600e102f8ea28c717c0523180fb34cd8a25f2e591c",
-      "bytes": 4148
+      "sha256": "8f043dd7a5bfd257def4db3bc289707c235cced1327f6bc25bd2a7b70b23d55b",
+      "bytes": 4882
     },
     {
       "path": "theme_reference_pdf_generator.py",
@@ -397,8 +397,8 @@
       "role": "preserved_previous_mutation",
       "bundle_folder": "04 History & Audit",
       "exists": true,
-      "sha256": "50ce1015cab079a0ddaffdc28b25836dd197bed31daa8086cf93fdf91cace906",
-      "bytes": 5759
+      "sha256": "c8454931fc0b3553bef14d43f3f52eaeb8abf97999b28dabaa320eda2ff9ed42",
+      "bytes": 4439
     },
     {
       "path": "materialize_release.py",
@@ -417,6 +417,42 @@
       "exists": true,
       "sha256": "28a812b15ddc9ab7b17681fc4f2a74a47898f4c38a986835261640b4fbfbd2b5",
       "bytes": 29
+    },
+    {
+      "path": "pdf_styler.py",
+      "classification": "REQUIRED",
+      "role": "reusable_pdf_styler",
+      "bundle_folder": "02 AI Runtime/PDF Styling",
+      "exists": true,
+      "sha256": "8d028abec5170eaff2184d72736315aca7b3d78e43b89f192baf52fd298914a5",
+      "bytes": 6997
+    },
+    {
+      "path": "pdf_style_schema.json",
+      "classification": "REQUIRED",
+      "role": "pdf_style_preset_schema",
+      "bundle_folder": "02 AI Runtime/PDF Styling",
+      "exists": true,
+      "sha256": "0b982c1c89e8c0c1ed850bec903bb76161864625df384bd0e410b70a10120a1a",
+      "bytes": 2252
+    },
+    {
+      "path": "pdf_styles/style.pdf.formats.json",
+      "classification": "REQUIRED",
+      "role": "pdf_style_formats_preset",
+      "bundle_folder": "02 AI Runtime/PDF Styling",
+      "exists": true,
+      "sha256": "45ef3677a218ef40e07286d51d64779c4e3030c820bb058fbfb279946fd26c3f",
+      "bytes": 2824
+    },
+    {
+      "path": "pdf_engine/tests/test_pdf_styler.py",
+      "classification": "REQUIRED",
+      "role": "pdf_styler_regression_tests",
+      "bundle_folder": "03 PDF System/Engine/pdf_engine/tests",
+      "exists": true,
+      "sha256": "15527dd800ef7636dc8c6ffb5815b7fdffa80be3dd8d81bd871f9894cec7f2eb",
+      "bytes": 3152
     }
   ]
 }

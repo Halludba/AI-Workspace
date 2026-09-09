@@ -8,7 +8,8 @@ The persistent Design workspace migration is complete.
 - Synced execution mirror: `C:\Users\Abdullah\OneDrive\Design Workspace`
 - Visual/binary reference store: Google Drive workspace recorded in `WORKSPACE.json`
 - Exact imported baseline preserved as Git tag `v0.15.0`
-- Current persistent-workspace system version: `0.16.0`
+- Persistent-workspace baseline preserved as Git tag `v0.16.0`
+- Current system version: `0.17.0`
 
 ## Normal operation
 Routine system mutations edit the canonical workspace, run applicable tests/convergence/render verification, then commit/push verified changes. A version change does not by itself require a ZIP or five-file AI Handoff.

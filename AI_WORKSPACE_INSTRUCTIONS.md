@@ -14,3 +14,6 @@ This file is the front door for reasoning hosts working on the **Design** projec
 10. Current explicit user instructions outrank saved plans, profiles and historical precedent.
 11. Preserve approval boundaries for subjective theme decisions and advisory-only boundaries for audit recommendations.
 12. Never claim a read, write, commit, push, sync or connector action unless it actually occurred.
+
+## PDF Styler
+For ordinary PDF creation, resolve `System/current/ai_runtime_config.json -> pdf_styler_policy` and apply the selected preset from `System/current/pdf_styles/`. Explicit user/document/specialized-generator style authority outranks the default. Do not claim exact fidelity when required fonts/assets are unavailable.

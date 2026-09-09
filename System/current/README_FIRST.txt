@@ -1,4 +1,4 @@
-Recursive AI Config System v0.16.0
+Recursive AI Config System v0.17.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -19,3 +19,8 @@ Theme Designer retains target-surface gating, invariant/surface-dependent decisi
 
 PROFILE PERFORMANCE AUDITOR
 The auditor remains advisory: evidence-linked recommendations return to main-host/user governance and never auto-integrate.
+
+PDF STYLER
+General PDF creation may use extension.pdf_styler. Default preset: style.pdf.formats. Explicit user/document/specialized-generator styles outrank the default.
+Run: python pdf_styler.py --list
+Run: python pdf_styler.py --style style.pdf.formats --validate

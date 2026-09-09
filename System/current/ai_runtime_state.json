@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.9.0",
-  "directive_epoch": 10,
-  "directive_id": "2026-09-09-persistent-workspace-primary",
+  "runtime_version": "0.10.0",
+  "directive_epoch": 11,
+  "directive_id": "2026-09-09-general-purpose-pdf-styler",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.16.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.17.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "explicit_user_workspace_architecture",
-    "source_reference": "Design project persistent workspace request plus observed OneDrive execution failure",
-    "user_prompt_summary": "Use GitHub, OneDrive, Google Drive and Remote Desktop Commander as a shared persistent workspace so routine versions no longer require recreated ZIP handoffs.",
-    "target_improvement": "Make persistent workspace state the normal delivery/continuity mechanism, keep portable exports on demand, and make handoff regeneration safe on the OneDrive execution mirror."
+    "source_type": "user_system_design_directive",
+    "source_reference": "Current Design-project conversation",
+    "user_prompt_summary": "User clarified the original goal: create a reusable custom PDF Styler extension so arbitrary generated PDFs follow selected style rules, not only the self-revising Formats pair.",
+    "target_improvement": "Generalize existing Formats-specific PDF styling into a reusable PDF Styler extension with named presets, executable validation/ReportLab adaptation, fidelity boundaries and render verification."
   },
   "theme_session": {
     "phase": "IDLE",

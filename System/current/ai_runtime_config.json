@@ -1,6 +1,6 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.9.0",
+  "runtime_version": "0.10.0",
   "authority_order": [
     "reality_tool_platform_and_safety_constraints",
     "current_explicit_user_instruction",
@@ -332,27 +332,56 @@
       "output_policy": "Never chain optional self-generated improvements past the current directive's budget."
     },
     {
-      "id": "style.formats_pdf",
-      "type": "style",
+      "id": "extension.pdf_styler",
+      "type": "extension",
       "enabled": true,
-      "purpose": "Apply the current Formats.pdf visual and pagination rules to generated PDFs when the PDF artifacts are available.",
-      "trigger": "PDF generation or Formats-system mutation.",
-      "scope": "PDF presentation/layout only.",
+      "purpose": "Apply reusable machine-readable PDF style presets to arbitrary PDF generation/restyling while preserving document semantics and verifying fidelity.",
+      "trigger": "Any request to create or materially restyle a PDF when this module is enabled in the active profile.",
+      "scope": "PDF presentation, style resolution, layout adaptation and visual verification; not document semantic authorship.",
       "behavior": [
-        "A4 portrait",
-        "section-aware pagination",
-        "fresh-page singleton top anchor",
-        "remaining-region vertical balance",
-        "equal-gap multi-block distribution"
+        "resolve style by explicit user choice, document/workflow binding, project binding, specialized approved generator authority, then configured default",
+        "load and validate the machine-readable PDF style preset and inspect its human/visual reference when available",
+        "separate content semantics from presentation and never rewrite, omit or reorder semantic content merely to make a style fit",
+        "apply page geometry, typography, palette, spacing, components, tables/lists, images/captions, headers/footers/page numbers and pagination rules",
+        "allow document-specific adaptation only within the preset and higher-authority readability/layout constraints",
+        "permit specialized approved PDF generators to override the default preset while retaining fidelity and verification requirements",
+        "audit fonts/assets before claiming fidelity; report PARTIAL when material requirements are unavailable or substituted",
+        "render and preflight generated PDFs, visually inspect affected pages when supported, and repair style/layout violations before closure",
+        "record applied style id/version and fidelity status in artifact metadata when the host/workflow supports metadata"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "core.internal_question_optimizer"
+      ],
       "conflicts": [],
       "required_capabilities": [
-        "pdf_read_or_equivalent_style_context"
+        "reasoning"
       ],
       "side_effect_class": "local_reversible",
       "state_fields": [],
-      "output_policy": "Degrade to a textual style specification when PDF tools are unavailable."
+      "output_policy": "When PDF generation is unavailable, emit the resolved style/specification and capability boundary rather than pretending a styled PDF was created."
+    },
+    {
+      "id": "style.formats_pdf",
+      "type": "style",
+      "enabled": true,
+      "purpose": "Bind the self-revising Formats/Workflow PDFs to the reusable style.pdf.formats preset through extension.pdf_styler.",
+      "trigger": "Formats/PDF Workflow generation, or explicit selection of style.pdf.formats for another PDF.",
+      "scope": "Named PDF style binding for the current Formats visual language.",
+      "behavior": [
+        "load style.pdf.formats from the PDF style registry",
+        "apply its A4, typography, palette, spacing, component and pagination tokens",
+        "preserve the self-revising pair's document-specific semantic layout requirements"
+      ],
+      "dependencies": [
+        "extension.pdf_styler"
+      ],
+      "conflicts": [],
+      "required_capabilities": [
+        "reasoning"
+      ],
+      "side_effect_class": "local_reversible",
+      "state_fields": [],
+      "output_policy": "Use style.pdf.formats as the named machine-readable presentation authority; fall back only under the PDF Styler fidelity policy."
     },
     {
       "id": "extension.theme_design_collaborator",
@@ -669,6 +698,7 @@
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
           "extension.predictive_next_step",
+          "extension.pdf_styler",
           "style.formats_pdf",
           "extension.strategic_plan_orchestrator",
           "extension.execution_checkpoint_continuity"
@@ -688,6 +718,7 @@
           "core.regression_simulation_preflight",
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
+          "extension.pdf_styler",
           "style.formats_pdf",
           "extension.strategic_plan_orchestrator",
           "extension.execution_checkpoint_continuity"
@@ -708,6 +739,7 @@
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
           "extension.predictive_next_step",
+          "extension.pdf_styler",
           "style.formats_pdf",
           "extension.strategic_plan_orchestrator",
           "extension.execution_checkpoint_continuity"
@@ -728,6 +760,7 @@
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
           "extension.predictive_next_step",
+          "extension.pdf_styler",
           "style.formats_pdf",
           "extension.strategic_plan_orchestrator",
           "extension.execution_checkpoint_continuity"
@@ -751,7 +784,8 @@
           "extension.theme_design_collaborator",
           "extension.theme_reference_cross_surface",
           "extension.strategic_plan_orchestrator",
-          "extension.execution_checkpoint_continuity"
+          "extension.execution_checkpoint_continuity",
+          "extension.pdf_styler"
         ],
         "decision_depth": "deep",
         "interaction_mode": "theme_studio",
@@ -843,7 +877,7 @@
     "privacy_boundary": "Store concise task-relevant summaries and decisions, not private chain-of-thought or unnecessary sensitive conversation content.",
     "authority": "evidence_only"
   },
-  "release_version": "0.16.0",
+  "release_version": "0.17.0",
   "handoff_policy": {
     "versioned_zip_required": false,
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
@@ -1261,5 +1295,49 @@
     "asset_policy": "Keep large visual/binary references in the configured asset store unless source control is the appropriate authoritative medium.",
     "portable_export_policy": "Generate ZIP bundles and the five-file AI Handoff only on explicit portability/recovery request or when a portable handoff is materially useful.",
     "access_boundary": "Verify connector, device and repository availability before claiming synchronization."
+  },
+  "pdf_styler_policy": {
+    "policy_version": "1.0",
+    "enabled": true,
+    "default_style_id": "style.pdf.formats",
+    "style_registry_path": "pdf_styles",
+    "style_schema_path": "pdf_style_schema.json",
+    "selection_order": [
+      "explicit user-selected PDF style",
+      "document/workflow style binding",
+      "project PDF style binding",
+      "specialized generator style when authoritative",
+      "configured default style"
+    ],
+    "trigger_rule": "When an enabled profile creates or materially restyles a PDF, resolve and apply a PDF style unless a higher-authority explicit instruction or specialized approved generator style governs presentation.",
+    "content_priority": [
+      "semantic correctness and explicit user content",
+      "readability/accessibility",
+      "layout integrity",
+      "style fidelity",
+      "decorative preference"
+    ],
+    "style_groups": [
+      "page geometry",
+      "typography",
+      "palette",
+      "spacing",
+      "components/callouts/tables/lists",
+      "images/captions",
+      "headers/footers/page numbers",
+      "pagination/keep-together"
+    ],
+    "document_adaptation_rule": "Document-specific layout may adapt within the active preset, but must not rewrite, omit or reorder semantic content merely to satisfy presentation.",
+    "specialized_override_rule": "A specialized generator with an explicit approved visual authority may override the default preset, but still inherits font/asset fidelity disclosure and render/preflight verification requirements.",
+    "fidelity_rule": "Do not claim exact PDF style fidelity when required fonts, assets or rendering capabilities are unavailable or substituted; report PARTIAL fidelity when material.",
+    "verification": [
+      "schema-valid style preset",
+      "font/asset availability audit",
+      "openable PDF",
+      "no clipping/overflow/broken glyphs",
+      "pagination integrity",
+      "visual inspection of affected pages when supported"
+    ],
+    "authority_boundary": "PDF styles govern presentation only. Reality/tool limits, current explicit user instructions and document semantics outrank style defaults."
   }
 }

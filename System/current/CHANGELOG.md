@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.17.0
+- Added general-purpose `extension.pdf_styler` so arbitrary PDF generation can resolve and apply reusable named style presets.
+- Added `pdf_style_schema.json`, `pdf_styles/style.pdf.formats.json`, and executable `pdf_styler.py` validation/ReportLab adapter + specimen renderer.
+- Refactored `style.formats_pdf` into the first named preset binding rather than a special-case styling mechanism.
+- PDF style resolution now respects explicit user choice, document/project binding, specialized approved generators, then the configured default.
+- Content semantics/readability/layout integrity outrank decorative style fidelity; unavailable fonts/assets require fidelity disclosure rather than fake exactness.
+- Added regression coverage and visual specimen verification for the PDF Styler extension.
+
 ## 0.16.0
 - Promoted persistent GitHub/OneDrive/Google Drive workspace continuity to the normal project delivery model.
 - Routine mutations now close through verified workspace state and Git history; versioned ZIP and five-file AI Handoff generation are on-demand portability/recovery exports.
