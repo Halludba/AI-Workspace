@@ -1,0 +1,103 @@
+{
+  "system_version": "0.14.0",
+  "user_prompt_summary": "Add a profile auditing completed workflow performance without automatic integration.",
+  "target_improvement": "After a workflow profile session completes, assess outcome fidelity, interaction efficiency, path quality, unnecessary friction, and reusable improvements; recommend changes without auto-committing them.",
+  "candidate_decisions": [
+    {
+      "candidate": "profile_performance_auditor",
+      "decision": "NEW",
+      "reason": "Distinct session contract-versus-execution scope; reasoning-only advisory workflow is feasible."
+    },
+    {
+      "candidate": "History/question optimization/governance mechanisms",
+      "decision": "MERGE",
+      "reason": "Reuse existing modules and lifecycle, not duplicate them."
+    },
+    {
+      "candidate": "workflow_optimizer alias or strategic_reviewer expansion",
+      "decision": "NO-OP",
+      "reason": "Optimizer implies execution; strategic review retains direction-level scope."
+    },
+    {
+      "candidate": "Automatic self-modification and compulsory audits",
+      "decision": "REJECT",
+      "reason": "Violates advisory boundary and adds unjustified friction."
+    },
+    {
+      "candidate": "Handoff ordering and platform paths",
+      "decision": "REWRITE",
+      "reason": "Observed stale derived state and Linux-only paths prevent faithful release closure."
+    }
+  ],
+  "accepted_changes": [
+    "Add bounded advisory profile, policy, evidence schema/validator and regression tests.",
+    "Integrate rules, workflow, state, handoff and versioned categorized packaging.",
+    "Preserve available v0.13.0 evidence with explicit reconstruction provenance."
+  ],
+  "rejected_or_noop": [
+    "No private reasoning disclosure, taste scoring, guaranteed speed gains, automatic integration or recursive audit loop."
+  ],
+  "affected_artifacts": [
+    "README_FIRST.txt",
+    "ai_runtime_config.json",
+    "ai_runtime_schema.json",
+    "ai_runtime_state.json",
+    "ai_runtime_adapter.py",
+    "AI_Runtime_Instructions.txt",
+    "Formats.pdf",
+    "PDF_Workflow.pdf",
+    "pdf_system_config.json",
+    "pdf_system_schema.json",
+    "pdf_system_engine.py",
+    "generated_rules.py",
+    "CHANGELOG.md",
+    "version_history.json",
+    "mutation_trace.json",
+    "MUTATION_TRACE.md",
+    "recursive_convergence_report.txt",
+    "pdf_system_manifest.json",
+    "AI Handoff/01_AI_BRIEFING_AND_HISTORY.md",
+    "AI Handoff/02_UNIFIED_SYSTEM_STATE.json",
+    "AI Handoff/03_AUTHORITATIVE_RULES.md",
+    "AI Handoff/04_OPERATIONAL_WORKFLOW.md",
+    "AI Handoff/05_EXECUTION_ENGINE_AND_LOGIC.py",
+    "build_formats_pdf_v18.py",
+    "create_pdf_workflow_v13.py",
+    "pdf_engine/__init__.py",
+    "pdf_engine/common.py",
+    "pdf_engine/state.py",
+    "pdf_engine/audits.py",
+    "pdf_engine/pdf_ops.py",
+    "pdf_engine/artifacts.py",
+    "pdf_engine/orchestrator.py",
+    "Previous Versions/Recursive_AI_Config_System_v0.13.0.zip",
+    "pdf_engine/convergence.py",
+    "pdf_engine/testing.py",
+    "pdf_engine/tests/__init__.py",
+    "pdf_engine/tests/test_regression.py",
+    "regression_test_report.txt",
+    "theme_reference_pdf_generator.py",
+    "project_plan.json",
+    "project_plan_schema.json",
+    "profile_audit_report_schema.json",
+    "profile_audit.py",
+    "pdf_engine/tests/test_profile_audit.py",
+    "previous_mutation_trace.json",
+    "materialize_release.py",
+    "requirements.txt"
+  ],
+  "convergence_result": {
+    "passes": 2,
+    "stable": true,
+    "issues": []
+  },
+  "directive_id": "profile-performance-auditor-2026-09-09",
+  "source_type": "explicit_user_directive",
+  "source_reference": "Current request and conversation 6aa00e13-11f4-83ec-9348-1629155af0c6",
+  "recovery_observations": [
+    "Original release archive unavailable; recovered exact handoff evidence preserved.",
+    "Missing PyMuPDF/jsonschema installed locally for verification.",
+    "Recovered preflight handoff tests require existing PDFs: bootstrapped PDFs before running the unchanged legacy tests.",
+    "Visual review caught new workflow blocks preceding their parent section; moved them after 2.7.8."
+  ]
+}

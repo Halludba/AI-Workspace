@@ -1,0 +1,35 @@
+{
+  "releases": [
+    {
+      "version": "0.13.0",
+      "provenance": "Reconstructed from five supplied handoff files; original binary bundle and complete machine history unavailable.",
+      "source_hashes": {
+        "01_AI_BRIEFING_AND_HISTORY.md": "623030b5dd410253aa4f8c5f99741efd7bb7aba6adbd83355786f883a6bb3a3a",
+        "02_UNIFIED_SYSTEM_STATE.json": "d8466d1ce0fd986b60d26e1a6ae4beb616c6bdafad4369db3bbf9e976670e094",
+        "03_AUTHORITATIVE_RULES.md": "081d7671e9d26981937c7a267643517a75b0895f8c8d026f23e20bec338d20ab",
+        "04_OPERATIONAL_WORKFLOW.md": "4ee59d576b35b1aca34c1915e169c3a4172e986e1178dc00987b4a7f226e8a3a",
+        "05_EXECUTION_ENGINE_AND_LOGIC.py": "5014ee9f8facdce10f19a350e96299dca3ecd5000d6536a7742a1e18b9f96493"
+      }
+    },
+    {
+      "version": "0.14.0",
+      "previous_version": "0.13.0",
+      "change": "Advisory completed-profile session auditing",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
+    },
+    {
+      "version": "0.15.0",
+      "previous_version": "0.14.0",
+      "change": "Theme Designer audit-driven surface gating and optional adaptive approval batching",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+REGRESSION / MUTATION SIMULATION PREFLIGHT
+
+test_config_schema_enforces_advisory (test_profile_audit.AuditTests.test_config_schema_enforces_advisory) ... ok
+test_dangling_evidence_rejected (test_profile_audit.AuditTests.test_dangling_evidence_rejected) ... ok
+test_integration_and_over_budget_rejected (test_profile_audit.AuditTests.test_integration_and_over_budget_rejected) ... ok
+test_partial_trace_cannot_claim_complete (test_profile_audit.AuditTests.test_partial_trace_cannot_claim_complete) ... ok
+test_policy_serialized_and_no_execution_modules (test_profile_audit.AuditTests.test_policy_serialized_and_no_execution_modules) ... ok
+test_unavailable_evidence_not_failure (test_profile_audit.AuditTests.test_unavailable_evidence_not_failure) ... ok
+test_unknown_metric_cannot_be_reported_as_measured (test_profile_audit.AuditTests.test_unknown_metric_cannot_be_reported_as_measured) ... ok
+test_valid_report_does_not_mutate_inputs (test_profile_audit.AuditTests.test_valid_report_does_not_mutate_inputs) ... ok
+test_ai_handoff_code_capsule_includes_theme_reference_generator (test_regression.RegressionTests.test_ai_handoff_code_capsule_includes_theme_reference_generator) ... ok
+test_ai_handoff_contract_is_exactly_five (test_regression.RegressionTests.test_ai_handoff_contract_is_exactly_five) ... ok
+test_ai_handoff_unified_state_contains_project_plan (test_regression.RegressionTests.test_ai_handoff_unified_state_contains_project_plan) ... ok
+test_artifact_paths_are_workspace_confined (test_regression.RegressionTests.test_artifact_paths_are_workspace_confined) ... ok
+test_checkpoint_capacity_policy_contract (test_regression.RegressionTests.test_checkpoint_capacity_policy_contract) ... ok
+test_current_config_validates (test_regression.RegressionTests.test_current_config_validates) ... ok
+test_cycle_detection (test_regression.RegressionTests.test_cycle_detection) ... ok
+test_fixed_point_detection (test_regression.RegressionTests.test_fixed_point_detection) ... ok
+test_immediate_previous_bundle_matches_release_pointer (test_regression.RegressionTests.test_immediate_previous_bundle_matches_release_pointer) ... ok
+test_operational_risk_preflight_is_clean (test_regression.RegressionTests.test_operational_risk_preflight_is_clean) ... ok
+test_project_plan_validates_and_starts_empty (test_regression.RegressionTests.test_project_plan_validates_and_starts_empty) ... ok
+test_release_filename_is_versioned (test_regression.RegressionTests.test_release_filename_is_versioned) ... ok
+test_runtime_state_version_matches_runtime_config (test_regression.RegressionTests.test_runtime_state_version_matches_runtime_config) ... ok
+test_status_cli_never_crashes (test_regression.RegressionTests.test_status_cli_never_crashes) ... ok
+test_strategic_reviewer_profile_and_adapter (test_regression.RegressionTests.test_strategic_reviewer_profile_and_adapter) ... ok
+test_theme_designer_adapter_override (test_regression.RegressionTests.test_theme_designer_adapter_override) ... ok
+test_theme_designer_batching_is_opt_in_and_reversible (test_regression.RegressionTests.test_theme_designer_batching_is_opt_in_and_reversible) ... ok
+test_theme_designer_profile_contract (test_regression.RegressionTests.test_theme_designer_profile_contract) ... ok
+test_theme_designer_surface_gate_and_invariant_split (test_regression.RegressionTests.test_theme_designer_surface_gate_and_invariant_split) ... ok
+test_theme_reference_generator_smoke (test_regression.RegressionTests.test_theme_reference_generator_smoke) ... ok
+test_theme_reference_policy_contract (test_regression.RegressionTests.test_theme_reference_policy_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 7.478s
+
+OK

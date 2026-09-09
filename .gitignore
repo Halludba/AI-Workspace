@@ -20,3 +20,6 @@ Thumbs.db
 *.zip
 Exports/*
 !Exports/.gitkeep
+
+# Local connector migration scratch space
+.migration/

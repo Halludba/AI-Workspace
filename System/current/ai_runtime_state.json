@@ -1,0 +1,72 @@
+{
+  "runtime_name": "Recursive AI Behavior Runtime",
+  "runtime_version": "0.8.0",
+  "directive_epoch": 9,
+  "directive_id": "2026-09-09-strategic-plan-checkpoint-continuity",
+  "phase": "HANDOFF",
+  "predictive_budget_max": 1,
+  "predictive_budget_remaining": 0,
+  "last_predictive_action": null,
+  "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
+  "last_transition_reason": "Release 0.15.0 reached verified fixed point and categorized handoff closure.",
+  "stable": true,
+  "current_profile": "general_balanced",
+  "current_decision_depth": "standard",
+  "current_interaction_mode": "bounded_autonomous",
+  "current_optimization_profile": "balanced",
+  "mutation_context": {
+    "source_type": "external_model_design_review_plus_user_project_intent",
+    "source_reference": "Qwen and DeepSeek conversation attachments",
+    "user_prompt_summary": "Shared Qwen/DeepSeek discussions proposing a persistent central direction/goal plan, part-by-part resumption, execution-size anticipation/checkpointing, and a complementary secondary-AI advisory role.",
+    "target_improvement": "Add a persistent strategic plan plus capacity-aware segmented execution/checkpoint continuity, and make the five-file handoff support an optional strategic second-mind reviewer without reducing single-host portability."
+  },
+  "theme_session": {
+    "phase": "IDLE",
+    "active_theme_id": null,
+    "draft_name": null,
+    "target_surface": null,
+    "references": [],
+    "approved_decisions": [],
+    "rejected_decisions": [],
+    "locked_decisions": [],
+    "open_decisions": [],
+    "last_user_approval": null,
+    "target_surface_status": "UNRESOLVED",
+    "batching": {
+      "mode": "GRANULAR",
+      "offered": false,
+      "consecutive_unqualified_approvals": 0,
+      "max_batch_size": 3
+    }
+  },
+  "plan_context": {
+    "plan_path": "project_plan.json",
+    "active_part_id": null,
+    "last_completed_part_id": null,
+    "next_recommended_part_id": null
+  },
+  "execution_checkpoint": {
+    "active": false,
+    "original_directive_id": null,
+    "original_directive_summary": null,
+    "plan_part_id": null,
+    "segment_id": null,
+    "status": "CLOSED",
+    "completed_steps": [],
+    "produced_artifacts": [],
+    "pending_steps": [],
+    "blocking_reason": null,
+    "resume_action": null,
+    "state_hashes": {}
+  },
+  "profile_audit_session": {
+    "phase": "IDLE",
+    "target_profile": null,
+    "target_session": null,
+    "contract_version": null,
+    "report_path": null,
+    "evidence_refs": [],
+    "pending_proposal_ids": [],
+    "governance_decisions": []
+  }
+}

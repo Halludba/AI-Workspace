@@ -1,0 +1,14 @@
+{
+  "plan_version": "1.0",
+  "project_name": "Recursive AI Config System",
+  "status": "AWAITING_DIRECTION",
+  "master_objective": null,
+  "direction_notes": [],
+  "constraints": [],
+  "parts": [],
+  "current_part_id": null,
+  "last_completed_part_id": null,
+  "next_recommended_part_id": null,
+  "resume_hint": "Supply a master objective/goals, or reference a valid part by id/number after the plan has been populated.",
+  "updated_utc": "2026-09-08T19:06:04.515768+00:00"
+}
