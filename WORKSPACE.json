@@ -7,11 +7,14 @@
     "owner": "Halludba",
     "repository": "AI-Workspace",
     "repository_full_name": "Halludba/AI-Workspace",
+    "repository_url": "https://github.com/Halludba/AI-Workspace",
     "default_branch": "main",
-    "status": "BOOTSTRAP_IN_PROGRESS"
+    "status": "ACTIVE_SOURCE_CONTROL"
   },
   "local_working_tree": "C:\\Users\\Abdullah\\OneDrive\\Design Workspace",
   "onedrive_sync": true,
+  "canonical_source_path": "System/",
+  "chat_start_file": "AI_WORKSPACE_INSTRUCTIONS.md",
   "google_drive": {
     "workspace_folder_id": "1xAAeTVO_-k2utmx4ST8xgDY0RewLeVhM",
     "theme_references_id": "1D2DJBrZiJ_GlBPHqnYF1UBL8cAIsasOH",
