@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.12.0",
-  "directive_epoch": 13,
-  "directive_id": "2026-09-09-agent-prompt-ecosystem-reasoning-audit",
+  "runtime_version": "0.13.0",
+  "directive_epoch": 14,
+  "directive_id": "2026-09-09-part3-auditable-decision-records",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.19.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.20.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "user_supplied_agent_prompts_plus_roadmap",
-    "source_reference": "Current Design project turn plus supplied Prompt Creator variants and Reasoning Auditor PDF.",
-    "user_prompt_summary": "Incorporate the supplied prompt-agent artifacts and the broader creation/enhancement/reasoning-audit roadmap optimally.",
-    "target_improvement": "Add a non-duplicative prompt-agent development ecosystem, preserve full standalone prompt references, and stage Reasoning Auditor validation before decision-rationale logging."
+    "source_type": "explicit_plan_continuation",
+    "source_reference": "User: continue Codex work; project_plan Part 3",
+    "user_prompt_summary": "Continue the staged roadmap from the latest persisted workspace state.",
+    "target_improvement": "Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation."
   },
   "theme_session": {
     "phase": "IDLE",
@@ -42,8 +42,8 @@
   "plan_context": {
     "plan_path": "project_plan.json",
     "active_part_id": null,
-    "last_completed_part_id": "agent-foundation",
-    "next_recommended_part_id": "reasoning-auditor-validation"
+    "last_completed_part_id": "decision-rationale-records",
+    "next_recommended_part_id": "deep-research-agent-architect"
   },
   "execution_checkpoint": {
     "active": false,
@@ -68,5 +68,11 @@
     "evidence_refs": [],
     "pending_proposal_ids": [],
     "governance_decisions": []
+  },
+  "decision_record_session": {
+    "phase": "READY",
+    "current_record_id": "20260909-part3-decision-records-v020",
+    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-part3-decision-records-v020.json",
+    "pending_audit": false
   }
 }

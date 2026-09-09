@@ -1,5 +1,12 @@
 # Recursive AI Config System - Changelog
 
+## 0.20.0
+- Activated privacy-safe, append-only per-profile decision-rationale records after successful bounded Reasoning Auditor validation.
+- Added `core.auditable_decision_records`, `decision_record_policy`, `decision_record_schema.json`, `decision_record.py`, and regression coverage.
+- Records contain only externalizable objective/constraints/claims/evidence/assumptions/alternatives/decision/unknowns/verification plus stable links; private chain-of-thought and hidden scratchpads are explicitly prohibited.
+- Reasoning Auditor may consume records as evidence/data but remains advisory; it cannot auto-edit records, audited outputs or system state.
+- Repaired stale `ai_runtime_state.plan_context` so Part 2 is correctly recorded as completed and Part 3 as the active continuation.
+
 ## 0.19.0
 - Added one shared `extension.prompt_specification_architect` core with separate `prompt_creator` (CREATE) and `prompt_enhancer` (ENHANCE) profiles instead of duplicating overlapping prompt logic.
 - Added advisory `reasoning_auditor` / `extension.epistemic_reasoning_audit` for evidence, inference, constraint provenance, metric drift, recursive degradation, alternatives and rationale-to-output consistency.

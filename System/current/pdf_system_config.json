@@ -98,7 +98,10 @@
       "dependency_graph.json",
       "active_context.json",
       "pdf_engine/tests/test_latency.py",
-      "pdf_engine/tests/test_agent_ecosystem.py"
+      "pdf_engine/tests/test_agent_ecosystem.py",
+      "decision_record_schema.json",
+      "decision_record.py",
+      "pdf_engine/tests/test_decision_records.py"
     ]
   },
   "round_trip": {
@@ -291,6 +294,11 @@
     {
       "id": "1.1k.x",
       "name": "Reusable PDF Styler Extension & Preset Resolution",
+      "status": "active"
+    },
+    {
+      "id": "1.1k.xii",
+      "name": "Auditable Decision-Rationale Records & Evidence Linkage",
       "status": "active"
     }
   ],
@@ -695,13 +703,34 @@
       "role": "agent_ecosystem_regression_tests",
       "bundle_folder": "03 PDF System/Tests",
       "include_in_bundle": true
+    },
+    {
+      "path": "decision_record_schema.json",
+      "classification": "REQUIRED",
+      "role": "decision_record_schema",
+      "bundle_folder": "02 AI Runtime",
+      "include_in_bundle": true
+    },
+    {
+      "path": "decision_record.py",
+      "classification": "REQUIRED",
+      "role": "decision_record_validator_writer",
+      "bundle_folder": "02 AI Runtime",
+      "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/tests/test_decision_records.py",
+      "classification": "REQUIRED",
+      "role": "decision_record_regression_tests",
+      "bundle_folder": "03 PDF System/Tests",
+      "include_in_bundle": true
     }
   ],
   "release": {
-    "version": "0.19.0",
-    "previous_version": "0.18.0",
+    "version": "0.20.0",
+    "previous_version": "0.19.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.19.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.20.0.zip",
     "folder_policy": "role_based",
     "ai_handoff_file_count": 5,
     "delivery_mode": "persistent_workspace",
@@ -754,7 +783,8 @@
       "pdf_engine/tests/test_profile_audit.py",
       "pdf_engine/tests/test_pdf_styler.py",
       "pdf_engine/tests/test_latency.py",
-      "pdf_engine/tests/test_agent_ecosystem.py"
+      "pdf_engine/tests/test_agent_ecosystem.py",
+      "pdf_engine/tests/test_decision_records.py"
     ],
     "deterministic_invariants": [
       "schema_validation",

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Auditable Decision-Rationale Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_version","record_id","recorded_utc","directive_id","profile_id","objective","constraints","claims","evidence","assumptions","alternatives","decision","unknowns","verification","links","privacy_attestation"],
+  "properties": {
+    "record_version": {"const": "1.0"},
+    "record_id": {"type":"string","pattern":"^[A-Za-z0-9._-]{8,120}$"},
+    "recorded_utc": {"type":"string","format":"date-time"},
+    "directive_id": {"type":"string","minLength":1,"maxLength":200},
+    "profile_id": {"type":"string","minLength":1,"maxLength":120},
+    "supersedes_record_id": {"type":["string","null"]},
+    "objective": {"type":"string","minLength":1,"maxLength":2000},
+    "constraints": {"type":"array","maxItems":20,"items":{"$ref":"#/$defs/item"}},
+    "claims": {"type":"array","maxItems":30,"items":{"$ref":"#/$defs/item"}},
+    "evidence": {"type":"array","maxItems":40,"items":{"$ref":"#/$defs/evidence"}},
+    "assumptions": {"type":"array","maxItems":20,"items":{"$ref":"#/$defs/item"}},
+    "alternatives": {"type":"array","maxItems":12,"items":{"$ref":"#/$defs/alternative"}},
+    "decision": {"type":"string","minLength":1,"maxLength":3000},
+    "unknowns": {"type":"array","maxItems":20,"items":{"$ref":"#/$defs/item"}},
+    "verification": {"type":"array","maxItems":30,"items":{"$ref":"#/$defs/verification"}},
+    "links": {"type":"array","maxItems":40,"items":{"$ref":"#/$defs/link"}},
+    "privacy_attestation": {"const":"NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"}
+  },
+  "$defs": {
+    "item": {"type":"object","additionalProperties":false,"required":["id","text","provenance"],"properties":{"id":{"type":"string"},"text":{"type":"string","maxLength":1200},"provenance":{"type":"string","maxLength":500}}},
+    "evidence": {"type":"object","additionalProperties":false,"required":["id","source","availability","supports"],"properties":{"id":{"type":"string"},"source":{"type":"string","maxLength":1000},"availability":{"enum":["AVAILABLE","PARTIAL","MISSING"]},"supports":{"type":"array","items":{"type":"string"}},"sha256":{"type":["string","null"],"pattern":"^[0-9a-f]{64}$"}}},
+    "alternative": {"type":"object","additionalProperties":false,"required":["id","option","disposition","reason"],"properties":{"id":{"type":"string"},"option":{"type":"string","maxLength":1200},"disposition":{"enum":["SELECTED","REJECTED","DEFERRED","NO_CHANGE"]},"reason":{"type":"string","maxLength":1200}}},
+    "verification": {"type":"object","additionalProperties":false,"required":["check","status"],"properties":{"check":{"type":"string","maxLength":600},"status":{"enum":["PASS","FAIL","UNKNOWN","NOT_APPLICABLE"]},"evidence_ref":{"type":["string","null"]}}},
+    "link": {"type":"object","additionalProperties":false,"required":["kind","target"],"properties":{"kind":{"enum":["artifact","source","commit","prompt","audit","plan_part","other"]},"target":{"type":"string","maxLength":1200},"sha256":{"type":["string","null"],"pattern":"^[0-9a-f]{64}$"}}}
+  }
+}

@@ -103,7 +103,7 @@
       "raw_user_intent": "Create a new entry in the system BIOS that makes agents record their reasoning into individual reasoning files so I can occasionally run a system reasoning check.",
       "objective": "If Part 2 demonstrates value, add per-profile persistent decision records containing claims, evidence, assumptions, alternatives, decisions, unknowns and verification so Reasoning Auditor can inspect system reasoning without capturing private chain-of-thought.",
       "priority": 3,
-      "status": "PENDING",
+      "status": "COMPLETED",
       "dependencies": [
         "reasoning-auditor-validation"
       ],
@@ -112,9 +112,17 @@
         "Records are concise, auditable and linked to outputs/code where applicable.",
         "Periodic reasoning audits can identify rationale/output inconsistencies and route fixes through main governance."
       ],
-      "completion_evidence": [],
+      "completion_evidence": [
+        "core.auditable_decision_records and decision_record_policy activated across runtime profiles.",
+        "decision_record_schema.json and append-only decision_record.py validator/writer added.",
+        "50/50 full deterministic regression tests passed before full closure.",
+        "Semantic fixed point reached in 2 passes; both authoritative PDFs regenerated.",
+        "Formats.pdf 1.1k.xii visually verified on page 15; PDF_Workflow.pdf 2.7.13 visually verified on page 12.",
+        "Private chain-of-thought and hidden scratchpads explicitly prohibited by policy, schema contract and tests."
+      ],
       "next_actions": [
-        "Design the record schema only after Part 2 evidence confirms the audit workflow is useful."
+        "Accumulate real decision-record evidence during future material agent work.",
+        "Use that evidence when Part 5 periodic quality audits are later operationalized."
       ],
       "source_reference": "User roadmap in supplied Qwen conversation."
     },
@@ -164,8 +172,8 @@
     }
   ],
   "current_part_id": null,
-  "last_completed_part_id": "reasoning-auditor-validation",
-  "next_recommended_part_id": "decision-rationale-records",
-  "resume_hint": "Part 2 completed via new recorded three-pass validation, accepted by main host with explicit same-assistant/static-evidence limits. Historical run remains partially recovered and INDETERMINATE. Candidate is undeployed. Part 3 is PENDING and has not been promoted.",
-  "updated_utc": "2026-09-09T07:04:31.936861+00:00"
+  "last_completed_part_id": "decision-rationale-records",
+  "next_recommended_part_id": "deep-research-agent-architect",
+  "resume_hint": "Part 3 complete: append-only privacy-safe decision records are active and verified. Next recommended: Part 4 Deep Research / Agent Prompt Architect; Part 5 periodic quality loop now has its decision-record dependency satisfied.",
+  "updated_utc": "2026-09-09T07:49:52.760423+00:00"
 }

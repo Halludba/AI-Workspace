@@ -36,7 +36,7 @@ class AgentEcosystemTests(unittest.TestCase):
         self.assertEqual(p['pipeline'][0], 'CREATE_OR_ENHANCE')
         self.assertIn('REASONING_AUDIT', p['pipeline'])
         self.assertIn('PROFILE_PERFORMANCE_AUDIT', p['pipeline'])
-        self.assertEqual(p['decision_record_status'], 'PLANNED_AFTER_VALIDATION')
+        self.assertEqual(p['decision_record_status'], 'ACTIVE_AFTER_VALIDATION')
         self.assertIn('not hidden chain-of-thought', p['decision_record_rule'])
     def test_adapter_exposes_profile_mode_and_policy(self):
         packet = instruction_packet(self.cfg, self.state, ['reasoning'], 'prompt_creator')
@@ -51,11 +51,12 @@ class AgentEcosystemTests(unittest.TestCase):
         self.assertEqual(plan['status'], 'ACTIVE')
         self.assertGreaterEqual(len(plan['parts']), 5)
         self.assertIsNone(plan['current_part_id'])
-        self.assertEqual(plan['last_completed_part_id'], 'agent-foundation')
-        self.assertEqual(plan['next_recommended_part_id'], 'reasoning-auditor-validation')
+        self.assertEqual(plan['last_completed_part_id'], 'decision-rationale-records')
+        self.assertEqual(plan['next_recommended_part_id'], 'deep-research-agent-architect')
         by_id = {p['id']: p for p in plan['parts']}
         self.assertEqual(by_id['agent-foundation']['status'], 'COMPLETED')
-        self.assertEqual(by_id['agent-foundation']['status'], 'COMPLETED')
+        self.assertEqual(by_id['reasoning-auditor-validation']['status'], 'COMPLETED')
+        self.assertEqual(by_id['decision-rationale-records']['status'], 'COMPLETED')
         self.assertIn('agent-foundation', by_id['reasoning-auditor-validation']['dependencies'])
 
 if __name__ == '__main__':

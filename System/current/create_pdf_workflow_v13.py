@@ -267,7 +267,14 @@ audit_pages.append([Block('2.7.12 Develop, Audit & Govern Prompt Agents',3,[
  ('body','When visible rationale, iteration logs or causal justifications are available and epistemic validation is requested or required, activate reasoning_auditor to evaluate evidence, inference, constraint provenance, metric alignment, alternatives, recursive integrity and rationale-to-output consistency.'),
  ('body','Reasoning Auditor remains advisory-only: do not rewrite the audited reasoning or artifact, do not auto-integrate its recommendations, and do not treat same-model persona switching as independent verification.'),
  ('body','After main-host/user deployment approval, observe real usage. Profile Performance Auditor may later assess outcome fidelity, interaction efficiency and reusable improvements; accepted changes re-enter the ordinary NEW/MERGE/REWRITE/NO-OP/REJECT lifecycle.'),
- ('small','Do not persist private chain-of-thought. A future structured decision-record layer may be added only after validation and may contain concise claims, evidence, assumptions, alternatives, decisions, unknowns and verification.')
+ ('small','For material governed choices, the validated decision-record layer now persists concise externalizable objective/constraints/claims/evidence/assumptions/alternatives/decision/unknowns/verification; private chain-of-thought remains prohibited.')
+])])
+audit_pages.append([Block('2.7.13 Record Material Agent Decisions',3,[
+ ('body','When a profile reaches a material governed choice or the user/main host requests an audit trail, construct a schema-valid decision record linked to the active directive and profile.'),
+ ('body','Capture only externalizable objective, constraint provenance, claims, evidence, assumptions, materially considered alternatives, selected decision, unknowns, verification and stable artifact/source/hash/commit links when available.'),
+ ('body','Do not create a record for ordinary direct answers, trivial mechanics or unchanged retries. Never request, reconstruct or persist private chain-of-thought or hidden scratchpads to populate the record.'),
+ ('body','Validate with decision_record.py and write append-only under the configured per-profile path. Corrections create a superseding record rather than overwriting history.'),
+ ('small','Reasoning Auditor may consume records as evidence/data and compare them with outputs for consistency; audit findings remain advisory and return to main-host governance.')
 ])])
 
 idx=next((i for i,g in enumerate(pages) if any(b.heading.startswith('2.8') for b in g)),len(pages))

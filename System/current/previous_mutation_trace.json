@@ -1,29 +1,43 @@
 {
-  "system_version": "0.18.0",
-  "directive_id": "2026-09-09-latency-optimized-execution",
-  "source_type": "user_directive_plus_planning_iteration",
-  "source_reference": "Design project latency optimization planning turn",
-  "user_prompt_summary": "Implement the planned settings to significantly reduce prompt/output production time; token usage is not an issue.",
-  "target_improvement": "Minimize wall-clock latency while preserving correctness and final verification quality.",
+  "system_version": "0.19.0",
+  "directive_id": "2026-09-09-agent-prompt-ecosystem-reasoning-audit",
+  "source_type": "user_supplied_agent_prompts_plus_roadmap",
+  "source_reference": "Current Design project turn: supplied Prompt Creator variants, Reasoning Auditor PDF and Qwen planning conversation.",
+  "user_prompt_summary": "Incorporate the supplied prompt-agent artifacts and the broader creation/enhancement/reasoning-audit roadmap optimally.",
+  "target_improvement": "Add a non-duplicative prompt-agent development ecosystem with epistemic reasoning audit and a persistent staged roadmap.",
+  "candidate_decisions": [
+    {
+      "decision": "MERGE",
+      "candidate": "Prompt Creator + Prompt Enhancer shared specification logic",
+      "reason": "Both supplied text artifacts self-identify as Prompt Creator and the concise source already contains CREATE and ENHANCE modes; duplicate modules would create competing truth."
+    },
+    {
+      "decision": "NEW",
+      "candidate": "reasoning_auditor profile/module",
+      "reason": "Epistemic validation of visible rationale is not covered by strategic direction review, profile-performance audit or deterministic regression tests."
+    },
+    {
+      "decision": "NEW",
+      "candidate": "agent-development pipeline policy",
+      "reason": "The user explicitly defined a recurring create/enhance -> reasoning audit -> deployment -> observed-performance loop."
+    },
+    {
+      "decision": "DEFER",
+      "candidate": "persistent per-agent reasoning files",
+      "reason": "Promote only after the Reasoning Auditor proves useful; future records must be concise decision rationale, not private chain-of-thought."
+    }
+  ],
   "accepted_changes": [
-    "DIRECT/SCOPED/GLOBAL pre-workspace routing",
-    "Tiered lazy context with active_context/context_index/dependency_graph",
-    "workspace_ctl compact control interface",
-    "semantic convergence before heavy artifact generation",
-    "content-addressed generator cache",
-    "incremental PDF page render cache",
-    "scoped iterative test support plus full final regression",
-    "batch independent I/O policy",
-    "local deterministic edit/diff mechanics",
-    "compact execution responses and suppressed nonessential progress narration",
-    "secondary AI excluded from latency-critical path",
-    "local phase timing/cache-hit instrumentation"
+    "Shared prompt specification module with creator/enhancer profiles",
+    "Advisory epistemic reasoning audit module/profile",
+    "Agent development pipeline policy",
+    "Strategic project plan populated from user roadmap",
+    "Google Drive Agent Prompts reference registry"
   ],
   "rejected_or_noop": [
-    "No token-minimization objective",
-    "No reduction of final correctness/safety/approval checks",
-    "No mandatory secondary-model call",
-    "No claim of guaranteed host prompt-cache speedup"
+    "No duplicate Prompt Enhancer core copied from a mislabeled Prompt Creator artifact",
+    "No hidden chain-of-thought logger",
+    "No automatic auditor-driven mutation or same-model independence claim"
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
@@ -81,51 +95,12 @@
     "context_index.json",
     "dependency_graph.json",
     "active_context.json",
-    "pdf_engine/tests/test_latency.py"
+    "pdf_engine/tests/test_latency.py",
+    "pdf_engine/tests/test_agent_ecosystem.py"
   ],
   "convergence_result": {
     "passes": 2,
     "stable": true,
     "issues": []
-  },
-  "candidate_decisions": [
-    {
-      "decision": "MERGE",
-      "candidate": "latency router + lazy context",
-      "reason": "Reduces unnecessary context/tool work without weakening authority or final verification."
-    },
-    {
-      "decision": "REWRITE",
-      "candidate": "regression sequencing",
-      "reason": "Use scoped tests during iteration and one full suite before closure instead of repeatedly running all tests."
-    },
-    {
-      "decision": "NEW",
-      "candidate": "content-addressed build/render cache",
-      "reason": "Skip only work whose inputs or rendered page hashes are unchanged."
-    }
-  ],
-  "measured_latency_evidence": {
-    "warm_runs_seconds": [
-      2.8135,
-      2.8403
-    ],
-    "semantic_convergence_seconds": [
-      0.167,
-      0.1676
-    ],
-    "regression_seconds": [
-      2.2858,
-      2.331
-    ],
-    "verification_seconds": [
-      0.1538,
-      0.1533
-    ],
-    "generator_cache_hits": [
-      "Formats.pdf",
-      "PDF_Workflow.pdf"
-    ],
-    "claim_boundary": "Observed local runs only; not a guaranteed future speedup."
   }
 }

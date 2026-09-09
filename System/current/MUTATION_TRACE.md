@@ -1,26 +1,30 @@
 # Mutation Trace
 
-**System version:** 0.19.0
-**Directive:** Incorporate the supplied prompt-agent artifacts and the broader creation/enhancement/reasoning-audit roadmap optimally.
-**Target improvement:** Add a non-duplicative prompt-agent development ecosystem with epistemic reasoning audit and a persistent staged roadmap.
+**System version:** 0.20.0
+**Directive:** Continue from the latest GitHub/OneDrive/Windows state and proceed with the next staged roadmap work.
+**Target improvement:** Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation.
 
 ## Candidate decisions
-- **MERGE - Prompt Creator + Prompt Enhancer shared specification logic:** Both supplied text artifacts self-identify as Prompt Creator and the concise source already contains CREATE and ENHANCE modes; duplicate modules would create competing truth.
-- **NEW - reasoning_auditor profile/module:** Epistemic validation of visible rationale is not covered by strategic direction review, profile-performance audit or deterministic regression tests.
-- **NEW - agent-development pipeline policy:** The user explicitly defined a recurring create/enhance -> reasoning audit -> deployment -> observed-performance loop.
-- **DEFER - persistent per-agent reasoning files:** Promote only after the Reasoning Auditor proves useful; future records must be concise decision rationale, not private chain-of-thought.
+- **NEW - core.auditable_decision_records + schema/validator:** Part 2 supplied the validation gate required by the existing roadmap; no persistent cross-profile decision-record mechanism existed.
+- **REWRITE - per-agent reasoning files:** Implement as concise externalizable decision records, not private chain-of-thought or hidden scratchpads.
+- **MERGE - agent_development_policy planned decision-record hook:** Promote the existing deferred hook to ACTIVE_AFTER_VALIDATION instead of creating a competing pipeline.
+- **REPAIR - stale ai_runtime_state.plan_context:** Project plan showed Part 2 complete while runtime state still reported Part 1 as last completed.
 
 ## Accepted changes
-- Shared prompt specification module with creator/enhancer profiles
-- Advisory epistemic reasoning audit module/profile
-- Agent development pipeline policy
-- Strategic project plan populated from user roadmap
-- Google Drive Agent Prompts reference registry
+- Append-only per-profile decision-record core and policy
+- Decision record JSON schema and writer/validator
+- Reasoning Auditor evidence-consumption boundary
+- Agent development pipeline DECISION_RECORD stage
+- Part 2 -> Part 3 plan-state repair
+- Formats 1.1k.xii and Workflow 2.7.13 integration
+- Decision-record regression tests
+- First live schema-valid decision record
 
 ## Rejected / merged / no-op
-- No duplicate Prompt Enhancer core copied from a mislabeled Prompt Creator artifact
-- No hidden chain-of-thought logger
-- No automatic auditor-driven mutation or same-model independence claim
+- No private chain-of-thought logger
+- No mandatory record for ordinary direct answers/trivial mechanics
+- No auditor self-authorization or automatic record/system mutation
+- No routine ZIP export
 
 ## Convergence result
 - Passes: 2

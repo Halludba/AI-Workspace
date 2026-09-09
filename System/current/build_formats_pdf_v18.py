@@ -551,8 +551,17 @@ sec11kxi=Block('1.1k.xi',[
     P('Prompt work is specification engineering: preserve the real objective and hard requirements, distinguish preferences, assumptions and variable inputs, use the lightest useful prompting techniques, reject cosmetic mutation, framework ceremony and capability invention, and treat retain/no-change as a valid enhancement result.', 'BodyX'), S(6),
     P('<b>Reasoning Auditor:</b> extension.epistemic_reasoning_audit is advisory only. Audit supplied visible rationale, evidence and iteration logs for logical support, constraint provenance, objective/metric alignment, materially missing alternatives, recursive degradation, convergence claims and consistency between stated rationale and resulting output. Never request, reconstruct or store private chain-of-thought.', 'BodyX'), S(6),
     P('A reasoning-audit verdict is evidence, not deployment authority. Same-model self-audit is a useful second pass but not independent verification. Prompt/agent changes become canonical only through user/main-host governance; after real use, profile_performance_auditor may evaluate outcome fidelity and efficiency and route proposals through the normal mutation lifecycle.', 'SmallX'), S(7),
-    P('Persistent structured decision-rationale records are a planned follow-on, not an automatic requirement in this release. If later validated, they may store concise claims, evidence, assumptions, alternatives, decisions, unknowns and verification while preserving the existing prohibition on private chain-of-thought.', 'SmallX'), S(7),
+    P('Validated Part 3 activates structured decision-rationale records for material profile decisions. Records contain only concise externalizable objective/constraints/claims/evidence/assumptions/alternatives/decision/unknowns/verification and stable links; private chain-of-thought remains prohibited.', 'SmallX'), S(7),
 ] ,4)
+
+sec11kxii=Block('1.1k.xii',[
+    P('1.1k.xii Auditable Decision-Rationale Records & Evidence Linkage','H4X'), S(8),
+    P('For a material profile/system/artifact choice or explicit audit-trail request, create one concise structured decision record. Do not record ordinary direct answers, trivial deterministic mechanics or unchanged retries merely to increase logging volume.', 'BodyX'), S(6),
+    P('Each record identifies directive/profile, objective and governing constraints; distinguishes claims, evidence and assumptions; records materially considered alternatives including retain/no-change when relevant; states the selected decision, unknowns and verification; and links stable artifacts, hashes, commits or audit evidence when available.', 'BodyX'), S(6),
+    P('<b>Privacy boundary:</b> records are externalizable decision summaries, never private chain-of-thought, hidden scratchpads or reconstructed internal reasoning. Missing evidence remains explicit; do not invent rationale to fill a schema.', 'SmallX'), S(6),
+    P('<b>History integrity:</b> records are append-only evidence. Corrections create a superseding record rather than silently rewriting history. Reasoning Auditor may inspect records as data but remains advisory and cannot auto-edit records, outputs or system state.', 'SmallX'), S(7),
+    Code('''def persist_decision_record(record, workspace):\n    assert material_decision(record) or explicitly_requested(record)\n    strip_private_reasoning_fields(record)\n    validate_against_schema(record)\n    attach_available_evidence_hashes(record)\n    write_append_only(record, workspace)\n    return record''')
+],4)
 
 sec11q=Block('1.1q',[
     P('1.1q Build, Render & Verify','H3X'), S(9),
@@ -643,7 +652,7 @@ meta=[
     ['MUTATION','Material changes invalidate stability, restart convergence and continue until required artifact closure'],
     ['PRIORITY','Reality/tool constraints -> current explicit instruction -> active PDF rules -> inference -> defaults'],
     ['OPTIMALITY','Best known feasible solution, selected lexicographically under active constraints'],
-    ['STATUS','Persistent workspace + portable runtime + composable profiles + Theme Designer + Theme Reference + strategic-plan/checkpoint continuity active; visual design system still being defined'],
+    ['STATUS','Persistent workspace + portable runtime + composable profiles + Theme Designer + Theme Reference + strategic-plan/checkpoint continuity + auditable decision records active; visual design system still being defined'],
 ]
 meta=[[P(a,'SmallX'),P(b,'SmallX')] for a,b in meta]
 t=Table(meta,colWidths=[82,CONTENT_W-82])
@@ -663,10 +672,10 @@ remaining_h=y-BOTTOM
 # 1.1 is atomic direct content. If it no longer fits, keep-together moves it.
 if measure_block(section11) <= remaining_h + 1e-6:
     diagnostics.append(render_group(c,[section11],y,BOTTOM,page,has_content_above=True))
-    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 else:
     diagnostics.append({'page':1,'keys':['1'],'mode':'intentional-blank-remainder','gaps':[remaining_h]})
-    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 
 idx=0
 while idx < len(remaining_blocks):

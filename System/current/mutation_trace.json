@@ -1,43 +1,47 @@
 {
-  "system_version": "0.19.0",
-  "directive_id": "2026-09-09-agent-prompt-ecosystem-reasoning-audit",
-  "source_type": "user_supplied_agent_prompts_plus_roadmap",
-  "source_reference": "Current Design project turn: supplied Prompt Creator variants, Reasoning Auditor PDF and Qwen planning conversation.",
-  "user_prompt_summary": "Incorporate the supplied prompt-agent artifacts and the broader creation/enhancement/reasoning-audit roadmap optimally.",
-  "target_improvement": "Add a non-duplicative prompt-agent development ecosystem with epistemic reasoning audit and a persistent staged roadmap.",
+  "system_version": "0.20.0",
+  "directive_id": "2026-09-09-part3-auditable-decision-records",
+  "source_type": "explicit_plan_continuation",
+  "source_reference": "User continued the persisted Codex plan after Part 2 completion.",
+  "user_prompt_summary": "Continue from the latest GitHub/OneDrive/Windows state and proceed with the next staged roadmap work.",
+  "target_improvement": "Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation.",
   "candidate_decisions": [
     {
+      "decision": "NEW",
+      "candidate": "core.auditable_decision_records + schema/validator",
+      "reason": "Part 2 supplied the validation gate required by the existing roadmap; no persistent cross-profile decision-record mechanism existed."
+    },
+    {
+      "decision": "REWRITE",
+      "candidate": "per-agent reasoning files",
+      "reason": "Implement as concise externalizable decision records, not private chain-of-thought or hidden scratchpads."
+    },
+    {
       "decision": "MERGE",
-      "candidate": "Prompt Creator + Prompt Enhancer shared specification logic",
-      "reason": "Both supplied text artifacts self-identify as Prompt Creator and the concise source already contains CREATE and ENHANCE modes; duplicate modules would create competing truth."
+      "candidate": "agent_development_policy planned decision-record hook",
+      "reason": "Promote the existing deferred hook to ACTIVE_AFTER_VALIDATION instead of creating a competing pipeline."
     },
     {
-      "decision": "NEW",
-      "candidate": "reasoning_auditor profile/module",
-      "reason": "Epistemic validation of visible rationale is not covered by strategic direction review, profile-performance audit or deterministic regression tests."
-    },
-    {
-      "decision": "NEW",
-      "candidate": "agent-development pipeline policy",
-      "reason": "The user explicitly defined a recurring create/enhance -> reasoning audit -> deployment -> observed-performance loop."
-    },
-    {
-      "decision": "DEFER",
-      "candidate": "persistent per-agent reasoning files",
-      "reason": "Promote only after the Reasoning Auditor proves useful; future records must be concise decision rationale, not private chain-of-thought."
+      "decision": "REPAIR",
+      "candidate": "stale ai_runtime_state.plan_context",
+      "reason": "Project plan showed Part 2 complete while runtime state still reported Part 1 as last completed."
     }
   ],
   "accepted_changes": [
-    "Shared prompt specification module with creator/enhancer profiles",
-    "Advisory epistemic reasoning audit module/profile",
-    "Agent development pipeline policy",
-    "Strategic project plan populated from user roadmap",
-    "Google Drive Agent Prompts reference registry"
+    "Append-only per-profile decision-record core and policy",
+    "Decision record JSON schema and writer/validator",
+    "Reasoning Auditor evidence-consumption boundary",
+    "Agent development pipeline DECISION_RECORD stage",
+    "Part 2 -> Part 3 plan-state repair",
+    "Formats 1.1k.xii and Workflow 2.7.13 integration",
+    "Decision-record regression tests",
+    "First live schema-valid decision record"
   ],
   "rejected_or_noop": [
-    "No duplicate Prompt Enhancer core copied from a mislabeled Prompt Creator artifact",
-    "No hidden chain-of-thought logger",
-    "No automatic auditor-driven mutation or same-model independence claim"
+    "No private chain-of-thought logger",
+    "No mandatory record for ordinary direct answers/trivial mechanics",
+    "No auditor self-authorization or automatic record/system mutation",
+    "No routine ZIP export"
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
@@ -96,7 +100,10 @@
     "dependency_graph.json",
     "active_context.json",
     "pdf_engine/tests/test_latency.py",
-    "pdf_engine/tests/test_agent_ecosystem.py"
+    "pdf_engine/tests/test_agent_ecosystem.py",
+    "decision_record_schema.json",
+    "decision_record.py",
+    "pdf_engine/tests/test_decision_records.py"
   ],
   "convergence_result": {
     "passes": 2,

@@ -22,7 +22,8 @@
     "workspace_policy",
     "pdf_styler_policy",
     "latency_policy",
-    "agent_development_policy"
+    "agent_development_policy",
+    "decision_record_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -876,6 +877,57 @@
           "type": "string"
         },
         "decision_record_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "decision_record_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "enabled",
+        "purpose",
+        "schema_path",
+        "writer",
+        "storage_pattern",
+        "append_only",
+        "privacy_boundary",
+        "evidence_rule",
+        "immutability_rule",
+        "audit_rule"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "enabled": {
+          "const": true
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "schema_path": {
+          "type": "string"
+        },
+        "writer": {
+          "type": "string"
+        },
+        "storage_pattern": {
+          "type": "string"
+        },
+        "append_only": {
+          "const": true
+        },
+        "privacy_boundary": {
+          "type": "string"
+        },
+        "evidence_rule": {
+          "type": "string"
+        },
+        "immutability_rule": {
+          "type": "string"
+        },
+        "audit_rule": {
           "type": "string"
         }
       }

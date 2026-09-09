@@ -1,5 +1,5 @@
 {
-  "version": "0.19.0",
+  "version": "0.20.0",
   "topics": {
     "workspace": {
       "files": [
@@ -122,6 +122,23 @@
       "artifacts": [],
       "depends_on": [
         "prompt_agents"
+      ]
+    },
+    "decision_records": {
+      "files": [
+        "decision_record_schema.json",
+        "decision_record.py",
+        "ai_runtime_config.json",
+        "ai_runtime_state.json",
+        "project_plan.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_decision_records.py",
+        "pdf_engine/tests/test_agent_ecosystem.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "reasoning_auditor"
       ]
     }
   }

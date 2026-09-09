@@ -1,4 +1,4 @@
-Recursive AI Config System v0.19.0
+Recursive AI Config System v0.20.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -30,3 +30,6 @@ Start from active_context.json/context_index.json. DIRECT questions avoid worksp
 
 AGENT DEVELOPMENT ECOSYSTEM
 Prompt Creator and Prompt Enhancer share one specification-engineering core with CREATE/ENHANCE modes. Reasoning Auditor is advisory-only and audits visible evidence/rationale, not private chain-of-thought. Strategic sequencing lives in project_plan.json.
+
+DECISION RECORDS
+Material governed choices may emit append-only per-profile records under decision_records/. They store concise externalizable decision rationale and evidence links, never private chain-of-thought. Validate/write with decision_record.py.

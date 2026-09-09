@@ -70,6 +70,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.20.0",
+      "previous_version": "0.19.0",
+      "change": "Privacy-safe append-only per-profile decision-rationale records with schema/writer, evidence linkage, Reasoning Auditor consumption boundary and repaired plan-state continuity.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

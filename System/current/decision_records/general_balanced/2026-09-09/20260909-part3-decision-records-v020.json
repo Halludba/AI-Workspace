@@ -1,0 +1,156 @@
+{
+  "record_version": "1.0",
+  "record_id": "20260909-part3-decision-records-v020",
+  "recorded_utc": "2026-09-09T07:51:31.409690Z",
+  "directive_id": "2026-09-09-part3-auditable-decision-records",
+  "profile_id": "general_balanced",
+  "supersedes_record_id": null,
+  "objective": "Activate persistent, audit-ready per-profile decision rationale after Part 2 validation while preserving human/main-host authority and privacy.",
+  "constraints": [
+    {
+      "id": "c1",
+      "text": "Current explicit user continuation authorizes Part 3; saved plan remains subordinate to current instruction.",
+      "provenance": "current user directive + project_plan.json"
+    },
+    {
+      "id": "c2",
+      "text": "No private chain-of-thought, hidden scratchpad or reconstructed internal reasoning may be requested or stored.",
+      "provenance": "existing Reasoning Auditor boundary + Part 3 acceptance criteria"
+    },
+    {
+      "id": "c3",
+      "text": "Reasoning Auditor findings remain advisory and cannot auto-integrate changes.",
+      "provenance": "ai_runtime_config.json agent_development_policy"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl1",
+      "text": "The runtime now has an active cross-profile decision-record mechanism with append-only storage and explicit emission/skip rules.",
+      "provenance": "ai_runtime_config.json + decision_record.py"
+    },
+    {
+      "id": "cl2",
+      "text": "The mechanism is schema-validated and covered by deterministic regression tests.",
+      "provenance": "decision_record_schema.json + regression_test_report.txt"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "source": "ai_runtime_config.json",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1"
+      ],
+      "sha256": "cc5f22a4ee4b742693274c0fbd80ad91e531afb0f3bd97f14ea006ab8ae50b69"
+    },
+    {
+      "id": "e2",
+      "source": "decision_record.py",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1",
+        "cl2"
+      ],
+      "sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3"
+    },
+    {
+      "id": "e3",
+      "source": "decision_record_schema.json",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2"
+      ],
+      "sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17"
+    },
+    {
+      "id": "e4",
+      "source": "regression_test_report.txt",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl2"
+      ],
+      "sha256": "e4773c48485cd2721fd7facde11c98ae887a19ab2bb89fd91b667ff1b501c3fc"
+    }
+  ],
+  "assumptions": [],
+  "alternatives": [
+    {
+      "id": "a1",
+      "option": "Persist raw/private reasoning transcripts per agent.",
+      "disposition": "REJECTED",
+      "reason": "Violates privacy boundary and is unnecessary for an auditable causal record."
+    },
+    {
+      "id": "a2",
+      "option": "Keep decision records deferred after Part 2.",
+      "disposition": "REJECTED",
+      "reason": "Part 2 completed the explicit validation gate and the user authorized continuation."
+    },
+    {
+      "id": "a3",
+      "option": "Use concise append-only structured decision records with evidence links.",
+      "disposition": "SELECTED",
+      "reason": "Meets auditability goals while preserving privacy, provenance and main-host governance."
+    }
+  ],
+  "decision": "Activate core.auditable_decision_records and decision_record_policy; persist only material externalizable decision summaries under per-profile append-only paths, and let Reasoning Auditor consume them as evidence/data without mutation authority.",
+  "unknowns": [
+    {
+      "id": "u1",
+      "text": "Production usefulness, record volume and false-positive audit impact are not yet measured; future real-session evidence should inform Part 5 cadence/sampling.",
+      "provenance": "no production observation yet"
+    }
+  ],
+  "verification": [
+    {
+      "check": "Full deterministic regression suite: 50 tests",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    },
+    {
+      "check": "Semantic convergence: stable fixed point in 2 passes",
+      "status": "PASS",
+      "evidence_ref": null
+    },
+    {
+      "check": "Formats.pdf 1.1k.xii visual inspection on page 15",
+      "status": "PASS",
+      "evidence_ref": null
+    },
+    {
+      "check": "PDF_Workflow.pdf 2.7.13 visual inspection on page 12",
+      "status": "PASS",
+      "evidence_ref": null
+    }
+  ],
+  "links": [
+    {
+      "kind": "plan_part",
+      "target": "project_plan.json#decision-rationale-records",
+      "sha256": "9ff3ffa8304b6d0f47a07ff0fee8f246043d4878602585be19bdf8077be2449f"
+    },
+    {
+      "kind": "source",
+      "target": "ai_runtime_config.json",
+      "sha256": "cc5f22a4ee4b742693274c0fbd80ad91e531afb0f3bd97f14ea006ab8ae50b69"
+    },
+    {
+      "kind": "source",
+      "target": "decision_record.py",
+      "sha256": "6ffb6ef9464c4591b1714aba35713fe4cf9ecc8799a1387e0e9fd8ca795cd0b3"
+    },
+    {
+      "kind": "source",
+      "target": "decision_record_schema.json",
+      "sha256": "6c8ad99409e7e54f2a4e8c6c4f10bd59633874b5209b0ce2c0b3956050e56e17"
+    },
+    {
+      "kind": "audit",
+      "target": "../Audit Reports/2026-09-09-part2-recovery-validation/main-host-decision.json",
+      "sha256": null
+    }
+  ],
+  "privacy_attestation": "NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"
+}
