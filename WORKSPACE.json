@@ -1,7 +1,7 @@
 {
   "workspace_schema_version": 2,
   "project": "Design",
-  "current_system_version": "0.17.0",
+  "current_system_version": "0.18.0",
   "canonical_source_path": "System/current/",
   "chat_start_file": "AI_WORKSPACE_INSTRUCTIONS.md",
   "normal_iteration_policy": "DIRECT_WORKSPACE_EDIT_TEST_VERIFY_COMMIT",
@@ -43,5 +43,9 @@
     "registry_path": "System/current/pdf_styles",
     "schema_path": "System/current/pdf_style_schema.json",
     "styler_path": "System/current/pdf_styler.py"
-  }
+  },
+  "active_context": "System/current/active_context.json",
+  "context_index": "System/current/context_index.json",
+  "dependency_graph": "System/current/dependency_graph.json",
+  "workspace_cli": "System/current/workspace_ctl.py"
 }

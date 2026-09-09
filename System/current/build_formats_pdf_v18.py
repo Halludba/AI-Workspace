@@ -227,8 +227,8 @@ sec11hii=Block('1.1h.ii',[
 
 sec11hiii=Block('1.1h.iii',[
     P('1.1h.iii Regression & Mutation Simulation Preflight','H4X'), S(8),
-    P('Before expensive generation, convergence or rendering, run a fast deterministic regression suite over executable invariants. Validate schemas, workspace confinement, release/bundle invariants, risk bounds and the fixed-point/cycle state machine. Use isolated synthetic mutations to test convergence semantics without altering authoritative live state.', 'BodyX'), S(7),
-    P('A passing regression suite does not prove semantic correctness or visual quality; it proves only the deterministic invariants it actually tests. Failure is a pre-execution BLOCK and should be repaired before full artifact generation begins.', 'SmallX'), S(7),
+    P('Before expensive generation or rendering, run the smallest deterministic preflight that can catch predictable structural failures. During scoped iteration use only dependency-relevant tests; before system-mutation closure run the complete regression suite. A full suite need not be repeated after every local edit when the affected dependency scope is known.', 'BodyX'), S(7),
+    P('A passing test proves only the invariants it actually covers. Scoped tests accelerate iteration; full regression remains mandatory before verified closure. Test failures block closure and route to the earliest responsible source.', 'SmallX'), S(7),
     Code('''def regression_preflight(system, tests):\n    results = run_isolated_deterministic_tests(system, tests)\n    if any_failed(results): return BLOCK_BEFORE_GENERATION\n    return PASS''')
 ],4)
 
@@ -458,6 +458,15 @@ sec11niv=Block('1.1n.iv',[
     Code('''def execute_with_plan_and_checkpoint(directive, plan, state, history, environment):\n    parts = decompose_if_needed(directive, plan)\n    risk = estimate_execution_overrun_risk(parts, history, environment)\n    if risk.material and useful_checkpoint_boundary(parts):\n        part = select_highest_priority_independently_verifiable_part(parts)\n        checkpoint_before(part, state)\n        execute_required(part)\n        persist_progress_and_resume_action(state, part)\n        return HANDOFF\n    return execute_required_to_closure(directive)''')
 ],4)
 
+sec11nv=Block('1.1n.v',[
+    P('1.1n.v Latency-Aware Execution Routing & Incremental Verification','H4X'), S(8),
+    P('Optimize for <b>minimum wall-clock completion time while preserving correctness</b>; token minimization is not a goal. Before workspace access classify the directive as DIRECT, SCOPED or GLOBAL. DIRECT questions that do not depend on project state answer immediately without repository reads, tests or convergence. SCOPED work loads only indexed relevant context; GLOBAL work may load the full system.', 'BodyX'), S(6),
+    P('Use a small operating kernel plus generated active_context/context_index/dependency_graph views for lazy loading. Batch independent reads when supported, use deterministic local software for edits/diffs/manifests/hashes, and keep optional secondary-model review off the critical path.', 'BodyX'), S(6),
+    P('Converge cheap semantic state before expensive artifact generation. Use content-addressed build caching, scoped tests during iteration, one full regression before closure, and page-hash-based PDF rendering so unchanged artifacts/pages are not repeatedly rebuilt. Record measured phase timings/cache hits as optimization evidence; never invent speedup claims.', 'SmallX'), S(7),
+    P('Execution responses should report result, material changes, verification and blockers compactly; suppress progress narration unless a decision, blocker, destructive risk or materially useful long-operation status requires it. Explanatory conversation remains natural when explanation is the requested output.', 'SmallX'), S(7),
+    Code('''def latency_route(directive, index, graph):\n    lane = classify_direct_scoped_global(directive)\n    if lane == DIRECT: return answer_without_workspace_access(directive)\n    context = lazy_load(index, graph, lane)\n    semantic = converge_semantic_state(context)\n    artifacts = build_only_invalidated(semantic)\n    verify_scoped_then_full_before_closure(artifacts)\n    return compact_handoff()''')
+],4)
+
 sec11o=Block('1.1o',[
     P('1.1o Artifact Requirement Discovery & Materialization','H3X'), S(9),
     P('Derive the concrete artifact set required for the accepted architecture to exist end-to-end. Classify each artifact as REQUIRED, CONDITIONAL or OPTIONAL. Required local artifacts are generated automatically under 1.1n; optional artifacts are created only when they materially improve reproducibility, diagnosis or handoff without conflicting with higher-priority constraints.'), S(7),
@@ -645,10 +654,10 @@ remaining_h=y-BOTTOM
 # 1.1 is atomic direct content. If it no longer fits, keep-together moves it.
 if measure_block(section11) <= remaining_h + 1e-6:
     diagnostics.append(render_group(c,[section11],y,BOTTOM,page,has_content_above=True))
-    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 else:
     diagnostics.append({'page':1,'keys':['1'],'mode':'intentional-blank-remainder','gaps':[remaining_h]})
-    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 
 idx=0
 while idx < len(remaining_blocks):

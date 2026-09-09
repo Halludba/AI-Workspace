@@ -1,24 +1,33 @@
 # Mutation Trace
 
-**System version:** 0.17.0
-**Directive:** Create the general-purpose PDF Styler extension originally intended: arbitrary PDFs should resolve and follow reusable style presets rather than only the self-revising PDFs having styling rules.
-**Target improvement:** Add extension.pdf_styler, a reusable style preset schema/registry, style.pdf.formats as the first preset, executable ReportLab adapter/validator, and verification integration.
+**System version:** 0.18.0
+**Directive:** Implement the planned settings to significantly reduce prompt/output production time; token usage is not an issue.
+**Target improvement:** Minimize wall-clock latency while preserving correctness and final verification quality.
 
 ## Candidate decisions
-- **NEW - general reusable PDF Styler extension:** Existing style.formats_pdf is coupled to the recursive pair and does not provide a general style-resolution/application contract.
-- **REWRITE/MERGE - reuse Formats visual system as first named preset:** Preserves existing work while separating style tokens from recursive-system semantics.
-- **REJECT - hardcode one style into every PDF generator:** Would block explicit style choice and specialized approved generators; preset resolution is more reusable.
+- **MERGE - latency router + lazy context:** Reduces unnecessary context/tool work without weakening authority or final verification.
+- **REWRITE - regression sequencing:** Use scoped tests during iteration and one full suite before closure instead of repeatedly running all tests.
+- **NEW - content-addressed build/render cache:** Skip only work whose inputs or rendered page hashes are unchanged.
 
 ## Accepted changes
-- Add extension.pdf_styler and pdf_styler_policy.
-- Add pdf_style_schema.json and pdf_styles/style.pdf.formats.json.
-- Add executable pdf_styler.py loader/validator/ReportLab adapter and specimen renderer.
-- Enable PDF Styler in normal generation profiles while preserving specialized-generator overrides.
-- Add regression and PDF visual verification coverage.
+- DIRECT/SCOPED/GLOBAL pre-workspace routing
+- Tiered lazy context with active_context/context_index/dependency_graph
+- workspace_ctl compact control interface
+- semantic convergence before heavy artifact generation
+- content-addressed generator cache
+- incremental PDF page render cache
+- scoped iterative test support plus full final regression
+- batch independent I/O policy
+- local deterministic edit/diff mechanics
+- compact execution responses and suppressed nonessential progress narration
+- secondary AI excluded from latency-critical path
+- local phase timing/cache-hit instrumentation
 
 ## Rejected / merged / no-op
-- No requirement that every PDF look like Formats.pdf; it is the default named preset, not an immutable universal aesthetic.
-- No silent subjective style invention when a material style choice remains unresolved.
+- No token-minimization objective
+- No reduction of final correctness/safety/approval checks
+- No mandatory secondary-model call
+- No claim of guaranteed host prompt-cache speedup
 
 ## Convergence result
 - Passes: 2

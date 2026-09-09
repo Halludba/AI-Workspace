@@ -1,6 +1,6 @@
 {
   "system_name": "Formats PDF System",
-  "system_version": "0.6.0",
+  "system_version": "0.7.0",
   "artifact_root": ".",
   "authority_order": [
     "reality_tool_platform_constraints",
@@ -91,7 +91,13 @@
       "pdf_styler.py",
       "pdf_style_schema.json",
       "pdf_styles/style.pdf.formats.json",
-      "pdf_engine/tests/test_pdf_styler.py"
+      "pdf_engine/tests/test_pdf_styler.py",
+      "pdf_engine/latency.py",
+      "workspace_ctl.py",
+      "context_index.json",
+      "dependency_graph.json",
+      "active_context.json",
+      "pdf_engine/tests/test_latency.py"
     ]
   },
   "round_trip": {
@@ -639,13 +645,55 @@
       "role": "pdf_styler_regression_tests",
       "bundle_folder": "03 PDF System/Engine/pdf_engine/tests",
       "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/latency.py",
+      "classification": "REQUIRED",
+      "role": "latency_runtime_engine",
+      "bundle_folder": "03 PDF System/Engine",
+      "include_in_bundle": true
+    },
+    {
+      "path": "workspace_ctl.py",
+      "classification": "REQUIRED",
+      "role": "workspace_latency_control_cli",
+      "bundle_folder": "01 Start Here",
+      "include_in_bundle": true
+    },
+    {
+      "path": "context_index.json",
+      "classification": "REQUIRED",
+      "role": "lazy_context_index",
+      "bundle_folder": "02 AI Runtime/State",
+      "include_in_bundle": true
+    },
+    {
+      "path": "dependency_graph.json",
+      "classification": "REQUIRED",
+      "role": "latency_dependency_graph",
+      "bundle_folder": "02 AI Runtime/State",
+      "include_in_bundle": true
+    },
+    {
+      "path": "active_context.json",
+      "classification": "REQUIRED",
+      "role": "minimal_active_context",
+      "bundle_folder": "02 AI Runtime/State",
+      "include_in_bundle": true
+    },
+    {
+      "path": "pdf_engine/tests/test_latency.py",
+      "classification": "REQUIRED",
+      "role": "latency_regression_tests",
+      "bundle_folder": "03 PDF System/Tests",
+      "include_in_bundle": true
     }
   ],
   "release": {
-    "version": "0.17.0",
-    "previous_version": "0.16.0",
+    "version": "0.18.0",
+    "previous_version": "0.17.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.17.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.18.0.zip",
     "folder_policy": "role_based",
     "ai_handoff_file_count": 5,
     "delivery_mode": "persistent_workspace",
@@ -696,7 +744,8 @@
       "pdf_engine/tests/__init__.py",
       "pdf_engine/tests/test_regression.py",
       "pdf_engine/tests/test_profile_audit.py",
-      "pdf_engine/tests/test_pdf_styler.py"
+      "pdf_engine/tests/test_pdf_styler.py",
+      "pdf_engine/tests/test_latency.py"
     ],
     "deterministic_invariants": [
       "schema_validation",
@@ -709,9 +758,19 @@
       "persistent_workspace_default_delivery",
       "pdf_style_schema_validation",
       "pdf_style_resolution_order",
-      "pdf_style_fidelity_boundary"
+      "pdf_style_fidelity_boundary",
+      "latency_route_contract",
+      "lazy_context_index_contract",
+      "semantic_before_artifact_generation",
+      "incremental_generator_cache",
+      "incremental_pdf_render_cache",
+      "scoped_test_runner"
     ],
-    "semantic_boundary": "Tests verify executable invariants only; semantic intent and visual correctness remain separate reasoning/render verification responsibilities."
+    "semantic_boundary": "Tests verify executable invariants only; semantic intent and visual correctness remain separate reasoning/render verification responsibilities.",
+    "tiers": {
+      "SCOPED": "Use context topic test files during iterative work.",
+      "FULL": "Run complete regression suite once before system-mutation closure."
+    }
   },
   "planning": {
     "plan_path": "project_plan.json",

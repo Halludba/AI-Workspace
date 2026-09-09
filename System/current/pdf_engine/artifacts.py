@@ -108,6 +108,11 @@ def update_trace_after_run(root: Path, state: dict, passes: list[dict], issues: 
     history['releases'][-1]['verification'] = tr['convergence_result']
     write_json(root/'version_history.json',history)
     md=['# Mutation Trace','',f'**System version:** {tr["system_version"]}',f'**Directive:** {tr["user_prompt_summary"]}',f'**Target improvement:** {tr["target_improvement"]}','','## Candidate decisions']
-    for c in tr['candidate_decisions']: md.append(f'- **{c["decision"]} - {c["candidate"]}:** {c["reason"]}')
-    md += ['','## Accepted changes'] + [f'- {x}' for x in tr['accepted_changes']] + ['','## Rejected / merged / no-op'] + [f'- {x}' for x in tr['rejected_or_noop']] + ['','## Convergence result',f'- Passes: {len(passes)}',f'- Stable: {not issues}']
+    candidates = tr.get('candidate_decisions', [])
+    if candidates:
+        for c in candidates:
+            md.append(f'- **{c.get("decision","NOTE")} - {c.get("candidate","unspecified")}:** {c.get("reason","")}')
+    else:
+        md.append('- No separate candidate-decision list recorded; accepted/rejected decisions below are authoritative provenance for this concise mutation trace.')
+    md += ['','## Accepted changes'] + [f'- {x}' for x in tr.get('accepted_changes',[])] + ['','## Rejected / merged / no-op'] + [f'- {x}' for x in tr.get('rejected_or_noop',[])] + ['','## Convergence result',f'- Passes: {len(passes)}',f'- Stable: {not issues}']
     (root/'MUTATION_TRACE.md').write_text('\n'.join(md)+'\n',encoding='utf-8')

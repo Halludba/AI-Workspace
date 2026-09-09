@@ -162,10 +162,14 @@ pages=[
   ('body','Before implementation, proactively inspect prompt interpretation, dependencies, schemas, artifact graph, host capabilities and page/layout constraints for predictable failures.'),
   ('body','Automatically apply only local, bounded, reversible preventive fixes that preserve intent. Material semantic changes or external/unsafe fixes require handoff/WARN/BLOCK.'),]),
  Block('2.6.2 Run Regression & Mutation Simulation Preflight',3,[
-  ('body','Before expensive generators or rendering, run the deterministic regression suite over schemas, risk bounds, path confinement, release invariants and synthetic fixed-point/cycle cases.'),
+  ('body','Before expensive generators or rendering, run the smallest deterministic preflight that can catch likely structural failures. During scoped iteration use dependency-relevant tests; run the complete regression suite once before verified system-mutation closure.'),
   ('small','Regression tests operate on isolated fixtures and executable invariants; they do not claim to prove semantic intent or visual quality.'),]),
 ],
 [
+ Block('2.6.3 Route Latency-Critical Execution',3,[
+  ('body','Optimize for wall-clock completion time, not token minimization. Classify the directive before workspace access as DIRECT, SCOPED or GLOBAL. DIRECT questions that do not depend on project state answer without repository reads/tests; SCOPED work lazy-loads only indexed relevant context; GLOBAL work may load full state.'),
+  ('body','Use active_context.json, context_index.json and dependency_graph.json plus workspace_ctl.py to collapse repeated discovery/read calls. Batch independent I/O where supported and keep optional secondary-model review off the critical path.'),
+  ('small','Converge semantic state before heavy artifacts, generate only invalidated outputs, render changed PDF pages plus adjacent context, use scoped tests while iterating and one full regression before closure. Record measured phase timings/cache hits; compact execution narration unless a decision/blocker/status update materially helps.')]),
  Block('2.7 Sequence, Optimize & Integrate',2,[
   ('body','Order by dependency, select the best feasible implementation, and integrate it into the authoritative rule source plus affected Workflow, runtime state, generator and module representations.'),]),
  Block('2.7.1 Load Portable Emulated Modules',3,[

@@ -1,0 +1,100 @@
+{
+  "version": "0.18.0",
+  "topics": {
+    "workspace": {
+      "files": [
+        "WORKSPACE.json",
+        "active_context.json",
+        "context_index.json",
+        "dependency_graph.json",
+        "workspace_ctl.py"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_latency.py"
+      ],
+      "artifacts": [],
+      "depends_on": []
+    },
+    "core_system": {
+      "files": [
+        "pdf_system_config.json",
+        "pdf_system_schema.json",
+        "pdf_system_engine.py",
+        "pdf_engine/orchestrator.py",
+        "pdf_engine/latency.py",
+        "pdf_engine/audits.py",
+        "pdf_engine/testing.py"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_regression.py",
+        "pdf_engine/tests/test_latency.py"
+      ],
+      "artifacts": [
+        "Formats.pdf",
+        "PDF_Workflow.pdf"
+      ],
+      "depends_on": [
+        "workspace"
+      ]
+    },
+    "pdf_styler": {
+      "files": [
+        "pdf_styler.py",
+        "pdf_style_schema.json",
+        "pdf_styles/style.pdf.formats.json",
+        "ai_runtime_config.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_pdf_styler.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "workspace"
+      ]
+    },
+    "theme_designer": {
+      "files": [
+        "ai_runtime_config.json",
+        "ai_runtime_state.json",
+        "theme_reference_pdf_generator.py"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_regression.py",
+        "pdf_engine/tests/test_pdf_styler.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "pdf_styler"
+      ]
+    },
+    "profile_auditor": {
+      "files": [
+        "profile_audit.py",
+        "profile_audit_report_schema.json",
+        "ai_runtime_config.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_profile_audit.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "workspace"
+      ]
+    },
+    "planning": {
+      "files": [
+        "project_plan.json",
+        "project_plan_schema.json",
+        "ai_runtime_config.json",
+        "ai_runtime_state.json"
+      ],
+      "tests": [
+        "pdf_engine/tests/test_regression.py"
+      ],
+      "artifacts": [],
+      "depends_on": [
+        "workspace"
+      ]
+    }
+  }
+}

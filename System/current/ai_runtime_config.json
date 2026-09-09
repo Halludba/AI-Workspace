@@ -1,6 +1,6 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.10.0",
+  "runtime_version": "0.11.0",
   "authority_order": [
     "reality_tool_platform_and_safety_constraints",
     "current_explicit_user_instruction",
@@ -581,6 +581,36 @@
         "profile_audit_session"
       ],
       "output_policy": "Advisory report and bounded proposal queue only; main host/user decides integration. Missing evidence yields partial review or INSUFFICIENT_EVIDENCE."
+    },
+    {
+      "id": "core.latency_optimized_execution",
+      "type": "core",
+      "enabled": true,
+      "purpose": "Minimize wall-clock response and artifact-production time by routing work by scope, loading only necessary context, batching I/O, caching deterministic work and deferring expensive artifacts until semantic state is stable.",
+      "trigger": "Every user directive before workspace access or heavy execution.",
+      "scope": "Context loading, workspace I/O, deterministic mechanics, testing/build/render sequencing and execution-response verbosity.",
+      "behavior": [
+        "Classify DIRECT, SCOPED or GLOBAL before workspace access; DIRECT questions answer without repository reads/tests unless the question actually depends on workspace state.",
+        "Use active_context.json and context_index.json first; lazy-load only files in the selected topic/dependency scope.",
+        "Use workspace_ctl.py for compact context/status/scoped verification instead of multiple serial connector calls when available.",
+        "Converge cheap semantic state before expensive generators; content-address generators and render only changed PDF pages plus adjacent context.",
+        "Use deterministic local software for edits/diffs/manifests/hashes/indexes rather than spending model output on unchanged serialization.",
+        "Batch independent reads/tool calls when supported and keep optional secondary-model review off the critical path.",
+        "Suppress progress narration unless a decision, blocker, destructive risk or materially useful status update requires it.",
+        "Run full regression/closure verification before committing a system mutation even when scoped fast checks were used during iteration."
+      ],
+      "dependencies": [
+        "core.persistent_workspace_continuity"
+      ],
+      "conflicts": [],
+      "required_capabilities": [],
+      "side_effect_class": "local_reversible",
+      "state_fields": [
+        "current_profile",
+        "directive_id",
+        "phase"
+      ],
+      "output_policy": "Compact execution handoff by default; normal conversational answers remain natural when explanation is the requested product."
     }
   ],
   "history_policy": {
@@ -691,6 +721,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -712,6 +743,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -732,6 +764,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -753,6 +786,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -776,6 +810,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.recursive_mutation_lifecycle",
           "core.internal_question_optimizer",
           "core.selective_modularity_control",
@@ -811,6 +846,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.internal_question_optimizer",
           "core.change_history_feedback",
           "extension.intent_abstraction_consequence_reflection",
@@ -837,6 +873,7 @@
         "enabled_modules": [
           "core.runtime_profile_composition",
           "core.persistent_workspace_continuity",
+          "core.latency_optimized_execution",
           "core.internal_question_optimizer",
           "core.change_history_feedback",
           "extension.profile_performance_audit"
@@ -877,7 +914,7 @@
     "privacy_boundary": "Store concise task-relevant summaries and decisions, not private chain-of-thought or unnecessary sensitive conversation content.",
     "authority": "evidence_only"
   },
-  "release_version": "0.17.0",
+  "release_version": "0.18.0",
   "handoff_policy": {
     "versioned_zip_required": false,
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
@@ -1339,5 +1376,144 @@
       "visual inspection of affected pages when supported"
     ],
     "authority_boundary": "PDF styles govern presentation only. Reality/tool limits, current explicit user instructions and document semantics outrank style defaults."
+  },
+  "latency_policy": {
+    "policy_version": "1.0",
+    "objective": "Minimize wall-clock response/production time while preserving the same correctness, safety, approval boundaries and final verification quality. Token minimization is not an objective.",
+    "route_classes": [
+      "DIRECT",
+      "SCOPED",
+      "GLOBAL"
+    ],
+    "route_rule": "Classify before workspace access. DIRECT answers do not read the repo or run tests. SCOPED work loads only indexed relevant context and runs targeted checks during iteration. GLOBAL work may load full state and requires full closure.",
+    "context_tiers": {
+      "TIER_0": "Operating kernel: authority, current profile, active directive, version, blockers and workspace bindings.",
+      "TIER_1": "Active profile contract and state.",
+      "TIER_2": "Only relevant modules/policies from context_index.json.",
+      "TIER_3": "Only source files required by dependency_graph.json.",
+      "TIER_4": "Full system state only for global/cross-system work or final verification."
+    },
+    "active_context_path": "active_context.json",
+    "context_index_path": "context_index.json",
+    "dependency_graph_path": "dependency_graph.json",
+    "workspace_cli": "workspace_ctl.py",
+    "cache_dir": ".runtime_cache",
+    "build_cache": "build_cache.json",
+    "pdf_verify_cache": "pdf_verify_cache.json",
+    "latency_metrics": "latency_metrics.jsonl",
+    "execution_lanes": {
+      "FAST": "Isolated low-blast-radius change; targeted context/tests; no unrelated artifact work.",
+      "STANDARD": "Several related files; dependency-aware checks; incremental artifacts; full final regression.",
+      "FULL": "Core governance/global schema/cross-document changes; full context and full verification."
+    },
+    "semantic_before_artifacts": true,
+    "incremental_generation": true,
+    "incremental_pdf_rendering": true,
+    "full_regression_before_closure": true,
+    "direct_edit_policy": "Use local surgical edits and Git for diffs. Do not make the model serialize unchanged files, full patches, manifests, hashes or other deterministic mechanics.",
+    "parallel_read_policy": "Batch independent reads/searches/tool requests whenever the host/tool supports it; do not serialize independent I/O.",
+    "secondary_model_critical_path": false,
+    "stable_prefix_policy": "Keep operating kernel/profile contract stable and small; append dynamic task/retrieved context after it. Treat host caching benefit as opportunistic, never guaranteed.",
+    "progress_output_policy": "Suppress intermediate narration unless a user decision, blocker, destructive risk or materially useful long-operation status requires it.",
+    "final_output_policy": "For execution tasks report result, material changes, verification and blockers compactly. Conversational/explanatory questions are not forced into a terse execution template.",
+    "visual_verification_policy": "Machine bounds checks cover all pages; rasterize/visually inspect only changed pages plus adjacent context unless a global style/layout change invalidates the whole document.",
+    "instrumentation_policy": "Record phase timings and cache hits locally; use measured history as evidence for later optimization, never invent speedups.",
+    "context_topics": {
+      "workspace": {
+        "files": [
+          "WORKSPACE.json",
+          "active_context.json",
+          "context_index.json",
+          "dependency_graph.json",
+          "workspace_ctl.py"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_latency.py"
+        ],
+        "artifacts": [],
+        "depends_on": []
+      },
+      "core_system": {
+        "files": [
+          "pdf_system_config.json",
+          "pdf_system_schema.json",
+          "pdf_system_engine.py",
+          "pdf_engine/orchestrator.py",
+          "pdf_engine/latency.py",
+          "pdf_engine/audits.py",
+          "pdf_engine/testing.py"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_regression.py",
+          "pdf_engine/tests/test_latency.py"
+        ],
+        "artifacts": [
+          "Formats.pdf",
+          "PDF_Workflow.pdf"
+        ],
+        "depends_on": [
+          "workspace"
+        ]
+      },
+      "pdf_styler": {
+        "files": [
+          "pdf_styler.py",
+          "pdf_style_schema.json",
+          "pdf_styles/style.pdf.formats.json",
+          "ai_runtime_config.json"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_pdf_styler.py"
+        ],
+        "artifacts": [],
+        "depends_on": [
+          "workspace"
+        ]
+      },
+      "theme_designer": {
+        "files": [
+          "ai_runtime_config.json",
+          "ai_runtime_state.json",
+          "theme_reference_pdf_generator.py"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_regression.py",
+          "pdf_engine/tests/test_pdf_styler.py"
+        ],
+        "artifacts": [],
+        "depends_on": [
+          "pdf_styler"
+        ]
+      },
+      "profile_auditor": {
+        "files": [
+          "profile_audit.py",
+          "profile_audit_report_schema.json",
+          "ai_runtime_config.json"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_profile_audit.py"
+        ],
+        "artifacts": [],
+        "depends_on": [
+          "workspace"
+        ]
+      },
+      "planning": {
+        "files": [
+          "project_plan.json",
+          "project_plan_schema.json",
+          "ai_runtime_config.json",
+          "ai_runtime_state.json"
+        ],
+        "tests": [
+          "pdf_engine/tests/test_regression.py"
+        ],
+        "artifacts": [],
+        "depends_on": [
+          "workspace"
+        ]
+      }
+    }
   }
 }

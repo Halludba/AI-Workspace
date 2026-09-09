@@ -1,0 +1,17 @@
+{
+  "system_version": "0.18.0",
+  "runtime_version": "0.11.0",
+  "current_profile": "general_balanced",
+  "active_directive": "2026-09-09-latency-optimized-execution",
+  "phase": "HANDOFF",
+  "last_mutation_target": "Minimize wall-clock latency while preserving correctness and final verification quality.",
+  "blockers": [],
+  "context_tiers": {
+    "TIER_0": "Operating kernel: authority, current profile, active directive, version, blockers and workspace bindings.",
+    "TIER_1": "Active profile contract and state.",
+    "TIER_2": "Only relevant modules/policies from context_index.json.",
+    "TIER_3": "Only source files required by dependency_graph.json.",
+    "TIER_4": "Full system state only for global/cross-system work or final verification."
+  },
+  "front_door": "WORKSPACE.json"
+}

@@ -1,5 +1,13 @@
 # Recursive AI Config System - Changelog
 
+## 0.18.0
+- Added latency-optimized execution routing: DIRECT / SCOPED / GLOBAL before workspace access.
+- Added generated minimal context, context index and dependency graph plus `workspace_ctl.py` for compact workspace retrieval and scoped verification.
+- Reordered closure to converge semantic state before heavy artifacts; generators are content-addressed and unchanged PDF pages are not re-rendered.
+- Added scoped iterative tests with one complete regression before closure, batched-I/O/direct-edit policy, compact execution output and local phase timing/cache-hit instrumentation.
+- Token minimization is explicitly not an objective; correctness, safety, approval boundaries and final verification remain unchanged.
+- Measured warm-cache closure after implementation: ~2.81-2.84 s internal runtime, with both authoritative PDF generators served from cache and incremental verification completing in ~0.15 s.
+
 ## 0.17.0
 - Added general-purpose `extension.pdf_styler` so arbitrary PDF generation can resolve and apply reusable named style presets.
 - Added `pdf_style_schema.json`, `pdf_styles/style.pdf.formats.json`, and executable `pdf_styler.py` validation/ReportLab adapter + specimen renderer.

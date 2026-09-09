@@ -50,6 +50,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.18.0",
+      "previous_version": "0.17.0",
+      "change": "Wall-clock latency optimized execution: scope routing, lazy context, workspace control CLI, semantic-first convergence, content-addressed generation, incremental PDF rendering, scoped tests and measured timing evidence.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

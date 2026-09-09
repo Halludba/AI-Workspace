@@ -20,7 +20,8 @@
     "handoff_policy",
     "profile_performance_audit_policy",
     "workspace_policy",
-    "pdf_styler_policy"
+    "pdf_styler_policy",
+    "latency_policy"
   ],
   "properties": {
     "runtime_name": {
@@ -764,6 +765,68 @@
         "verification",
         "authority_boundary"
       ]
+    },
+    "latency_policy": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "objective",
+        "route_classes",
+        "route_rule",
+        "context_tiers",
+        "active_context_path",
+        "context_index_path",
+        "dependency_graph_path",
+        "workspace_cli",
+        "execution_lanes",
+        "semantic_before_artifacts",
+        "incremental_generation",
+        "incremental_pdf_rendering",
+        "full_regression_before_closure",
+        "progress_output_policy",
+        "final_output_policy",
+        "instrumentation_policy",
+        "context_topics"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "route_classes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "DIRECT",
+              "SCOPED",
+              "GLOBAL"
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "semantic_before_artifacts": {
+          "const": true
+        },
+        "incremental_generation": {
+          "const": true
+        },
+        "incremental_pdf_rendering": {
+          "const": true
+        },
+        "full_regression_before_closure": {
+          "const": true
+        },
+        "secondary_model_critical_path": {
+          "const": false
+        },
+        "context_topics": {
+          "type": "object",
+          "minProperties": 1
+        }
+      }
     }
   }
 }

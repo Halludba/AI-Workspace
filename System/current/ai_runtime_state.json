@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.10.0",
-  "directive_epoch": 11,
-  "directive_id": "2026-09-09-general-purpose-pdf-styler",
+  "runtime_version": "0.11.0",
+  "directive_epoch": 12,
+  "directive_id": "2026-09-09-latency-optimized-execution",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.17.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.18.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "user_system_design_directive",
-    "source_reference": "Current Design-project conversation",
-    "user_prompt_summary": "User clarified the original goal: create a reusable custom PDF Styler extension so arbitrary generated PDFs follow selected style rules, not only the self-revising Formats pair.",
-    "target_improvement": "Generalize existing Formats-specific PDF styling into a reusable PDF Styler extension with named presets, executable validation/ReportLab adaptation, fidelity boundaries and render verification."
+    "source_type": "user_directive_plus_planning_iteration",
+    "source_reference": "Latency optimization plan developed in Design project chat",
+    "user_prompt_summary": "Implement the planned settings to significantly reduce prompt/output production time; token usage is not a concern.",
+    "target_improvement": "Reduce wall-clock latency without reducing correctness via fast-path routing, lazy context, workspace indexing/control CLI, semantic-first convergence, incremental builds/renders, scoped tests, compact output and timing evidence."
   },
   "theme_session": {
     "phase": "IDLE",
