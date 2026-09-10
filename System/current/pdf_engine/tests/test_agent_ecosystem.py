@@ -68,9 +68,39 @@ class AgentEcosystemTests(unittest.TestCase):
         self.assertIn('PROFILE PARAMETERS:', packet)
         self.assertIn('"prompt_mode": "CREATE"', packet)
         self.assertIn('"prompt_scope": "ANY_PROMPT"', packet)
-        self.assertIn('AGENT_DEVELOPMENT_POLICY:', packet)
+        self.assertIn('WORKFLOW POLICY: agent_development_policy', packet)
         audit_packet = instruction_packet(self.cfg, self.state, ['reasoning'], 'reasoning_auditor')
         self.assertIn('extension.epistemic_reasoning_audit', audit_packet)
+
+    def test_custom_prompt_fast_lane_and_progressive_activation(self):
+        packet = instruction_packet(self.cfg, self.state, ['reasoning'], 'custom_prompt')
+        self.assertIn('PROMPT EXECUTION LANE: FAST', packet)
+        self.assertIn('DECISION DEPTH: direct', packet)
+        self.assertIn('OPTIMIZATION PROFILE: speed', packet)
+        self.assertIn('extension.prompt_specification_architect', packet)
+        self.assertNotIn('- core.persistent_workspace_continuity [core]:', packet)
+        self.assertNotIn('- core.auditable_decision_records [core]:', packet)
+        self.assertNotIn('PROJECT PLAN SNAPSHOT:', packet)
+        self.assertNotIn('WORKSPACE_POLICY:', packet)
+        self.assertLess(len(packet), 18000)
+
+    def test_prompt_progressive_features_activate_only_when_needed(self):
+        research = instruction_packet(self.cfg, self.state, ['reasoning'], 'custom_prompt', ['research'])
+        self.assertIn('PROMPT EXECUTION LANE: STANDARD', research)
+        workspace = instruction_packet(self.cfg, self.state, ['reasoning'], 'custom_prompt', ['workspace_context'])
+        self.assertIn('- core.persistent_workspace_continuity [core]:', workspace)
+        self.assertIn('WORKSPACE_POLICY:', workspace)
+        record = instruction_packet(self.cfg, self.state, ['reasoning'], 'custom_prompt', ['material_decision'])
+        self.assertIn('- core.auditable_decision_records [core]:', record)
+        self.assertIn('DECISION_RECORD_POLICY:', record)
+        security = instruction_packet(self.cfg, self.state, ['reasoning'], 'custom_prompt', ['security_sensitive'])
+        self.assertIn('PROMPT EXECUTION LANE: DEEP', security)
+        self.assertIn('DECISION DEPTH: deep', security)
+        self.assertIn('OPTIMIZATION PROFILE: high_assurance', security)
+
+    def test_unknown_profile_fails_closed(self):
+        with self.assertRaises(KeyError):
+            instruction_packet(self.cfg, self.state, ['reasoning'], 'definitely_not_a_profile')
 
     def test_project_plan_part4_and_part5_are_closed_consistently(self):
         plan = json.loads((ROOT/'project_plan.json').read_text(encoding='utf-8'))

@@ -110,6 +110,16 @@
         "stable": true,
         "issues": []
       }
+    },
+    {
+      "version": "0.24.0",
+      "previous_version": "0.23.0",
+      "change": "Prompt-generation progressive activation fast path: one-candidate direct/speed CREATE default, selective instruction-packet policy loading, lazy workspace/audit modules, gated FASTâ†’STANDARDâ†’DEEP escalation, and fail-closed profile resolution.",
+      "verification": {
+        "passes": 2,
+        "stable": true,
+        "issues": []
+      }
     }
   ]
 }

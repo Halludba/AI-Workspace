@@ -1,10 +1,10 @@
 {
-  "system_version": "0.23.0",
-  "runtime_version": "0.16.0",
+  "system_version": "0.24.0",
+  "runtime_version": "0.17.0",
   "current_profile": "general_balanced",
-  "active_directive": "2026-09-09-part5-periodic-agent-quality-audits",
+  "active_directive": "2026-09-10-prompt-fast-path-progressive-activation",
   "phase": "HANDOFF",
-  "last_mutation_target": "Add a bounded on-demand system health audit that keeps reasoning integrity, artifact/code consistency and profile performance separate, reuses existing specialist auditors and preserves main-host authority.",
+  "last_mutation_target": "Add a progressive prompt fast path that starts with minimal context/one candidate and lazily activates workspace, audit, research, enhancement and deep reasoning only when justified.",
   "blockers": [],
   "context_tiers": {
     "TIER_0": "Operating kernel: authority, current profile, active directive, version, blockers and workspace bindings.",

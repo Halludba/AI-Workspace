@@ -1,4 +1,4 @@
-Recursive AI Config System v0.23.0
+Recursive AI Config System v0.24.0
 
 PURPOSE
 Persistent self-revising AI behavior/configuration runtime with governed workflow profiles, PDF implementation, Theme Designer, Theme Reference export, strategic planning/checkpoints, and Profile Performance Auditor.
@@ -26,7 +26,7 @@ Run: python pdf_styler.py --list
 Run: python pdf_styler.py --style style.pdf.formats --validate
 
 LATENCY-OPTIMIZED EXECUTION
-Start from active_context.json/context_index.json. DIRECT questions avoid workspace work; scoped mutations use workspace_ctl.py and dependency-relevant context/tests; global changes use full closure. Semantic convergence precedes expensive generation, and unchanged builds/pages are cached.
+Start from active_context.json/context_index.json. DIRECT questions avoid workspace work; scoped mutations use workspace_ctl.py and dependency-relevant context/tests; global changes use full closure. Semantic convergence precedes expensive generation, and unchanged builds/pages are cached. Custom Prompt adds a second progressive-activation layer: ordinary CREATE starts FAST with one candidate and only the always-hot prompt core, while workspace/audit/specialized/deeper reasoning wakes only when triggered.
 
 AGENT DEVELOPMENT ECOSYSTEM
 Prompt Creator and Prompt Enhancer share one specification-engineering core with CREATE/ENHANCE modes. Reasoning Auditor is advisory-only and audits visible evidence/rationale, not private chain-of-thought. Strategic sequencing lives in project_plan.json.

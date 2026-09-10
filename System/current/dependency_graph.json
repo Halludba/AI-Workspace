@@ -1,5 +1,5 @@
 {
-  "version": "0.23.0",
+  "version": "0.24.0",
   "topics": {
     "workspace": {
       "files": [
@@ -100,10 +100,12 @@
       "files": [
         "ai_runtime_config.json",
         "project_plan.json",
-        "WORKSPACE.json"
+        "WORKSPACE.json",
+        "ai_runtime_adapter.py"
       ],
       "tests": [
-        "pdf_engine/tests/test_agent_ecosystem.py"
+        "pdf_engine/tests/test_agent_ecosystem.py",
+        "pdf_engine/tests/test_latency.py"
       ],
       "artifacts": [],
       "depends_on": [

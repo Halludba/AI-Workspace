@@ -301,6 +301,15 @@ audit_pages.append([Block('2.7.15 Run Periodic Agent Quality Audit',3,[
 ])])
 
 
+audit_pages.append([Block('2.7.16 Use Prompt Fast Path and Escalate Only When Needed',3,[
+ ('body','For ordinary Custom Prompt CREATE work, start in FAST: direct/speed, one candidate and prompt-only output while preserving the full semantic contract and hard safety/capability boundaries.'),
+ ('body','Load the always-hot prompt core only. Do not load workspace continuity, decision records, unrelated global policies or the project plan unless the task actually depends on them.'),
+ ('body','Activate research, ENHANCE or security guidance only when matching signals exist. Escalate to STANDARD for material ambiguity/conflict/research/nontrivial enhancement and to DEEP only for high-consequence, security-sensitive or unresolved complex architecture.'),
+ ('body','When a lazy feature is needed, regenerate/extend the packet with the matching task feature rather than preloading every module. Unknown profiles fail closed.'),
+ ('small','Treat the 2-3x wall-clock goal as a benchmark target until measured; packet/context reduction may be measured independently and must not be presented as equivalent to model wall-clock speed.')
+])])
+
+
 idx=next((i for i,g in enumerate(pages) if any(b.heading.startswith('2.8') for b in g)),len(pages))
 split=next((j for j,b in enumerate(pages[idx]) if b.heading.startswith('2.8')),0) if idx<len(pages) else 0
 if idx<len(pages):

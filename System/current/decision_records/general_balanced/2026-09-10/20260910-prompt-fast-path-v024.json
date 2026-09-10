@@ -1,0 +1,163 @@
+{
+  "record_version": "1.0",
+  "record_id": "20260910-prompt-fast-path-v024",
+  "recorded_utc": "2026-09-10T04:31:15.380133+00:00",
+  "directive_id": "2026-09-10-prompt-fast-path-progressive-activation",
+  "profile_id": "general_balanced",
+  "supersedes_record_id": null,
+  "objective": "Reduce ordinary Custom Prompt generation latency by removing unrelated context/reasoning work while preserving the shared semantic prompt contract and hard safety, privacy, capability and constraint boundaries.",
+  "constraints": [
+    {
+      "id": "c1",
+      "text": "Preserve extension.prompt_specification_architect as the shared semantic core; do not trade away hard requirements or safety/capability boundaries for speed.",
+      "provenance": "current user-approved optimization scope + existing prompt architecture"
+    },
+    {
+      "id": "c2",
+      "text": "Workspace continuity and decision records remain available but should load only when the current prompt task materially requires them.",
+      "provenance": "existing governance plus latency review"
+    },
+    {
+      "id": "c3",
+      "text": "Do not claim a 2-3x wall-clock speedup without observed timing evidence.",
+      "provenance": "latency instrumentation policy"
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl1",
+      "text": "The ordinary Custom Prompt instruction packet decreased from 43,492 to 14,371 characters after progressive activation and selective policy loading.",
+      "provenance": "pre-change and post-change instruction_packet measurements in this directive"
+    },
+    {
+      "id": "cl2",
+      "text": "That packet is about 66.96% smaller, or approximately 3.03x smaller by character count; this is context-size reduction, not measured model wall-clock speed.",
+      "provenance": "deterministic arithmetic from cl1 measurements"
+    },
+    {
+      "id": "cl3",
+      "text": "FAST keeps the prompt specification architect active while lazily excluding workspace continuity and decision records until matching task features are supplied.",
+      "provenance": "ai_runtime_adapter.py + ai_runtime_config.json + tests"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1",
+      "source": "ai_runtime_adapter.py",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1",
+        "cl3"
+      ],
+      "sha256": "abc323cb7754154cfa0ae084dfa22336051206c245bba952b2d3c1b5a1cf59c0"
+    },
+    {
+      "id": "e2",
+      "source": "ai_runtime_config.json",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl3"
+      ],
+      "sha256": "b8805b906980a624830ea4a721c04987f7b524c7b6b7c7d6465e682f784d18c6"
+    },
+    {
+      "id": "e3",
+      "source": "pdf_engine/tests/test_agent_ecosystem.py",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl3"
+      ],
+      "sha256": "5a9336fc009824225c41f0d7929c83d9c131a7733ac5250f653d618e634d5139"
+    },
+    {
+      "id": "e4",
+      "source": "directive-local packet measurements: baseline=43492 chars, FAST=14371 chars",
+      "availability": "AVAILABLE",
+      "supports": [
+        "cl1",
+        "cl2"
+      ],
+      "sha256": null
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "as1",
+      "text": "Reducing instruction context and candidate breadth is expected to reduce host work for ordinary prompt generation, but the magnitude depends on model/platform behavior.",
+      "provenance": "performance hypothesis; not treated as measured speed"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "a1",
+      "option": "Delete semantic prompt-contract checks to maximize speed.",
+      "disposition": "REJECTED",
+      "reason": "Would directly sacrifice prompt quality and correctness."
+    },
+    {
+      "id": "a2",
+      "option": "Keep every prompt module/policy hot and only change decision depth.",
+      "disposition": "REJECTED",
+      "reason": "Would leave the largest observed packet-context overhead intact."
+    },
+    {
+      "id": "a3",
+      "option": "Use progressive activation with a four-module always-hot core, one-candidate FAST default and gated escalation.",
+      "disposition": "SELECTED",
+      "reason": "Removes measured context overhead while preserving the prompt architect and recoverable deeper paths."
+    }
+  ],
+  "decision": "Adopt prompt progressive activation in v0.24.0: Custom Prompt defaults to FAST/direct/speed with one candidate and prompt-only output; Prompt Enhancer starts STANDARD; workspace/audit/specialized guidance is lazy; material ambiguity, research, enhancement, security and high-consequence signals escalate to STANDARD or DEEP.",
+  "unknowns": [
+    {
+      "id": "u1",
+      "text": "Actual end-to-end model wall-clock improvement has not yet been measured on representative prompt-generation sessions.",
+      "provenance": "no representative pre/post host timing benchmark yet"
+    }
+  ],
+  "verification": [
+    {
+      "check": "Scoped prompt/latency regression suite passed 16/16",
+      "status": "PASS",
+      "evidence_ref": "e3"
+    },
+    {
+      "check": "Full deterministic regression suite passed 66/66 before this decision-record append",
+      "status": "PASS",
+      "evidence_ref": null
+    },
+    {
+      "check": "Semantic fixed point reached in 2 passes before this decision-record append",
+      "status": "PASS",
+      "evidence_ref": null
+    },
+    {
+      "check": "FAST packet measured at 14,371 characters versus 43,492 baseline",
+      "status": "PASS",
+      "evidence_ref": "e4"
+    }
+  ],
+  "links": [
+    {
+      "kind": "source",
+      "target": "ai_runtime_adapter.py",
+      "sha256": "abc323cb7754154cfa0ae084dfa22336051206c245bba952b2d3c1b5a1cf59c0"
+    },
+    {
+      "kind": "source",
+      "target": "ai_runtime_config.json",
+      "sha256": "b8805b906980a624830ea4a721c04987f7b524c7b6b7c7d6465e682f784d18c6"
+    },
+    {
+      "kind": "source",
+      "target": "pdf_engine/tests/test_agent_ecosystem.py",
+      "sha256": "5a9336fc009824225c41f0d7929c83d9c131a7733ac5250f653d618e634d5139"
+    },
+    {
+      "kind": "other",
+      "target": "release:v0.24.0",
+      "sha256": null
+    }
+  ],
+  "privacy_attestation": "NO_PRIVATE_CHAIN_OF_THOUGHT_OR_HIDDEN_SCRATCHPAD_STORED"
+}

@@ -1,24 +1,24 @@
 {
   "runtime_name": "Recursive AI Behavior Runtime",
-  "runtime_version": "0.16.0",
-  "directive_epoch": 16,
-  "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
+  "runtime_version": "0.17.0",
+  "directive_epoch": 17,
+  "directive_id": "2026-09-10-prompt-fast-path-progressive-activation",
   "phase": "HANDOFF",
   "predictive_budget_max": 1,
   "predictive_budget_remaining": 0,
   "last_predictive_action": null,
   "last_predictive_reason": "No additional optional predictive action was justified after the v0.7.0 provenance mutation reached verified closure.",
-  "last_transition_reason": "Release 0.23.0 reached verified fixed point and categorized handoff closure.",
+  "last_transition_reason": "Release 0.24.0 reached verified fixed point and categorized handoff closure.",
   "stable": true,
   "current_profile": "general_balanced",
   "current_decision_depth": "standard",
   "current_interaction_mode": "bounded_autonomous",
   "current_optimization_profile": "balanced",
   "mutation_context": {
-    "source_type": "user_correction_plus_system_optimization",
-    "source_reference": "Current user directive after v0.21.0 Part 4 correction",
-    "user_prompt_summary": "Make Custom Prompt the selectable prompt-construction profile; keep Deep Research as a separately enabled capability; add minor/major patch impact classification so small changes avoid broad directory regeneration.",
-    "target_improvement": "Correct profile/capability separation and add impact-aware persistence that minimizes unnecessary writes while preserving full verification and escalation."
+    "source_type": "explicit_user_authorization_after_latency_review",
+    "source_reference": "Current user directive: go ahead with appropriate prompt-generation speed changes.",
+    "user_prompt_summary": "Optimize prompt generation for materially lower latency by cutting nonessential work while preserving core prompt quality.",
+    "target_improvement": "Add a progressive prompt fast path that starts with minimal context/one candidate and lazily activates workspace, audit, research, enhancement and deep reasoning only when justified."
   },
   "theme_session": {
     "phase": "IDLE",
@@ -71,13 +71,13 @@
   },
   "decision_record_session": {
     "phase": "READY",
-    "current_record_id": "20260909-part5-periodic-quality-audit-v023",
-    "last_record_path": "decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
+    "current_record_id": "20260910-prompt-fast-path-v024",
+    "last_record_path": "decision_records/general_balanced/2026-09-10/20260910-prompt-fast-path-v024.json",
     "pending_audit": false
   },
   "release_impact": {
     "status": "CLOSED",
-    "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
+    "directive_id": "2026-09-10-prompt-fast-path-progressive-activation",
     "assessment": {
       "impact": "MAJOR_PATCH",
       "reasons": [
@@ -85,7 +85,6 @@
         "major_semantic_tokens:authority_order,core.recursive_mutation_lifecycle,release_impact_policy,workspace_policy,planning_policy,execution_capacity_policy"
       ],
       "canonical_changed_paths": [
-        "\"Audit Reports/2026-09-09/\"",
         "System/current/CHANGELOG.md",
         "System/current/MUTATION_TRACE.md",
         "System/current/README_FIRST.txt",
@@ -95,18 +94,12 @@
         "System/current/ai_runtime_state.json",
         "System/current/build_formats_pdf_v18.py",
         "System/current/create_pdf_workflow_v13.py",
-        "System/current/decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
+        "System/current/decision_records/general_balanced/2026-09-10/",
         "System/current/mutation_trace.json",
-        "System/current/pdf_engine/audits.py",
         "System/current/pdf_engine/tests/test_agent_ecosystem.py",
-        "System/current/pdf_engine/tests/test_quality_audit.py",
-        "System/current/pdf_engine/tests/test_regression.py",
         "System/current/pdf_system_config.json",
-        "System/current/project_plan.json",
-        "System/current/quality_audit.py",
-        "System/current/quality_audit_report_schema.json",
+        "System/current/previous_mutation_trace.json",
         "System/current/version_history.json",
-        "System/current/workspace_ctl.py",
         "WORKSPACE.json"
       ]
     },
@@ -122,7 +115,6 @@
       "pdf_verification": "AFFECTED_PDFS_AND_CHANGED_PAGES",
       "persistence": "ONE_ONEDRIVE_SYNCED_WORKTREE_PLUS_ONE_GIT_COMMIT_PUSH",
       "changed_paths": [
-        "\"Audit Reports/2026-09-09/\"",
         "System/current/CHANGELOG.md",
         "System/current/MUTATION_TRACE.md",
         "System/current/README_FIRST.txt",
@@ -132,18 +124,12 @@
         "System/current/ai_runtime_state.json",
         "System/current/build_formats_pdf_v18.py",
         "System/current/create_pdf_workflow_v13.py",
-        "System/current/decision_records/general_balanced/2026-09-09/20260909-part5-periodic-quality-audit-v023.json",
+        "System/current/decision_records/general_balanced/2026-09-10/",
         "System/current/mutation_trace.json",
-        "System/current/pdf_engine/audits.py",
         "System/current/pdf_engine/tests/test_agent_ecosystem.py",
-        "System/current/pdf_engine/tests/test_quality_audit.py",
-        "System/current/pdf_engine/tests/test_regression.py",
         "System/current/pdf_system_config.json",
-        "System/current/project_plan.json",
-        "System/current/quality_audit.py",
-        "System/current/quality_audit_report_schema.json",
+        "System/current/previous_mutation_trace.json",
         "System/current/version_history.json",
-        "System/current/workspace_ctl.py",
         "WORKSPACE.json"
       ]
     }

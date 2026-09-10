@@ -599,6 +599,16 @@ sec11kxiv=Block('1.1k.xiv',[
 ],4)
 
 
+sec11kxv=Block('1.1k.xv',[
+    P('1.1k.xv Prompt Fast Path & Progressive Activation','H4X'), S(8),
+    P('For ordinary <b>custom_prompt</b> CREATE work, begin in the FAST lane: direct decision breadth, speed optimization, one candidate and prompt-only output. Keep the shared prompt-specification architect and hard semantic/safety/capability invariants unchanged.', 'BodyX'), S(6),
+    P('Load only the always-hot prompt core initially: runtime profile composition, latency routing, internal question optimization and prompt specification architecture. Keep workspace continuity and auditable decision records lazy until the current request actually depends on project state, persistence or a material audit trail.', 'BodyX'), S(6),
+    P('<b>Progressive escalation:</b> activate research/ENHANCE/security guidance only on matching task signals. Escalate FAST -> STANDARD for material ambiguity, conflicting requirements, research/evidence workflows or nontrivial enhancement; escalate to DEEP for high-consequence/security-sensitive or still-conflicted prompt architecture.', 'SmallX'), S(6),
+    P('<b>Context rule:</b> do not serialize unrelated global policies or the complete project plan into ordinary prompt packets. A packet may grow only when an active/lazy module or explicit task feature requires that policy/context.', 'SmallX'), S(7),
+    Code('''def prompt_fast_path(request, profile):\n    lane = FAST\n    modules = always_hot_prompt_core()\n    if needs_workspace(request): modules += [workspace_continuity]\n    if needs_audit_record(request): modules += [decision_records]\n    lane = escalate_only_on_material_signals(request, lane)\n    return build_one_prompt(request, modules, lane)''')
+],4)
+
+
 sec11q=Block('1.1q',[
     P('1.1q Build, Render & Verify','H3X'), S(9),
     P('After recursive convergence, completeness auditing, execution closure and artifact discovery, execute the updated orchestration system. For a paired-system mutation, create every REQUIRED affected artifact, render every PDF page and inspect the outputs against the active specification, workflow and artifact registry.'), S(7),
@@ -708,10 +718,10 @@ remaining_h=y-BOTTOM
 # 1.1 is atomic direct content. If it no longer fits, keep-together moves it.
 if measure_block(section11) <= remaining_h + 1e-6:
     diagnostics.append(render_group(c,[section11],y,BOTTOM,page,has_content_above=True))
-    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11kxv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 else:
     diagnostics.append({'page':1,'keys':['1'],'mode':'intentional-blank-remainder','gaps':[remaining_h]})
-    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
+    remaining_blocks=[section11,sec11a,sec11ai,sec11aii,sec11aiii,sec11b,sec11bi,sec11c,sec11d,sec11e,sec11f,sec11g,sec11h,sec11hi,sec11hii,sec11hiii,sec11i,sec11j,sec11ji,sec11jii,sec11k,sec11ki,sec11kii,sec11kiii,sec11kiv,sec11kv,sec11kvi,sec11kvii,sec11kviii,sec11kix,sec11kx,sec11kxi,sec11kxii,sec11kxiii,sec11kxiv,sec11kxv,sec11l,sec11li,sec11lii,sec11liii,sec11liv,sec11m,sec11n,sec11ni,sec11nii,sec11niii,sec11niv,sec11nv,sec11nvi,sec11o,sec11oi,sec11oii,sec11oiii,sec11oiv,sec11p,sec11pi,sec11pii,sec11piii,sec11q,sec2]
 
 idx=0
 while idx < len(remaining_blocks):

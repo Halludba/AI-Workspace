@@ -1,5 +1,15 @@
 # Recursive AI Config System - Changelog
 
+## 0.24.0
+- Added a prompt-generation progressive-activation fast path with FAST / STANDARD / DEEP lanes.
+- `custom_prompt` now starts at direct/speed with one candidate and prompt-only output; `prompt_enhancer` starts at STANDARD and escalates only when justified.
+- The adapter now loads only always-hot prompt modules/policies initially; workspace continuity, decision records and the project plan stay lazy until task features require them.
+- Removed unconditional serialization of unrelated global policies and the full project plan from ordinary prompt packets.
+- Added explicit research/ENHANCE/security activation signals and gated escalation for ambiguity, conflict, complexity and consequence.
+- Preserved the shared semantic prompt architect, hard constraints, capability/safety/privacy boundaries and ENHANCE preservation rules.
+- Unknown profiles now fail closed instead of risking broad module activation.
+- The 2-3x wall-clock goal remains a benchmark target until measured; packet-size reduction is measured separately.
+
 ## 0.23.0
 - Operationalized Part 5 as an on-demand system quality-audit function rather than a redundant mega-auditor profile.
 - Added `quality_audit.py`, `quality_audit_report_schema.json`, and `workspace_ctl.py quality-audit` to prepare bounded evidence and validate evidence-linked reports.

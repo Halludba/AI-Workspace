@@ -1,47 +1,48 @@
 {
-  "system_version": "0.20.0",
-  "directive_id": "2026-09-09-part3-auditable-decision-records",
-  "source_type": "explicit_plan_continuation",
-  "source_reference": "User continued the persisted Codex plan after Part 2 completion.",
-  "user_prompt_summary": "Continue from the latest GitHub/OneDrive/Windows state and proceed with the next staged roadmap work.",
-  "target_improvement": "Activate privacy-safe auditable decision-rationale records after completed Reasoning Auditor validation.",
+  "system_version": "0.23.0",
+  "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
+  "source_type": "project_plan_part_5_explicit_resume",
+  "source_reference": "project_plan.json Part 5 plus current user directive run part 5",
+  "user_prompt_summary": "Run Part 5: operationalize periodic agent quality audits.",
+  "target_improvement": "Add a bounded on-demand system health audit that keeps reasoning integrity, artifact/code consistency and profile performance separate, reuses existing specialist auditors and preserves main-host authority.",
   "candidate_decisions": [
     {
-      "decision": "NEW",
-      "candidate": "core.auditable_decision_records + schema/validator",
-      "reason": "Part 2 supplied the validation gate required by the existing roadmap; no persistent cross-profile decision-record mechanism existed."
-    },
-    {
-      "decision": "REWRITE",
-      "candidate": "per-agent reasoning files",
-      "reason": "Implement as concise externalizable decision records, not private chain-of-thought or hidden scratchpads."
-    },
-    {
       "decision": "MERGE",
-      "candidate": "agent_development_policy planned decision-record hook",
-      "reason": "Promote the existing deferred hook to ACTIVE_AFTER_VALIDATION instead of creating a competing pipeline."
+      "candidate": "Existing reasoning_auditor + profile_performance_auditor",
+      "reason": "Reuse specialist semantic audit responsibilities instead of creating a redundant mega-auditor profile."
     },
     {
-      "decision": "REPAIR",
-      "candidate": "stale ai_runtime_state.plan_context",
-      "reason": "Project plan showed Part 2 complete while runtime state still reported Part 1 as last completed."
+      "decision": "NEW",
+      "candidate": "quality_audit.py deterministic evidence/consistency layer",
+      "reason": "Artifact/code/link/hash consistency requires deterministic local checks not covered by the existing semantic auditors."
+    },
+    {
+      "decision": "NEW",
+      "candidate": "quality_audit_report_schema.json aggregate advisory report contract",
+      "reason": "A system audit needs one evidence-linked container while preserving three independent dimensions."
+    },
+    {
+      "decision": "DEFER",
+      "candidate": "Automatic audit cadence",
+      "reason": "Only three material decision records and no completed profile-session audit evidence exist; a schedule would be invented rather than evidence-based."
     }
   ],
   "accepted_changes": [
-    "Append-only per-profile decision-record core and policy",
-    "Decision record JSON schema and writer/validator",
-    "Reasoning Auditor evidence-consumption boundary",
-    "Agent development pipeline DECISION_RECORD stage",
-    "Part 2 -> Part 3 plan-state repair",
-    "Formats 1.1k.xii and Workflow 2.7.13 integration",
-    "Decision-record regression tests",
-    "First live schema-valid decision record"
+    "On-demand periodic_quality_audit_policy",
+    "quality_audit.py evidence packet and deterministic consistency checks",
+    "quality_audit_report_schema.json",
+    "workspace_ctl.py quality-audit command",
+    "Three-dimension reasoning/artifact/profile separation",
+    "Manual cadence until evidence supports change",
+    "Formats 1.1k.xiv and Workflow 2.7.15",
+    "First live Part 5 audit report"
   ],
   "rejected_or_noop": [
-    "No private chain-of-thought logger",
-    "No mandatory record for ordinary direct answers/trivial mechanics",
-    "No auditor self-authorization or automatic record/system mutation",
-    "No routine ZIP export"
+    "No system_quality_auditor mega profile",
+    "No automatic audit schedule",
+    "No aggregate correctness score",
+    "No private chain-of-thought capture",
+    "No automatic integration of audit proposals"
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
@@ -103,7 +104,12 @@
     "pdf_engine/tests/test_agent_ecosystem.py",
     "decision_record_schema.json",
     "decision_record.py",
-    "pdf_engine/tests/test_decision_records.py"
+    "pdf_engine/tests/test_decision_records.py",
+    "pdf_engine/release_impact.py",
+    "pdf_engine/tests/test_release_impact.py",
+    "quality_audit.py",
+    "quality_audit_report_schema.json",
+    "pdf_engine/tests/test_quality_audit.py"
   ],
   "convergence_result": {
     "passes": 2,

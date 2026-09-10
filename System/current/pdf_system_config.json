@@ -310,6 +310,11 @@
       "id": "1.1n.vi",
       "name": "Release Impact Classification & Minimal Persistence",
       "status": "active"
+    },
+    {
+      "id": "1.1k.xv",
+      "name": "Prompt Fast Path & Progressive Activation",
+      "status": "active"
     }
   ],
   "artifacts": [
@@ -772,17 +777,17 @@
     }
   ],
   "release": {
-    "version": "0.23.0",
-    "previous_version": "0.22.0",
+    "version": "0.24.0",
+    "previous_version": "0.23.0",
     "bundle_filename_pattern": "Recursive_AI_Config_System_v{version}.zip",
-    "bundle_filename": "Recursive_AI_Config_System_v0.23.0.zip",
+    "bundle_filename": "Recursive_AI_Config_System_v0.24.0.zip",
     "folder_policy": "role_based",
     "ai_handoff_file_count": 5,
     "delivery_mode": "persistent_workspace",
     "bundle_required": false,
     "ai_handoff_default": false,
     "portable_export_supported": true,
-    "previous_tag": "v0.22.0"
+    "previous_tag": "v0.23.0"
   },
   "modularity": {
     "enabled": true,

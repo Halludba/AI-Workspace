@@ -1,48 +1,63 @@
 {
-  "system_version": "0.23.0",
-  "directive_id": "2026-09-09-part5-periodic-agent-quality-audits",
-  "source_type": "project_plan_part_5_explicit_resume",
-  "source_reference": "project_plan.json Part 5 plus current user directive run part 5",
-  "user_prompt_summary": "Run Part 5: operationalize periodic agent quality audits.",
-  "target_improvement": "Add a bounded on-demand system health audit that keeps reasoning integrity, artifact/code consistency and profile performance separate, reuses existing specialist auditors and preserves main-host authority.",
+  "system_version": "0.24.0",
+  "directive_id": "2026-09-10-prompt-fast-path-progressive-activation",
+  "source_type": "explicit_user_authorization_after_latency_review",
+  "source_reference": "Current user directive: go ahead with appropriate prompt-generation speed changes.",
+  "user_prompt_summary": "Optimize prompt generation for materially lower latency by cutting nonessential work while preserving core prompt quality.",
+  "target_improvement": "Add a progressive prompt fast path that starts with minimal context/one candidate and lazily activates workspace, audit, research, enhancement and deep reasoning only when justified.",
   "candidate_decisions": [
     {
+      "decision": "NEW",
+      "candidate": "prompt_execution_policy progressive activation",
+      "reason": "Existing lazy loading stops at topic scope; prompt packets need a second module/policy activation layer."
+    },
+    {
+      "decision": "REWRITE",
+      "candidate": "custom_prompt default execution breadth",
+      "reason": "Ordinary CREATE work does not justify deep/5-candidate reasoning; default FAST uses direct/speed with one candidate and escalation gates."
+    },
+    {
+      "decision": "REWRITE",
+      "candidate": "ai_runtime_adapter packet serialization",
+      "reason": "Unconditional global policies and the full project plan dominated prompt packet context despite being unrelated to ordinary prompt creation."
+    },
+    {
       "decision": "MERGE",
-      "candidate": "Existing reasoning_auditor + profile_performance_auditor",
-      "reason": "Reuse specialist semantic audit responsibilities instead of creating a redundant mega-auditor profile."
+      "candidate": "workspace continuity and decision-record features",
+      "reason": "Retain both capabilities but make them lazy rather than deleting governance features globally."
     },
     {
-      "decision": "NEW",
-      "candidate": "quality_audit.py deterministic evidence/consistency layer",
-      "reason": "Artifact/code/link/hash consistency requires deterministic local checks not covered by the existing semantic auditors."
+      "decision": "KEEP",
+      "candidate": "extension.prompt_specification_architect semantic contract and safety/capability boundaries",
+      "reason": "These rules carry prompt quality; speed should come from less surrounding work, not weaker semantic requirements."
     },
     {
-      "decision": "NEW",
-      "candidate": "quality_audit_report_schema.json aggregate advisory report contract",
-      "reason": "A system audit needs one evidence-linked container while preserving three independent dimensions."
+      "decision": "FIX",
+      "candidate": "unknown profile resolution",
+      "reason": "The touched adapter path could otherwise fail open to broad module activation; fail closed instead."
     },
     {
       "decision": "DEFER",
-      "candidate": "Automatic audit cadence",
-      "reason": "Only three material decision records and no completed profile-session audit evidence exist; a schedule would be invented rather than evidence-based."
+      "candidate": "2-3x wall-clock speed claim",
+      "reason": "Packet/context reduction can be measured immediately, but model wall-clock speed must be observed before asserting it."
     }
   ],
   "accepted_changes": [
-    "On-demand periodic_quality_audit_policy",
-    "quality_audit.py evidence packet and deterministic consistency checks",
-    "quality_audit_report_schema.json",
-    "workspace_ctl.py quality-audit command",
-    "Three-dimension reasoning/artifact/profile separation",
-    "Manual cadence until evidence supports change",
-    "Formats 1.1k.xiv and Workflow 2.7.15",
-    "First live Part 5 audit report"
+    "Prompt FAST/STANDARD/DEEP execution lanes with explicit escalation signals",
+    "Custom Prompt defaults to FAST / direct / speed / one-candidate prompt-only output",
+    "Prompt Enhancer defaults to STANDARD rather than DEEP",
+    "Always-hot four-module prompt core with lazy workspace continuity and decision records",
+    "Selective adapter policy serialization and project-plan omission unless actually required",
+    "Repeatable adapter --feature flags for progressive activation/escalation",
+    "Fail-closed unknown profile handling",
+    "Prompt packet size regression ceiling and activation/escalation tests",
+    "Material v0.24 prompt fast-path decision record with measured packet-size evidence and explicit wall-clock unknown"
   ],
   "rejected_or_noop": [
-    "No system_quality_auditor mega profile",
-    "No automatic audit schedule",
-    "No aggregate correctness score",
-    "No private chain-of-thought capture",
-    "No automatic integration of audit proposals"
+    "No removal of the shared semantic prompt architect",
+    "No weakening of safety, privacy, capability or hard-constraint invariants",
+    "No unconditional research/ENHANCE/security rule expansion",
+    "No unsupported wall-clock speedup claim"
   ],
   "affected_artifacts": [
     "README_FIRST.txt",
