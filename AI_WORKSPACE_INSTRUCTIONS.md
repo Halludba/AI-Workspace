@@ -23,3 +23,6 @@ Before opening project files, classify the request: DIRECT, SCOPED or GLOBAL. DI
 
 ## Agent development ecosystem
 Use `prompt_creator`, `prompt_enhancer`, or `reasoning_auditor` profiles as appropriate. Creator/Enhancer share one core; Reasoning Auditor is advisory-only. Full standalone prompt references live in the Google Drive `Agent Prompts` folder recorded in `WORKSPACE.json`. Follow `project_plan.json` for staged validation and future decision-record work.
+
+## AI Leverage Project Scout
+For repository-driven discovery of future AI profiles, skills, plugins, MCP integrations or automations, use `Agent_Profiles/AI_LEVERAGE_PROJECT_SCOUT.md`. It synthesizes the Prompt Architect with an AI-leverage/opportunity-discovery lens, inspects repository evidence when GitHub access is available, prefers native capabilities over custom plumbing, and remains read-only/advisory until the user explicitly authorizes implementation.
